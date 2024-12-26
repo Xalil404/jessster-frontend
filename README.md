@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is the front-end portion of the Jessster web app.
+
+Link to live site [here](https://jessster-frontend.vercel.app/).
+
+<p align="center">
+<img src="" width="auto" height="auto" alt="image of the Jessster website home page"></p>
+
+## Platform features
+* Frontend in React.
+* API Documentation in Swagger & Redoc.
+* News feed.
+
 ## Available Scripts
 
 In the project directory, you can run:

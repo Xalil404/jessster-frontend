@@ -13,6 +13,8 @@ import Register from './components/auth/Register';
 import Logout from './components/auth/Logout';
 import PrivateRoute from './components/auth/PrivateRoute';
 import Dashboard from './components/Dashboard';
+import Tasks from './components/Tasks';
+import Profile from './components/Profile';
 
 
 const App = () => {
@@ -41,6 +43,22 @@ const App = () => {
                         </PrivateRoute>
                     } 
                 /> {/* Make Logout a private route */}
+                <Route 
+                    path="/tasks" 
+                    element={
+                        <PrivateRoute>
+                            <Tasks />
+                        </PrivateRoute>
+                    } 
+                /> 
+                <Route 
+                    path="/profile" 
+                    element={
+                        <PrivateRoute>
+                            <Profile />
+                        </PrivateRoute>
+                    } 
+                /> 
           </Routes>
       </Router>
   );
