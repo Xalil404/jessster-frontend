@@ -12,7 +12,7 @@ const ContactForm = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
-    // Handle form field change
+    // Handle the form field change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
