@@ -53,57 +53,31 @@ const Header = () => {
                                 <Link
                                     className="nav-link-a d-none d-lg-block text-dark"
                                     style={{ marginRight: '10px', textDecoration: 'none' }}
+                                    to="/"
+                                >
+                                    English
+                                </Link>
+                                <Link
+                                    className="nav-link-a d-none d-lg-block text-dark"
+                                    style={{ marginRight: '10px', textDecoration: 'none' }}
+                                    to="/pусский"
+                                >
+                                    Русский
+                                </Link>
+                                <Link
+                                    className="nav-link-a d-none d-lg-block text-dark"
+                                    style={{ marginRight: '10px', textDecoration: 'none' }}
+                                    to="/عربي"
+                                >
+                                    عربي
+                                </Link>
+
+                                <Link
+                                    className="nav-link-a d-none d-lg-block text-dark"
+                                    style={{ marginRight: '10px', textDecoration: 'none' }}
                                     to="/login"
                                 >
                                     Sign in
-                                </Link>
-                                
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/google-login" // Adjust this to the path of your Google login page
-                                >
-                                    Google Pop Up
-                                </Link>
-
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/google-redirect" // Adjust this to the path of your Google login page
-                                >
-                                    Google Redirect
-                                </Link>
-
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/apple-login" // Adjust this to the path of your Google login page
-                                >
-                                    Apple Pop up
-                                </Link>
-
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/apple-redirect" // Adjust this to the path of your Google login page
-                                >
-                                    Apple Redirect
-                                </Link>
-
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/social-login" // Adjust this to the path of your Google login page
-                                >
-                                    Social Login
-                                </Link>
-
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/social-register" // Adjust this to the path of your Google login page
-                                >
-                                    Social Register
                                 </Link>
                                
                                 <Link

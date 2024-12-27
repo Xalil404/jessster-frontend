@@ -7,6 +7,9 @@ const API_URL = 'https://jessster-476efeac7498.herokuapp.com/api'; // API base U
 // Set up Axios instance
 const api = axios.create({
     baseURL: API_URL,
+    headers: {
+        'Content-Type': 'application/json',  // Optional for GET, but good practice
+    },
 });
 
 // Add a request interceptor
@@ -55,15 +58,6 @@ export const fetchUserProfile = async (token) => {
         throw error.response.data; // Handle the error response
     }
 };
-
-
-
-
-
-
-
-
-
 
 
 // Function to fetch tasks
@@ -152,3 +146,55 @@ export const deleteProfile = async (token) => {
         throw error.response.data; // Handle the error response
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to fetch all blog posts
+export const fetchPosts = async () => {
+    try {
+        const response = await api.get('/posts/');  // Adjusted to use axios
+        return response.data;  // Assuming the data is an array of posts
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+        return [];  // Return an empty array in case of an error
+    }
+};
+
+// Function to fetch a single post by slug
+export const fetchPostBySlug = async (slug) => {
+    try {
+        const response = await api.get(`/posts/${slug}/`);  // Adjust the endpoint as per your Django API
+        return response.data;  // Return the post data
+    } catch (error) {
+        console.error('Error fetching post by slug:', error);
+        throw error.response ? error.response.data : error;
+    }
+};
+
+// Function to fetch all categories
+export const fetchCategories = async () => {
+    try {
+        const response = await api.get('/categories/');  // Adjust the endpoint as per your Django API
+        return response.data;  // Return the list of categories
+    } catch (error) {
+        console.error('Error fetching categories:', error);
+        throw error.response ? error.response.data : error;
+    }
+};
+

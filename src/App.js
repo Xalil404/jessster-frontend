@@ -6,7 +6,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
+import HomeEnglish from './components/HomeEnglish';
+import ArticlePage from './components/ArticlePage';
 import Contact from './components/Contact';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -22,7 +23,8 @@ const App = () => {
       <Router>
           <Navbar /> {/* Add the Navbar here !! */}
           <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<HomeEnglish />} />
+              <Route path="/posts/:slug" element={<ArticlePage />} /> {/* Route for individual article */}
               <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 Page */}
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
