@@ -8,6 +8,7 @@ import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
 import HomeEnglish from './components/HomeEnglish';
 import ArticlePage from './components/ArticlePage';
+import CategoryArticles from './components/CategoryArticles';
 import Contact from './components/Contact';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -25,6 +26,7 @@ const App = () => {
           <Routes>
               <Route path="/" element={<HomeEnglish />} />
               <Route path="/posts/:slug" element={<ArticlePage />} /> {/* Route for individual article */}
+              <Route path="/category/:categoryId" element={<CategoryArticles />} />
               <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 Page */}
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />

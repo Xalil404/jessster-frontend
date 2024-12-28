@@ -20,7 +20,7 @@ const BreakingNewsBanner = () => {
     }, [headlines.length]);
 
     return (
-        <div
+        <div 
             style={{
                 backgroundColor: '#FF0000',
                 color: '#000',

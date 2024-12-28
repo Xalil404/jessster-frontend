@@ -1,14 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPosts } from '../services/api'; // Assuming you have this function to fetch posts
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import BreakingNewsBanner from './widgets/BreakingNewsBanner';
-
-
+import CategoriesBanner from './widgets/CategoriesBanner';
+import CategoryArticles from './CategoryArticles';
 
 const HomeEnglish = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    const navigate = useNavigate(); // Initialize navigate function
+
+    const getPosts = async (categoryId = null) => {
+        setLoading(true);
+        try {
+            const fetchedPosts = await fetchPosts();
+            const englishPosts = fetchedPosts.filter(
+                (post) =>
+                    post.language === 'en' &&
+                    (!categoryId || post.category === categoryId)
+            );
+            setPosts(englishPosts.slice(0, 13)); // Get only the latest 13 posts
+        } catch (err) {
+            setError('Failed to fetch posts');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         const getPosts = async () => {
@@ -28,6 +50,12 @@ const HomeEnglish = () => {
         getPosts();
     }, []);
 
+    const handleCategorySelect = (categoryId, categoryName) => {
+        setSelectedCategory(categoryId);
+        getPosts(categoryId);
+        navigate(`/category/${categoryId}`); // Navigate to the selected category's URL
+    };
+
     if (loading) {
         return <div className="text-center mt-5">Loading...</div>;
     }
@@ -42,6 +70,9 @@ const HomeEnglish = () => {
 
     return (
         <div className="container mt-5">
+            <CategoriesBanner onCategorySelect={handleCategorySelect} /> {/* Categories Banner */}
+            {/* Show articles for the selected category */}
+            {selectedCategory && <CategoryArticles categoryId={selectedCategory} />}
             <BreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
             <h1 className="mb-4">Blog Posts (English)</h1>
             <div className="row d-flex" style={{ minHeight: '100vh' }}>
