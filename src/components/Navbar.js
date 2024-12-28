@@ -17,7 +17,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-light py-3 sticky-top">
                 <div className="container-fluid">
                     {/* Logo (Top Left) */}
-                    <Link className="navbar-brand ms-5 order-2 order-lg-1" to="/">
+                    <Link className="navbar-brand ms-5 order-1" to="/">
                         <img 
                             src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1732205459/Screenshot_2024-11-21_at_4.10.09_PM-removebg-preview_fj4w6b.png" 
                             alt="Logo" 
@@ -26,8 +26,33 @@ const Header = () => {
                         />
                     </Link>
 
+                    {/* Language Buttons (Right of Logo in Top Left) */}
+                    <div className="d-flex order-2 align-items-center gap-3 ms-3">
+                        <Link
+                            className="nav-link-a d-none d-lg-block text-dark"
+                            style={{ marginRight: '10px', textDecoration: 'none' }}
+                            to="/"
+                        >
+                            English
+                        </Link>
+                        <Link
+                            className="nav-link-a d-none d-lg-block text-dark"
+                            style={{ marginRight: '10px', textDecoration: 'none' }}
+                            to="/pусский"
+                        >
+                            Русский
+                        </Link>
+                        <Link
+                            className="nav-link-a d-none d-lg-block text-dark"
+                            style={{ marginRight: '10px', textDecoration: 'none' }}
+                            to="/عربي"
+                        >
+                            عربي
+                        </Link>
+                    </div>
+
                     {/* Navbar Links (Top Left) */}
-                    <div className="collapse navbar-collapse order-3 order-lg-2" id="navbarText">
+                    <div className="collapse navbar-collapse order-3" id="navbarText">
                         <ul className="navbar-nav mb-2 mb-lg-0 me-auto">
                             {isAuthenticated && (
                                 <>
@@ -47,31 +72,9 @@ const Header = () => {
                     </div>
 
                     {/* Sign In and Sign Up Buttons (Top Right) */}
-                    <div className="d-flex order-2 order-lg-3 align-items-center gap-3">
+                    <div className="d-flex order-4 align-items-center gap-3">
                         {!isAuthenticated && (
                             <>
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/"
-                                >
-                                    English
-                                </Link>
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/pусский"
-                                >
-                                    Русский
-                                </Link>
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/عربي"
-                                >
-                                    عربي
-                                </Link>
-
                                 <Link
                                     className="nav-link-a d-none d-lg-block text-dark"
                                     style={{ marginRight: '10px', textDecoration: 'none' }}
@@ -79,7 +82,6 @@ const Header = () => {
                                 >
                                     Sign in
                                 </Link>
-                               
                                 <Link
                                     className="nav-link btn btn-sm rounded-pill px-4"
                                     style={{
@@ -96,7 +98,6 @@ const Header = () => {
                             </>
                         )}
                     </div>
-
                 </div>
             </nav>
         </div>
