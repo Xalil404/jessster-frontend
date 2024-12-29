@@ -10,7 +10,11 @@ const Header = () => {
     const isHomePage = location.pathname === '/';
 
     // Render nothing if not on the home page
-    if (!isHomePage) return null;
+    //if (!isHomePage) return null;
+    // Only render the Navbar if the current page is not the login, sign up, or dashboard page
+    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/dashboard') {
+        return null;  // Do not render the Navbar on these pages
+    }
 
     return (
         <div className="navcolor">

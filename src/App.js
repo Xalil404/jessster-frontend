@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
+import Footer from './components/widgets/Footer';
 import HomeEnglish from './components/HomeEnglish';
 import ArticlePage from './components/ArticlePage';
 import CategoryArticles from './components/CategoryArticles';
@@ -67,6 +68,7 @@ const App = () => {
                     } 
                 /> 
           </Routes>
+          <Footer />
       </Router>
   );
 };

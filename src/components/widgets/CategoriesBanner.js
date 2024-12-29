@@ -8,10 +8,12 @@ const CategoriesBanner = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate(); // Initialize navigate
 
+    const userLanguage = 'en'; // Replace with logic to determine user's language (e.g., from context, settings, or browser)
+
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const fetchedCategories = await fetchCategories();
+                const fetchedCategories = await fetchCategories(userLanguage); // Pass language parameter
                 setCategories(fetchedCategories);
             } catch (err) {
                 setError('Failed to fetch categories');
@@ -21,7 +23,7 @@ const CategoriesBanner = () => {
         };
 
         getCategories();
-    }, []);
+    }, [userLanguage]);
 
     const handleCategorySelect = (categoryName) => {
         navigate(`/category/${categoryName.toLowerCase()}`); // Use category name (lowercased) in URL

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { fetchPosts } from '../services/api'; // Assuming you have this function to fetch posts
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import BreakingNewsBanner from './widgets/BreakingNewsBanner';
 import CategoriesBanner from './widgets/CategoriesBanner';
 import CategoryArticles from './CategoryArticles';
+
 
 const HomeEnglish = () => {
     const [posts, setPosts] = useState([]);

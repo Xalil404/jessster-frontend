@@ -187,14 +187,17 @@ export const fetchPostBySlug = async (slug) => {
     }
 };
 
-// Function to fetch all categories
-export const fetchCategories = async () => {
+// Function to fetch all categories by language
+export const fetchCategories = async (language = 'en') => {
     try {
-        const response = await api.get('/categories/');  // Adjust the endpoint as per your Django API
+        const response = await api.get(`/categories/`, {
+            params: { language }, // Add the language as a query parameter
+        });
         return response.data;  // Return the list of categories
     } catch (error) {
         console.error('Error fetching categories:', error);
         throw error.response ? error.response.data : error;
     }
 };
+
 
