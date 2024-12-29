@@ -24,10 +24,11 @@ const CategoriesBanner = ({ language }) => {
     }, [language]); // Fetch categories when the language changes
 
     const handleCategorySelect = (categoryName) => {
-        // Format category name to be URL-friendly (e.g., spaces to hyphens)
         const formattedName = categoryName.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-        navigate(`/category/${formattedName}`); // Navigate to the category page
+        const basePath = language === 'ru' ? '/ru/category' : '/category'; // Adjust based on language
+        navigate(`${basePath}/${formattedName}`);
     };
+    
 
     if (loading) {
         return <div className="text-center mt-3">Loading categories...</div>;

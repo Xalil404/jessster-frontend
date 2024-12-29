@@ -17,6 +17,8 @@ import CategoryArticles from './components/English/CategoryArticles';
 import AllArticles from './components/English/AllArticles';
 // Russian
 import HomeRussian from './components/Russian/HomeRussian';
+import RussianCategoryArticles from './components/Russian/RussianCategoryArticles';
+import RussianAllArticles from './components/Russian/RussianAllArticles';
 
 // Auth
 import Login from './components/auth/Login';
@@ -41,6 +43,7 @@ const AppContent = () => {
 
     // Determine the language from the current path
     const language = location.pathname === '/russian' ? 'ru' : 'en';
+    
 
     // Conditionally render CategoriesBanner based on path
     const showCategoriesBanner = !(
@@ -60,10 +63,12 @@ const AppContent = () => {
             <Routes>
                 <Route path="/" element={<HomeEnglish />} />
                 <Route path="/posts/:slug" element={<ArticlePage />} /> {/* Route for individual article */}
-                <Route path="/category/:categoryId" element={<CategoryArticles />} />
+                <Route path="/category/:categoryId" element={<CategoryArticles language="en" />} />
                 <Route path="/articles" element={<AllArticles />} />
                 <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 Page */}
                 <Route path="/russian" element={<HomeRussian />} />
+                <Route path="/ru/category/:categoryId" element={<RussianCategoryArticles language="ru" />} />
+                <Route path="/ru/articles" element={<RussianAllArticles />} />
                 {/* Ensure proper routing for language-based pages */}
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />

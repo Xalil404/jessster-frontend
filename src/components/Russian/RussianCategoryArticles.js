@@ -3,7 +3,7 @@ import { fetchPosts } from '../../services/api'; // Assuming you have this funct
 import { useParams } from 'react-router-dom'; // Import the useParams hook
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 
-const CategoryArticles = ({ language }) => {
+const RussianCategoryArticles = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -15,12 +15,9 @@ const CategoryArticles = ({ language }) => {
             setLoading(true);
             try {
                 const fetchedPosts = await fetchPosts();
-                // Filter by category name and language
+                // Filter by category name (categoryId is actually the category name here)
                 const filteredPosts = fetchedPosts.filter(
-                    (post) => 
-                        post.category && 
-                        post.category.name.toLowerCase() === categoryId.toLowerCase() && 
-                        post.language === language
+                    (post) => post.category && post.category.name.toLowerCase() === categoryId.toLowerCase() && post.language === 'ru'
                 );
                 setPosts(filteredPosts);
             } catch (err) {
@@ -33,7 +30,7 @@ const CategoryArticles = ({ language }) => {
         if (categoryId) {
             getPostsByCategory();
         }
-    }, [categoryId, language]);
+    }, [categoryId]);
 
     if (loading) {
         return <div className="text-center mt-5">Loading articles...</div>;
@@ -88,5 +85,4 @@ const CategoryArticles = ({ language }) => {
     );
 };
 
-export default CategoryArticles;
-
+export default RussianCategoryArticles;

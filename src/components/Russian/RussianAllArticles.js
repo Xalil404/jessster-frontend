@@ -1,39 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
-import { useParams } from 'react-router-dom'; // Import the useParams hook
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 
-const CategoryArticles = ({ language }) => {
-    const [posts, setPosts] = useState([]);
+const RussianAllArticles = () => {
+    const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const { categoryId } = useParams(); // Use the useParams hook to get categoryId (which is actually the category name in this case)
-
     useEffect(() => {
-        const getPostsByCategory = async () => {
-            setLoading(true);
+        const getArticles = async () => {
             try {
-                const fetchedPosts = await fetchPosts();
-                // Filter by category name and language
-                const filteredPosts = fetchedPosts.filter(
-                    (post) => 
-                        post.category && 
-                        post.category.name.toLowerCase() === categoryId.toLowerCase() && 
-                        post.language === language
+                const fetchedArticles = await fetchPosts();
+                // Filter articles to get only those where language is 'en' (English)
+                const englishArticles = fetchedArticles.filter(
+                    (article) => article.language === 'ru'
                 );
-                setPosts(filteredPosts);
+                setArticles(englishArticles);
             } catch (err) {
-                setError('Failed to fetch posts');
+                setError('Failed to fetch articles');
             } finally {
                 setLoading(false);
             }
         };
 
-        if (categoryId) {
-            getPostsByCategory();
-        }
-    }, [categoryId, language]);
+        getArticles();
+    }, []);
+
 
     if (loading) {
         return <div className="text-center mt-5">Loading articles...</div>;
@@ -43,18 +34,18 @@ const CategoryArticles = ({ language }) => {
         return <div className="text-center mt-5 text-danger">{error}</div>;
     }
 
-    if (posts.length === 0) {
-        return <div className="text-center mt-5">No articles available for this category</div>;
+    if (articles.length === 0) {
+        return <div className="text-center mt-5">No articles available</div>;
     }
 
     return (
         <div className="container mt-5">
-            <h1 className="mb-4">Articles in this Category</h1>
-            <div className="row d-flex">
-                {posts.map((post) => (
-                    <div key={post.id} className="col-md-6 mb-4">
+            <h1 className="mb-4">All Articles</h1>
+            <div className="row">
+                {articles.map((article) => (
+                    <div key={article.id} className="col-md-6 mb-4">
                         <a
-                            href={`/posts/${post.slug}`}
+                            href={`/posts/${article.slug}`}  // Link to individual post page
                             className="text-decoration-none text-dark"
                         >
                             <div
@@ -66,8 +57,8 @@ const CategoryArticles = ({ language }) => {
                                 }}
                             >
                                 <img
-                                    src={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`}
-                                    alt={post.title}
+                                    src={`https://res.cloudinary.com/dbm8xbouw/${article.featured_image}`}
+                                    alt={article.title}
                                     className="img-fluid me-3"
                                     style={{
                                         width: '20%',
@@ -77,7 +68,7 @@ const CategoryArticles = ({ language }) => {
                                     }}
                                 />
                                 <div>
-                                    <h5 className="mb-0">{post.title}</h5>
+                                    <h5 className="mb-0">{article.title}</h5>
                                 </div>
                             </div>
                         </a>
@@ -88,5 +79,4 @@ const CategoryArticles = ({ language }) => {
     );
 };
 
-export default CategoryArticles;
-
+export default RussianAllArticles;
