@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
-import NotFound from './components/General/NotFound';
+// Widgets
 import Navbar from './components/widgets/Navbar';
 import Footer from './components/widgets/Footer';
-import HomeEnglish from './components/English/HomeEnglish';
+import CategoriesBanner from './components/widgets/CategoriesBanner'; // English banner
+// General 
 import ArticlePage from './components/General/ArticlePage';
+import NotFound from './components/General/NotFound';
+import Contact from './components/General/Contact';
+// English
+import HomeEnglish from './components/English/HomeEnglish';
 import CategoryArticles from './components/English/CategoryArticles';
 import AllArticles from './components/English/AllArticles';
-import CategoriesBanner from './components/widgets/CategoriesBanner';
+// Russian
+import HomeRussian from './components/Russian/HomeRussian';
 
-import Contact from './components/General/Contact';
+// Auth
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Logout from './components/auth/Logout';
 import PrivateRoute from './components/auth/PrivateRoute';
+// SaaS
 import Dashboard from './components/SaaS/Dashboard';
 import Tasks from './components/SaaS/Tasks';
 import Profile from './components/SaaS/Profile';
@@ -30,7 +37,10 @@ const App = () => {
 };
 
 const AppContent = () => {
-    const location = useLocation(); // Use useLocation inside the Router context
+    const location = useLocation(); // Use useLocation to get the current path
+
+    // Determine the language from the current path
+    const language = location.pathname === '/russian' ? 'ru' : 'en';
 
     // Conditionally render CategoriesBanner based on path
     const showCategoriesBanner = !(
@@ -43,17 +53,18 @@ const AppContent = () => {
         location.pathname === '/profile' 
     );
 
-
     return (
         <>
             <Navbar /> {/* Add the Navbar here !! */}
-            {showCategoriesBanner && <CategoriesBanner />} {/* Only render CategoriesBanner if not on excluded pages */}
+            {showCategoriesBanner && <CategoriesBanner language={language} />}
             <Routes>
                 <Route path="/" element={<HomeEnglish />} />
                 <Route path="/posts/:slug" element={<ArticlePage />} /> {/* Route for individual article */}
                 <Route path="/category/:categoryId" element={<CategoryArticles />} />
                 <Route path="/articles" element={<AllArticles />} />
                 <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 Page */}
+                <Route path="/russian" element={<HomeRussian />} />
+                {/* Ensure proper routing for language-based pages */}
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
@@ -96,3 +107,4 @@ const AppContent = () => {
 };
 
 export default App;
+

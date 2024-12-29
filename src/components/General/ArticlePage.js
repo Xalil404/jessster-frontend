@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchPostBySlug } from '../../services/api';
 
 const ArticlePage = () => {
-    const { slug } = useParams();
+    const { lang, slug } = useParams();
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ const ArticlePage = () => {
     useEffect(() => {
         const getPost = async () => {
             try {
-                const fetchedPost = await fetchPostBySlug(slug);
+                const fetchedPost = await fetchPostBySlug(slug, lang);
                 setPost(fetchedPost);
                 setLoading(false);
             } catch (err) {
@@ -21,7 +21,7 @@ const ArticlePage = () => {
         };
 
         getPost();
-    }, [slug]);
+    }, [slug, lang]);
 
     if (loading) {
         return <div className="text-center my-5">Loading...</div>;

@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import navigate
-import { fetchCategories } from '../../services/api'; // Adjust path if needed
+import { useNavigate } from 'react-router-dom';
+import { fetchCategories } from '../../services/api'; // Make sure this function supports fetching categories for both languages
 
-const CategoriesBanner = () => {
+const CategoriesBanner = ({ language }) => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const navigate = useNavigate(); // Initialize navigate
-    
-
-    const userLanguage = 'en'; // Replace with logic to determine user's language (e.g., from context, settings, or browser)
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getCategories = async () => {
             try {
-                const fetchedCategories = await fetchCategories(userLanguage); // Pass language parameter
+                const fetchedCategories = await fetchCategories(language); // Fetch categories based on language
                 setCategories(fetchedCategories);
             } catch (err) {
                 setError('Failed to fetch categories');
@@ -24,10 +21,12 @@ const CategoriesBanner = () => {
         };
 
         getCategories();
-    }, [userLanguage]);
+    }, [language]); // Fetch categories when the language changes
 
     const handleCategorySelect = (categoryName) => {
-        navigate(`/category/${categoryName.toLowerCase()}`); // Use category name (lowercased) in URL
+        // Format category name to be URL-friendly (e.g., spaces to hyphens)
+        const formattedName = categoryName.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+        navigate(`/category/${formattedName}`); // Navigate to the category page
     };
 
     if (loading) {
@@ -45,7 +44,7 @@ const CategoriesBanner = () => {
                     <button
                         key={category.id}
                         className="btn btn-outline-primary m-1"
-                        onClick={() => handleCategorySelect(category.name)} // Pass category name
+                        onClick={() => handleCategorySelect(category.name)}
                     >
                         {category.name}
                     </button>

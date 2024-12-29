@@ -42,14 +42,14 @@ const Header = () => {
                         <Link
                             className="nav-link-a d-none d-lg-block text-dark"
                             style={{ marginRight: '10px', textDecoration: 'none' }}
-                            to="/pусский"
+                            to="/russian"
                         >
                             Русский
                         </Link>
                         <Link
                             className="nav-link-a d-none d-lg-block text-dark"
                             style={{ marginRight: '10px', textDecoration: 'none' }}
-                            to="/عربي"
+                            to="/arabic"
                         >
                             عربي
                         </Link>
