@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import { fetchProfile, updateProfile, deleteProfile } from '../services/api'; 
+import { fetchProfile, updateProfile, deleteProfile } from '../../services/api'; 
 
 const Profile = () => {
     const [profile, setProfile] = useState(null); 

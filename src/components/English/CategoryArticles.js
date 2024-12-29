@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchPosts } from '../services/api'; // Assuming you have this function to fetch posts
+import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
 import { useParams } from 'react-router-dom'; // Import the useParams hook
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 

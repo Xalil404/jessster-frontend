@@ -7,6 +7,7 @@ const CategoriesBanner = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate(); // Initialize navigate
+    
 
     const userLanguage = 'en'; // Replace with logic to determine user's language (e.g., from context, settings, or browser)
 
@@ -38,7 +39,7 @@ const CategoriesBanner = () => {
     }
 
     return (
-        <div className="container mt-3" style={{ margin: '10px 10px' }}>
+        <div className="container">
             <div className="d-flex flex-wrap justify-content-center bg-light p-2 rounded">
                 {categories.map((category) => (
                     <button

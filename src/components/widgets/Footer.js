@@ -7,7 +7,7 @@ const Footer = () => {
     const location = useLocation();
 
     // If on the login, register, or dashboard pages, do not render the footer
-    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/dashboard') {
+    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/dashboard' || location.pathname === '/tasks' || location.pathname === '/profile' || location.pathname === '/logout') {
         return null; // Do not render footer
     }
 

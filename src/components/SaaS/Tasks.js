@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
-import { fetchTasks, createTask, updateTask, deleteTask, fetchUserProfile } from '../services/api'; 
+import { fetchTasks, createTask, updateTask, deleteTask, fetchUserProfile } from '../../services/api'; 
 
 const Tasks = () => {
     const [tasks, setTasks] = useState([]);

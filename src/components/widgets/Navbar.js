@@ -12,7 +12,7 @@ const Header = () => {
     // Render nothing if not on the home page
     //if (!isHomePage) return null;
     // Only render the Navbar if the current page is not the login, sign up, or dashboard page
-    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/dashboard') {
+    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/dashboard' || location.pathname === '/tasks' || location.pathname === '/profile' || location.pathname === '/logout') {
         return null;  // Do not render the Navbar on these pages
     }
 

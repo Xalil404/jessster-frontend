@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchPostBySlug } from '../services/api';
+import { fetchPostBySlug } from '../../services/api';
 
 const ArticlePage = () => {
     const { slug } = useParams();

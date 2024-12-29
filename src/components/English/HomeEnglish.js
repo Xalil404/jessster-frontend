@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { fetchPosts } from '../services/api'; // Assuming you have this function to fetch posts
+import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import BreakingNewsBanner from './widgets/BreakingNewsBanner';
-import CategoriesBanner from './widgets/CategoriesBanner';
-import CategoryArticles from './CategoryArticles';
+import BreakingNewsBanner from '../widgets/BreakingNewsBanner';
+import CategoriesBanner from '../widgets/CategoriesBanner';
+import CategoryArticles from '../English/CategoryArticles';
 
 
 const HomeEnglish = () => {
@@ -71,10 +71,7 @@ const HomeEnglish = () => {
     }
 
     return (
-        <div className="container mt-5">
-            <CategoriesBanner onCategorySelect={handleCategorySelect} /> {/* Categories Banner */}
-            {/* Show articles for the selected category */}
-            {selectedCategory && <CategoryArticles categoryId={selectedCategory} />}
+        <div className="container mt-1">
             <BreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
             <h1 className="mb-4">Blog Posts (English)</h1>
             <div className="row d-flex" style={{ minHeight: '100vh' }}>

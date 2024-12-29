@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchPosts } from '../services/api'; // Assuming you have this function to fetch posts
+import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
 
 const AllArticles = () => {
     const [articles, setArticles] = useState([]);

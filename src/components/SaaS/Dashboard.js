@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { fetchUserProfile } from '../services/api'; // Import the API function
+import { fetchUserProfile } from '../../services/api'; // Import the API function
 
 const Dashboard = () => {
     const location = useLocation();
