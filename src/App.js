@@ -19,7 +19,10 @@ import AllArticles from './components/English/AllArticles';
 import HomeRussian from './components/Russian/HomeRussian';
 import RussianCategoryArticles from './components/Russian/RussianCategoryArticles';
 import RussianAllArticles from './components/Russian/RussianAllArticles';
-
+// Arabic
+import HomeArabic from './components/Arabic/HomeArabic';
+import ArabicAllArticles from './components/Arabic/ArabicAllArticles';
+import ArabicCategoryArticles from './components/Arabic/ArabicCategoryArticles';
 // Auth
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -42,7 +45,13 @@ const AppContent = () => {
     const location = useLocation(); // Use useLocation to get the current path
 
     // Determine the language from the current path
-    const language = location.pathname === '/russian' ? 'ru' : 'en';
+    let language = 'en'; // Default to English
+
+    if (location.pathname.startsWith('/ru')) {
+        language = 'ru'; // For Russian pages
+    } else if (location.pathname.startsWith('/ar')) {
+        language = 'ar'; // For Arabic pages
+    }
     
 
     // Conditionally render CategoriesBanner based on path
@@ -63,13 +72,15 @@ const AppContent = () => {
             <Routes>
                 <Route path="/" element={<HomeEnglish />} />
                 <Route path="/posts/:slug" element={<ArticlePage />} /> {/* Route for individual article */}
+                <Route path="/ru/category/:categoryId" element={<RussianCategoryArticles language="ru" />} />
+                <Route path="/ar/category/:categoryId" element={<ArabicCategoryArticles language="ar" />} />
                 <Route path="/category/:categoryId" element={<CategoryArticles language="en" />} />
                 <Route path="/articles" element={<AllArticles />} />
                 <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 Page */}
                 <Route path="/russian" element={<HomeRussian />} />
-                <Route path="/ru/category/:categoryId" element={<RussianCategoryArticles language="ru" />} />
                 <Route path="/ru/articles" element={<RussianAllArticles />} />
-                {/* Ensure proper routing for language-based pages */}
+                <Route path="/ar/articles" element={<ArabicAllArticles />} />
+                <Route path="/arabic" element={<HomeArabic />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

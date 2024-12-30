@@ -8,6 +8,7 @@ const CategoriesBanner = ({ language }) => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+
     useEffect(() => {
         const getCategories = async () => {
             try {
@@ -23,11 +24,20 @@ const CategoriesBanner = ({ language }) => {
         getCategories();
     }, [language]); // Fetch categories when the language changes
 
-    const handleCategorySelect = (categoryName) => {
-        const formattedName = categoryName.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-        const basePath = language === 'ru' ? '/ru/category' : '/category'; // Adjust based on language
-        navigate(`${basePath}/${formattedName}`);
+    const handleCategorySelect = (categorySlug) => {
+        let basePath = '/category'; // Default to English
+    
+        // Adjust the path for different languages
+        if (language === 'ru') {
+            basePath = '/ru/category';  // For Russian
+        } else if (language === 'ar') {
+            basePath = '/ar/category';  // For Arabic
+        }
+    
+        // Navigate to the appropriate category page
+        navigate(`${basePath}/${categorySlug}`);
     };
+    
     
 
     if (loading) {

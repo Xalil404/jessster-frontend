@@ -3,7 +3,7 @@ import { fetchPosts } from '../../services/api'; // Assuming you have this funct
 import { useParams } from 'react-router-dom'; // Import the useParams hook
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 
-const RussianCategoryArticles = () => {
+const ArabicCategoryArticles = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ const RussianCategoryArticles = () => {
                     (post) => 
                         post.category && 
                         post.category.name.toLowerCase() === categoryId.toLowerCase() && 
-                        post.language === 'ru' // Filter by Russian language
+                        post.language === 'ar' // Filter by language
                 );
                 setPosts(filteredPosts);
             } catch (err) {
@@ -88,4 +88,4 @@ const RussianCategoryArticles = () => {
     );
 };
 
-export default RussianCategoryArticles;
+export default ArabicCategoryArticles;
