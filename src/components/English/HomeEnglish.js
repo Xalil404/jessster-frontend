@@ -90,7 +90,7 @@ const HomeEnglish = () => {
                                 style={{
                                     backgroundColor: '#f8f9fa',
                                     borderRadius: '5px',
-                                    height: index === 0 ? '220x' : '100px',
+                                    height: index === 0 ? '220px' : '100px',
                                 }}
                             >
                                 <div
