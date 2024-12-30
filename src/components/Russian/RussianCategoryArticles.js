@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
 import { useParams } from 'react-router-dom'; // Import the useParams hook
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
+import RussianBreakingNewsBanner from '../widgets/RussianBreakingNewsBanner';
 
 const RussianCategoryArticles = () => {
     const [posts, setPosts] = useState([]);
@@ -48,7 +49,8 @@ const RussianCategoryArticles = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-1">
+            <RussianBreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
             <h1 className="mb-4">Articles in this Category</h1>
             <div className="row d-flex">
                 {posts.map((post) => (

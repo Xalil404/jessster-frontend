@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
+import BreakingNewsBanner from '../widgets/BreakingNewsBanner';
 
 const AllArticles = () => {
     const [articles, setArticles] = useState([]);
@@ -39,7 +40,8 @@ const AllArticles = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-1">
+            <BreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
             <h1 className="mb-4">All Articles</h1>
             <div className="row">
                 {articles.map((article) => (

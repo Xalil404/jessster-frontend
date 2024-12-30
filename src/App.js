@@ -62,7 +62,8 @@ const AppContent = () => {
         location.pathname === '/contact' || 
         location.pathname === '/logout' || 
         location.pathname === '/tasks' || 
-        location.pathname === '/profile' 
+        location.pathname === '/profile' ||
+        location.pathname.startsWith('/posts/')
     );
 
     return (
@@ -75,7 +76,7 @@ const AppContent = () => {
                 <Route path="/ru/category/:categoryId" element={<RussianCategoryArticles language="ru" />} />
                 <Route path="/ar/category/:categoryId" element={<ArabicCategoryArticles language="ar" />} />
                 <Route path="/category/:categoryId" element={<CategoryArticles language="en" />} />
-                <Route path="/articles" element={<AllArticles />} />
+                <Route path="/en/articles" element={<AllArticles />} />
                 <Route path="*" element={<NotFound />} /> {/* Fallback route for 404 Page */}
                 <Route path="/russian" element={<HomeRussian />} />
                 <Route path="/ru/articles" element={<RussianAllArticles />} />

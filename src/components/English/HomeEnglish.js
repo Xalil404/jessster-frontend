@@ -192,7 +192,7 @@ const HomeEnglish = () => {
 
             {/* View More Button */}
             <div className="text-center mt-4">
-                <a href="/articles" className="btn btn-secondary">
+                <a href="/en/articles" className="btn btn-secondary">
                     View More Articles
                 </a>
             </div>
