@@ -6,7 +6,7 @@ import './App.css';
 // Widgets
 import Navbar from './components/widgets/Navbar';
 import Footer from './components/widgets/Footer';
-import CategoriesBanner from './components/widgets/CategoriesBanner'; // English banner
+import CategoriesBanner from './components/widgets/CategoriesBanner'; 
 // General 
 import ArticlePage from './components/General/ArticlePage';
 import NotFound from './components/General/NotFound';
@@ -15,6 +15,7 @@ import Contact from './components/General/Contact';
 import HomeEnglish from './components/English/HomeEnglish';
 import CategoryArticles from './components/English/CategoryArticles';
 import AllArticles from './components/English/AllArticles';
+import Videos from './components/English/Videos'; 
 // Russian
 import HomeRussian from './components/Russian/HomeRussian';
 import RussianCategoryArticles from './components/Russian/RussianCategoryArticles';

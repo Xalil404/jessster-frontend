@@ -4,6 +4,7 @@ import axios from 'axios';
 const AUTH_URL = 'https://jessster-476efeac7498.herokuapp.com/auth'; // Authentication base URL
 const API_URL = 'https://jessster-476efeac7498.herokuapp.com/api'; // API base URL for actions
 
+
 // Set up Axios instance
 const api = axios.create({
     baseURL: API_URL,
@@ -148,23 +149,6 @@ export const deleteProfile = async (token) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Function to fetch all blog posts
 export const fetchPosts = async () => {
     try {
@@ -200,4 +184,64 @@ export const fetchCategories = async (language = 'en') => {
     }
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to fetch all videos
+export const fetchVideos = async () => {
+    try {
+        const response = await api.get('/videos/');  // The correct API endpoint
+        return response.data;  // Returning the videos array
+    } catch (error) {
+        // Log the error response to help with debugging
+        if (error.response) {
+            console.error('Error fetching videos:', error.response.status);
+            console.error('Error response data:', error.response.data);
+        } else {
+            console.error('Error:', error.message);
+        }
+        return [];  // Return an empty array in case of an error
+    }
+};
+
+
+// Function to fetch a single video by slug
+export const fetchVideoBySlug = async (id) => {
+    try {
+        const response = await api.get(`/videos/${id}/`);  // Adjusted to use axios and the correct endpoint
+        return response.data;  // Return the video data
+    } catch (error) {
+        console.error('Error fetching video by slug:', error);
+        throw error.response ? error.response.data : error;  // Propagate error if needed
+    }
+};
 

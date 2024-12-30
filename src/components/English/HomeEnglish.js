@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import BreakingNewsBanner from '../widgets/BreakingNewsBanner';
 import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
+import Videos from '../English/Videos';
 
 
 const HomeEnglish = () => {
@@ -196,6 +197,13 @@ const HomeEnglish = () => {
                     View More Articles
                 </a>
             </div>
+
+            {/* Videos Section */}
+            <div className="videos-section mt-5">
+                <h2 className="text-center">Latest Videos</h2>
+                <Videos />  {/* Include the Videos component here */}
+            </div>
+
         </div>
     );
 };
