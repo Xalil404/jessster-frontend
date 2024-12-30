@@ -90,7 +90,7 @@ const HomeArabic = () => {
                                 style={{
                                     backgroundColor: '#f8f9fa',
                                     borderRadius: '5px',
-                                    height: index === 0 ? '200px' : '100px',
+                                    height: index === 0 ? '220px' : '100px',
                                 }}
                             >
                                 <div
