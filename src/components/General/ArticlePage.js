@@ -83,6 +83,12 @@ const ArticlePage = () => {
                         className="mb-4"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
+
+                    {/* Views count */}
+                    <p className="text-center mt-4">
+                        <strong>Views:</strong> {post.number_of_views}
+                    </p>
+                    
                 </div>
             </div>
         </div>

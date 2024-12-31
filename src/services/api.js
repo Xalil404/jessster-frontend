@@ -218,3 +218,52 @@ export const fetchVideoBySlug = async (id, language = 'en') => {
     }
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to update the likes count for a post
+export const updateLikes = async (slug) => {
+    try {
+        const response = await fetch(`/api/posts/${slug}/like/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        if (!response.ok) {
+            throw new Error('Error liking the post');
+        }
+        const data = await response.json();
+        return data.likes; // Assuming the backend returns the updated like count
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+
