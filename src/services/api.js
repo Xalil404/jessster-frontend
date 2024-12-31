@@ -185,41 +185,12 @@ export const fetchCategories = async (language = 'en') => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function to fetch all videos
-export const fetchVideos = async () => {
+// Function to fetch all videos by language
+export const fetchVideos = async (language = 'en') => {
     try {
-        const response = await api.get('/videos/');  // The correct API endpoint
+        const response = await api.get('/videos/', {
+            params: { lang: language },  // Pass the 'lang' as a query parameter instead of 'language'
+        });
         return response.data;  // Returning the videos array
     } catch (error) {
         // Log the error response to help with debugging
@@ -234,10 +205,12 @@ export const fetchVideos = async () => {
 };
 
 
-// Function to fetch a single video by slug
-export const fetchVideoBySlug = async (id) => {
+// Function to fetch a single video by id/slug and language
+export const fetchVideoBySlug = async (id, language = 'en') => {
     try {
-        const response = await api.get(`/videos/${id}/`);  // Adjusted to use axios and the correct endpoint
+        const response = await api.get(`/videos/${id}/`, {
+            params: { lang: language },  // Pass the 'lang' as a query parameter instead of 'language'
+        });
         return response.data;  // Return the video data
     } catch (error) {
         console.error('Error fetching video by slug:', error);

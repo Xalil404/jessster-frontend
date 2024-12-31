@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { fetchVideos, fetchVideoBySlug } from '../../services/api';
 
-const Video = ({ videoId }) => {
+const ArVideo = ({ videoId }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -15,11 +15,11 @@ const Video = ({ videoId }) => {
     const fetchVideo = async () => {
       try {
         if (videoId) {
-          const singleVideo = await fetchVideoBySlug(videoId, 'en');
+          const singleVideo = await fetchVideoBySlug(videoId, 'ar');
           setCurrentVideo(singleVideo);
           setVideos([singleVideo]);
         } else {
-          const allVideos = await fetchVideos('en');
+          const allVideos = await fetchVideos('ar');
           setVideos(allVideos);
           setCurrentVideo(allVideos[0]);
         }
@@ -193,4 +193,4 @@ const Video = ({ videoId }) => {
   );
 };
 
-export default Video;
+export default ArVideo;

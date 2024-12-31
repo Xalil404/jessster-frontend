@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import RussianBreakingNewsBanner from '../widgets/RussianBreakingNewsBanner';
 import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
+import RuVideos from '../Russian/RuVideos';
 
 
 const HomeRussian = () => {
@@ -196,6 +197,12 @@ const HomeRussian = () => {
                 Посмотреть больше статей
                 </a>
             </div>
+            {/* Videos Section */}
+            <div className="videos-section mt-5">
+                <h2 className="text-center">Latest Videos</h2>
+                <RuVideos />  {/* Include the Videos component here */}
+            </div>
+
         </div>
     );
 };

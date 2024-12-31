@@ -15,11 +15,12 @@ import Contact from './components/General/Contact';
 import HomeEnglish from './components/English/HomeEnglish';
 import CategoryArticles from './components/English/CategoryArticles';
 import AllArticles from './components/English/AllArticles';
-import Videos from './components/English/Videos'; 
+
 // Russian
 import HomeRussian from './components/Russian/HomeRussian';
 import RussianCategoryArticles from './components/Russian/RussianCategoryArticles';
 import RussianAllArticles from './components/Russian/RussianAllArticles';
+
 // Arabic
 import HomeArabic from './components/Arabic/HomeArabic';
 import ArabicAllArticles from './components/Arabic/ArabicAllArticles';
