@@ -8,6 +8,7 @@ import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
 import RuVideos from '../Russian/RuVideos';
 import RuMostViewed from './RuMostViewed';
+import RuMostLiked from './RuMostLiked';
 import RuReverseVideos from '../Russian/RuReverseVideos';
 import RuRandomVideos from '../Russian/RuRandomVideos';
 
@@ -215,6 +216,9 @@ const HomeRussian = () => {
                 <h2 className="text-center">Reverse Videos</h2>
                 <RuReverseVideos />  {/* Include the Videos component here */}
             </div>
+
+            {/* Most Viewed Posts Section */}
+            <RuMostLiked /> {/* Include MostViewed component */}
 
             {/* Videos Section */}
             <div className="videos-section mt-5">

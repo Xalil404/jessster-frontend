@@ -8,6 +8,7 @@ import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
 import Videos from '../English/Videos';
 import MostViewed from './MostViewed';
+import MostLiked from './MostLiked';
 import ReverseVideos from '../English/ReverseVideos';
 import RandomVideos from '../English/RandomVideos';
 
@@ -215,6 +216,9 @@ const HomeEnglish = () => {
                 <h2 className="text-center">Reverse Videos</h2>
                 <ReverseVideos />  {/* Include the Videos component here */}
             </div>
+
+            {/* Most Viewed Posts Section */}
+            <MostLiked /> {/* Include MostViewed component */}
 
             {/* Videos Section */}
             <div className="videos-section mt-5">

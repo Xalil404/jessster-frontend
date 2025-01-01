@@ -1,67 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import ArabicBreakingNewsBanner from '../widgets/ArabicBreakingNewsBanner';
-import CategoriesBanner from '../widgets/CategoriesBanner';
-import CategoryArticles from '../English/CategoryArticles';
-import ArVideos from '../Arabic/ArVideos';
-import ArMostViewed from './ArMostViewed';
-import ArabicMostLiked from './ArabicMostLiked';
-import ArabicReverseVideos from '../Arabic/ArabicReverseVideos';
-import ArabicRandomVideos from '../Arabic/ArabicRandomVideos';
+import { fetchMostLikedPosts } from '../../services/api'; // Import the function to fetch most liked posts
 
-
-const HomeArabic = () => {
-    const [posts, setPosts] = useState([]);
+const ArabicMostLiked = () => {
+    const [mostLikedPosts, setMostLikedPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const [selectedCategory, setSelectedCategory] = useState(null);
-
-    const navigate = useNavigate(); // Initialize navigate function
-
-    const getPosts = async (categoryId = null) => {
+    const getMostLikedPosts = async () => {
         setLoading(true);
         try {
-            const fetchedPosts = await fetchPosts();
-            const englishPosts = fetchedPosts.filter(
-                (post) =>
-                    post.language === 'ar' &&
-                    (!categoryId || post.category === categoryId)
-            );
-            setPosts(englishPosts.slice(0, 13)); // Get only the latest 13 posts
+            const fetchedPosts = await fetchMostLikedPosts(); // Fetch posts sorted by likes
+            console.log('Fetched Posts:', fetchedPosts);
+
+            const englishPosts = fetchedPosts.filter(post => post.language === 'ar'); // Filter for English posts
+            console.log('Filtered English Posts:', englishPosts);
+
+            // Sort by likes in descending order
+            const sortedPosts = englishPosts.sort((a, b) => b.likes_count - a.likes_count);
+            console.log('Sorted Posts:', sortedPosts);
+
+            // Get only the top 4 most liked
+            setMostLikedPosts(sortedPosts.slice(0, 4)); // Get top 4 most liked posts
         } catch (err) {
-            setError('Failed to fetch posts');
+            setError('Failed to fetch most liked posts');
         } finally {
             setLoading(false);
         }
     };
 
     useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const fetchedPosts = await fetchPosts();
-                const englishPosts = fetchedPosts
-                    .filter((post) => post.language === 'ar')
-                    .slice(0, 13); // Get only the latest 13 English posts
-                setPosts(englishPosts);
-            } catch (err) {
-                setError('Failed to fetch posts');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        getPosts();
+        getMostLikedPosts();
     }, []);
-
-    const handleCategorySelect = (categoryId, categoryName) => {
-        setSelectedCategory(categoryId);
-        getPosts(categoryId);
-        navigate(`/category/${categoryId}`); // Navigate to the selected category's URL
-    };
 
     if (loading) {
         return <div className="text-center mt-5">Loading...</div>;
@@ -71,36 +40,29 @@ const HomeArabic = () => {
         return <div className="text-center mt-5 text-danger">{error}</div>;
     }
 
-    if (posts.length === 0) {
-        return <div className="text-center mt-5">No Russian posts available</div>;
-    }
-
     return (
-        <div className="container mt-1">
-            <ArabicBreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
-            <h1 className="mb-4">Blog Posts (Arabic)</h1>
-            <div className="row d-flex" style={{ minHeight: '100vh' }}>
+        <div className="container mt-5">
+            <h2 className="text-center">Most Liked Articles</h2>
+            <div className="row d-flex">
                 {/* Left Column */}
                 <div className="col-md-6 d-flex flex-column">
-                    {posts.slice(0, 5).map((post, index) => (
+                    {mostLikedPosts.slice(0, 1).map((post) => (
                         <a
                             key={post.id}
                             href={`/posts/${post.slug}`}
                             className="text-decoration-none text-dark mb-4"
                         >
                             <div
-                                className={`d-flex align-items-center shadow-sm p-3 ${
-                                    index === 0 ? 'large-post' : 'small-post'
-                                }`}
+                                className="d-flex align-items-center shadow-sm p-3"
                                 style={{
                                     backgroundColor: '#f8f9fa',
                                     borderRadius: '5px',
-                                    height: index === 0 ? '220px' : '100px',
+                                    height: '348px',
                                 }}
                             >
                                 <div
                                     style={{
-                                        width: index === 0 ? '40%' : '20%',
+                                        width: '40%',
                                         height: '100%',
                                         overflow: 'hidden',
                                         flexShrink: 0,
@@ -121,13 +83,13 @@ const HomeArabic = () => {
                                     <h5
                                         className="mb-0"
                                         style={{
-                                            whiteSpace: 'normal', // Allow wrapping
+                                            whiteSpace: 'normal',
                                             overflow: 'hidden',
                                             textOverflow: 'ellipsis',
                                             display: '-webkit-box',
-                                            WebkitLineClamp: index === 0 ? 3 : 2, // Control lines for large vs. small posts
+                                            WebkitLineClamp: 3,
                                             WebkitBoxOrient: 'vertical',
-                                            maxHeight: index === 0 ? '4.5em' : '3em', // Constrain height
+                                            maxHeight: '4.5em',
                                         }}
                                     >
                                         {post.title}
@@ -140,7 +102,7 @@ const HomeArabic = () => {
 
                 {/* Right Column */}
                 <div className="col-md-6 d-flex flex-column">
-                    {posts.slice(5, 11).map((post) => (
+                    {mostLikedPosts.slice(1).map((post) => (
                         <a
                             key={post.id}
                             href={`/posts/${post.slug}`}
@@ -177,13 +139,13 @@ const HomeArabic = () => {
                                     <h5
                                         className="mb-0"
                                         style={{
-                                            whiteSpace: 'normal', // Allow wrapping
+                                            whiteSpace: 'normal',
                                             overflow: 'hidden',
                                             textOverflow: 'ellipsis',
                                             display: '-webkit-box',
-                                            WebkitLineClamp: 2, // Limit to 2 lines
+                                            WebkitLineClamp: 2,
                                             WebkitBoxOrient: 'vertical',
-                                            maxHeight: '3em', // Constrain height
+                                            maxHeight: '3em',
                                         }}
                                     >
                                         {post.title}
@@ -194,39 +156,8 @@ const HomeArabic = () => {
                     ))}
                 </div>
             </div>
-
-            {/* View More Button */}
-            <div className="text-center mt-4">
-                <a href="/ar/articles" className="btn btn-secondary">
-                المزيد من المقالات
-                </a>
-            </div>
-            {/* Videos Section */}
-            <div className="videos-section mt-5">
-                <h2 className="text-center">Latest Videos</h2>
-                <ArVideos />  {/* Include the Videos component here */}
-            </div>
-
-            {/* Most Viewed Posts Section */}
-            <ArMostViewed /> {/* Include MostViewed component */}
-
-            {/* Videos Section */}
-            <div className="videos-section mt-5">
-                <h2 className="text-center">Reverse Videos</h2>
-                <ArabicReverseVideos />  {/* Include the Videos component here */}
-            </div>
-
-            {/* Most Viewed Posts Section */}
-            <ArabicMostLiked /> {/* Include MostViewed component */}
-
-            {/* Videos Section */}
-            <div className="videos-section mt-5">
-                <h2 className="text-center">Random Videos</h2>
-                <ArabicRandomVideos />  {/* Include the Videos component here */}
-            </div>
-
         </div>
     );
 };
 
-export default HomeArabic;
+export default ArabicMostLiked;
