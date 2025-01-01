@@ -9,6 +9,7 @@ import CategoryArticles from '../English/CategoryArticles';
 import RuVideos from '../Russian/RuVideos';
 import RuMostViewed from './RuMostViewed';
 import RuMostLiked from './RuMostLiked';
+import RussianMostComment from './RussianMostComment';
 import RuReverseVideos from '../Russian/RuReverseVideos';
 import RuRandomVideos from '../Russian/RuRandomVideos';
 
@@ -225,6 +226,9 @@ const HomeRussian = () => {
                 <h2 className="text-center">Random Videos</h2>
                 <RuRandomVideos />  {/* Include the Videos component here */}
             </div>
+
+            {/* Most Viewed Posts Section */}
+            <RussianMostComment /> {/* Include MostViewed component */}
 
         </div>
     );

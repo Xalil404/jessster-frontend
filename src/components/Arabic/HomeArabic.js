@@ -8,6 +8,7 @@ import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
 import ArVideos from '../Arabic/ArVideos';
 import ArMostViewed from './ArMostViewed';
+import ArabicMostComment from './ArabicMostComment';
 import ArabicMostLiked from './ArabicMostLiked';
 import ArabicReverseVideos from '../Arabic/ArabicReverseVideos';
 import ArabicRandomVideos from '../Arabic/ArabicRandomVideos';
@@ -224,6 +225,9 @@ const HomeArabic = () => {
                 <h2 className="text-center">Random Videos</h2>
                 <ArabicRandomVideos />  {/* Include the Videos component here */}
             </div>
+
+            {/* Most Viewed Posts Section */}
+            <ArabicMostComment /> {/* Include MostViewed component */}
 
         </div>
     );

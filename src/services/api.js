@@ -294,3 +294,20 @@ export const fetchMostLikedPosts = async () => {
         return [];  // Return an empty array in case of an error
     }
 };
+
+
+// Function to fetch blog posts sorted by most comments
+export const fetchMostCommentedPosts = async () => {
+    try {
+        const response = await api.get('/posts/', {
+            params: {
+                sort_by: 'comments',  // Sort by comments
+                order: 'desc'         // Descending order (most commented first)
+            }
+        });
+        return response.data;  // Assuming the data is an array of posts
+    } catch (error) {
+        console.error('Error fetching most commented posts:', error);
+        return [];  // Return an empty array in case of an error
+    }
+};
