@@ -8,6 +8,8 @@ import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
 import ArVideos from '../Arabic/ArVideos';
 import ArMostViewed from './ArMostViewed';
+import ArabicReverseVideos from '../Arabic/ArabicReverseVideos';
+import ArabicRandomVideos from '../Arabic/ArabicRandomVideos';
 
 
 const HomeArabic = () => {
@@ -206,6 +208,18 @@ const HomeArabic = () => {
 
             {/* Most Viewed Posts Section */}
             <ArMostViewed /> {/* Include MostViewed component */}
+
+            {/* Videos Section */}
+            <div className="videos-section mt-5">
+                <h2 className="text-center">Reverse Videos</h2>
+                <ArabicReverseVideos />  {/* Include the Videos component here */}
+            </div>
+
+            {/* Videos Section */}
+            <div className="videos-section mt-5">
+                <h2 className="text-center">Random Videos</h2>
+                <ArabicRandomVideos />  {/* Include the Videos component here */}
+            </div>
 
         </div>
     );

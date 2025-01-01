@@ -8,6 +8,8 @@ import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
 import RuVideos from '../Russian/RuVideos';
 import RuMostViewed from './RuMostViewed';
+import RuReverseVideos from '../Russian/RuReverseVideos';
+import RuRandomVideos from '../Russian/RuRandomVideos';
 
 
 const HomeRussian = () => {
@@ -198,6 +200,7 @@ const HomeRussian = () => {
                 Посмотреть больше статей
                 </a>
             </div>
+            
             {/* Videos Section */}
             <div className="videos-section mt-5">
                 <h2 className="text-center">Latest Videos</h2>
@@ -206,6 +209,18 @@ const HomeRussian = () => {
 
             {/* Most Viewed Posts Section */}
             <RuMostViewed /> {/* Include MostViewed component */}
+
+            {/* Videos Section */}
+            <div className="videos-section mt-5">
+                <h2 className="text-center">Reverse Videos</h2>
+                <RuReverseVideos />  {/* Include the Videos component here */}
+            </div>
+
+            {/* Videos Section */}
+            <div className="videos-section mt-5">
+                <h2 className="text-center">Random Videos</h2>
+                <RuRandomVideos />  {/* Include the Videos component here */}
+            </div>
 
         </div>
     );
