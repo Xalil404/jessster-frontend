@@ -39,9 +39,10 @@ const ArticlePage = () => {
     
         try {
             // Pass the `slug` instead of `post.id`
-            const response = await toggleLike(post.slug);  // <-- Change here
-            if (response.success) {
-                setIsLiked(response.is_liked);
+            const response = await toggleLike(post.slug);  
+            
+            if (response.liked !== undefined) {  // Check for response.liked (boolean)
+                setIsLiked(response.liked);
                 setLikeCount(response.likes_count);
             } else {
                 console.error('Failed to toggle like');
@@ -50,6 +51,7 @@ const ArticlePage = () => {
             console.error('Error toggling like status:', err);
         }
     };
+    
     
 
     const handleCloseModal = () => {
