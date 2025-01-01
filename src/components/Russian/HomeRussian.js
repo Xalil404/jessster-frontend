@@ -7,6 +7,7 @@ import RussianBreakingNewsBanner from '../widgets/RussianBreakingNewsBanner';
 import CategoriesBanner from '../widgets/CategoriesBanner';
 import CategoryArticles from '../English/CategoryArticles';
 import RuVideos from '../Russian/RuVideos';
+import RuMostViewed from './RuMostViewed';
 
 
 const HomeRussian = () => {
@@ -202,6 +203,9 @@ const HomeRussian = () => {
                 <h2 className="text-center">Latest Videos</h2>
                 <RuVideos />  {/* Include the Videos component here */}
             </div>
+
+            {/* Most Viewed Posts Section */}
+            <RuMostViewed /> {/* Include MostViewed component */}
 
         </div>
     );

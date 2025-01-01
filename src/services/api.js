@@ -262,18 +262,6 @@ export const addComment = async (postSlug, commentData, token) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Function to fetch blog posts sorted by most viewed
 export const fetchMostViewedPosts = async () => {
     try {
