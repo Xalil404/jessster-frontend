@@ -99,20 +99,24 @@ const ArticlePage = () => {
                         className="mb-4"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
-                    <div className="text-center mt-4">
-                        <p><strong>Views:</strong> {post.number_of_views}</p>
-                        <div className="d-flex justify-content-center gap-2">
+                    <div className="d-flex justify-content-between align-items-center mt-4">
+                        {/* Views on the left */}
+                        <p className='mt-3'><strong>Views:</strong> {post.number_of_views}</p>
+                        {/* Share button centered */}
+                        <div className="text-center">
                             <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
                                 Share
                             </button>
-                            <button
-                                className={`btn ${isLiked ? 'btn-success' : 'btn-outline-success'}`}
-                                onClick={handleLike}
-                            >
-                                {isLiked ? 'Unlike' : 'Like'} ({likeCount})
-                            </button>
                         </div>
+                        {/* Like button on the right */}
+                        <button
+                            className={`btn ${isLiked ? 'btn-success' : 'btn-outline-success'}`}
+                            onClick={handleLike}
+                        >
+                            {isLiked ? 'Unlike' : 'Like'} ({likeCount})
+                        </button>
                     </div>
+                    <hr></hr>
                 </div>
             </div>
 
@@ -182,6 +186,7 @@ const ArticlePage = () => {
                 </div>
             )}
         </div>
+
     );
 };
 
