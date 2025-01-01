@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchPostBySlug, toggleLike } from '../../services/api'; // Import like/unlike APIs
+import Comments from './Comments';
+
+
+
 
 const ArticlePage = () => {
     const { lang, slug } = useParams();
@@ -13,6 +17,7 @@ const ArticlePage = () => {
     const [likeCount, setLikeCount] = useState(0);
 
     const isUserLoggedIn = !!localStorage.getItem('authToken'); // Example check for login
+    const authToken = localStorage.getItem('authToken');
 
     useEffect(() => {
         const getPost = async () => {
@@ -117,8 +122,21 @@ const ArticlePage = () => {
                         </button>
                     </div>
                     <hr></hr>
+                    
+                    {/* Comments Section */}
+                    <div className="container mt-5 ">
+                        <h2 className="text-center">Latest Comments</h2>
+                        <Comments
+                            postSlug={slug}
+                            isAuthenticated={isUserLoggedIn}
+                            token={authToken}  // Pass the token to the Comments component
+                        />
+                    </div>
+
                 </div>
             </div>
+
+            
 
             {isModalOpen && (
                 <div className="modal show d-block" tabIndex="-1">

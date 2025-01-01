@@ -234,10 +234,30 @@ export const toggleLike = async (slug, token) => {
     }
 };
 
+// --------------- Comments API ------------------
 
+// Function to fetch comments for a specific post
+export const fetchComments = async (postSlug) => {
+    try {
+        const response = await api.get(`/posts/${postSlug}/comments/`);
+        return response.data; // Returns an array of comments for the post
+    } catch (error) {
+        throw error.response.data; // Handle the error response
+    }
+};
 
-
-
-
-
+// Function to add a new comment to a specific post
+export const addComment = async (postSlug, commentData, token) => {
+    try {
+        const response = await api.post(`/posts/${postSlug}/comments/`, commentData, {
+            headers: {
+                Authorization: `Token ${token}`,  // Token for authentication
+            },
+        });
+        return response.data; // Returns the created comment
+    } catch (error) {
+        console.error('Error adding comment:', error);
+        throw error.response ? error.response.data : error;
+    }
+};
 
