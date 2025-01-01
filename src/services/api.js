@@ -242,15 +242,20 @@ export const fetchVideoBySlug = async (id, language = 'en') => {
 
 
 // Function to toggle like status for a post
-export const toggleLike = async (slug) => {
+export const toggleLike = async (slug, token) => {
     try {
-        const response = await axios.post(`/api/posts/${slug}/like/`);
+        const response = await axios.post(`/api/posts/${slug}/like/`, {}, {
+            headers: {
+                Authorization: `Bearer ${token}`,  // Send the JWT token in the request headers
+            },
+        });
         return response.data; // Ensure the API returns necessary data
     } catch (error) {
         console.error('Error toggling like:', error);
         throw error;
     }
 };
+
 
 
 
