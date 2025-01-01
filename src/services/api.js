@@ -241,11 +241,22 @@ export const fetchVideoBySlug = async (id, language = 'en') => {
 
 
 
+// Function to toggle like status for a post
+export const toggleLike = async (slug) => {
+    try {
+        const response = await axios.post(`/api/posts/${slug}/like/`);
+        return response.data; // Ensure the API returns necessary data
+    } catch (error) {
+        console.error('Error toggling like:', error);
+        throw error;
+    }
+};
 
 
 
 
 
+/*
 // Function to update the likes count for a post
 export const updateLikes = async (slug) => {
     try {
@@ -265,5 +276,5 @@ export const updateLikes = async (slug) => {
         throw error;
     }
 };
-
+*/
 
