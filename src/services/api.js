@@ -261,3 +261,31 @@ export const addComment = async (postSlug, commentData, token) => {
     }
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to fetch blog posts sorted by most viewed
+export const fetchMostViewedPosts = async () => {
+    try {
+        const response = await api.get('/posts/', {
+            params: {
+                sort_by: 'views',  // Sort by views
+                order: 'desc'      // Descending order (most viewed first)
+            }
+        });
+        return response.data;  // Assuming the data is an array of posts
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+        return [];  // Return an empty array in case of an error
+    }
+};
