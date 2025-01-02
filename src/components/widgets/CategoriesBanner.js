@@ -54,7 +54,7 @@ const CategoriesBanner = ({ language }) => {
                 {categories.map((category) => (
                     <button
                         key={category.id}
-                        className="btn btn-outline-primary m-1"
+                        className="btn btn-outline-primary mx-2 m-1"
                         onClick={() => handleCategorySelect(category.name)}
                     >
                         {category.name}

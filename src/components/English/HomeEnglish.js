@@ -79,7 +79,7 @@ const HomeEnglish = () => {
     return (
         <div className="container mt-1">
             <BreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
-            <h1 className="mb-4">Blog Posts (English)</h1>
+            {/*<h1 className="mb-4">Blog Posts (English)</h1>*/}
             <div className="row d-flex" style={{ minHeight: '100vh' }}>
                 {/* Left Column */}
                 <div className="col-md-6 d-flex flex-column">

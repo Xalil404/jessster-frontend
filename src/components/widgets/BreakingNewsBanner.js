@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react';
 
 const BreakingNewsBanner = () => {
     const headlines = [
-        "Breaking: Market reaches an all-time high!",
-        "Sports: Local team wins championship!",
-        "Weather: Heavy rain expected this weekend.",
-        "Tech: New AI tool revolutionizes industry.",
-        "Entertainment: Award-winning movie debuts."
+        "Breaking: Local celebrity arrested for teaching raccoons to 'flip the bird' in public parks!",
+        "Scandal: Senator caught pants-less at the podium, claims it was a 'protest against restrictive fashion laws'!",
+        "Shocking: Tech mogul buys entire chain of gyms, renames them 'Sweatcoin Mining Facilities'!",
+        "Outrage: Pop star's new art exhibit features nude statues of critics labeled 'Losers in Marble'!",
+        "Study: Influencer sparks outrage after selling 'used' bathwater labeled as 'artisanal soup stock'!",
+        "Disgrace: Pro athlete ejected for mooning the ref and blaming it on 'creative self-expression'!",
+        "Scandal: Travel vlogger fined for riding a hotel luggage cart through the airport yelling, 'Uber for the lazy!'",
+        "Disaster: Billionaire unveils AI that tweets profanity-laden insults at random world leaders!",
+        "Shock: Celebrity chef claims new diet of 'beer and regret' is the ultimate cleanse—scientists horrified!",
+        "Viral: Influencer goes live to roast followers’ cooking attempts, burns down their confidence (and her own kitchen)!"
+
     ];
 
     const [currentHeadlineIndex, setCurrentHeadlineIndex] = useState(0);
@@ -22,9 +28,9 @@ const BreakingNewsBanner = () => {
     return (
         <div 
             style={{
-                backgroundColor: '#FF0000',
-                color: '#000',
-                padding: '10px 20px',
+                backgroundColor: '#af1713',
+                color: '#ffffff',
+                padding: '15px 20px',
                 borderRadius: '5px',
                 marginBottom: '20px',
                 overflow: 'hidden',

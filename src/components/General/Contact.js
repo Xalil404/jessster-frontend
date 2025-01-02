@@ -48,7 +48,7 @@ const ContactForm = () => {
 
     return (
         <div className="container mt-5 mb-5">
-            <h1 className="text-center pb-3">Contact Us @ Project name</h1>
+            <h1 className="text-center pb-3">Contact Us @ jessster</h1>
             <p className="text-center pb-3">
                 If you have any questions or inquiries, feel free to reach out to us using the form below.
             </p>

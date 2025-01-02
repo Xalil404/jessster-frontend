@@ -32,7 +32,7 @@ const Footer = () => {
                 </li>
                 <li className="nav-item px-2">
                     <a 
-                        href="https://www.termsfeed.com/live/1fd2ca25-0553-48c4-97d8-308e55709144" 
+                        href="https://www.termsfeed.com/live/e839fc7f-79ba-4b86-b7d8-d1bfde7138f4" 
                         className="nav-link px-2 text-dark" 
                         target="_blank" 
                         rel="noopener noreferrer"
@@ -42,7 +42,7 @@ const Footer = () => {
                 </li>
                 <li className="nav-item px-2">
                     <a 
-                        href="https://www.termsfeed.com/live/ba80401d-3f01-4082-96ce-a0196d9cd3ac" 
+                        href="https://www.termsfeed.com/live/4b1f693e-8843-4921-b9bd-4d5fb43b312b" 
                         className="nav-link px-2 text-dark" 
                         target="_blank" 
                         rel="noopener noreferrer"
