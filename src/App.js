@@ -11,6 +11,8 @@ import CategoriesBanner from './components/widgets/CategoriesBanner';
 import ArticlePage from './components/General/ArticlePage';
 import NotFound from './components/General/NotFound';
 import Contact from './components/General/Contact';
+import Search from './components/General/search';
+
 // English
 import HomeEnglish from './components/English/HomeEnglish';
 import CategoryArticles from './components/English/CategoryArticles';
@@ -74,6 +76,7 @@ const AppContent = () => {
             {showCategoriesBanner && <CategoriesBanner language={language} />}
             <Routes>
                 <Route path="/" element={<HomeEnglish />} />
+                <Route path="/search/:query" element={<Search />} />
                 <Route path="/posts/:slug" element={<ArticlePage />} /> {/* Route for individual article */}
                 <Route path="/ru/category/:categoryId" element={<RussianCategoryArticles language="ru" />} />
                 <Route path="/ar/category/:categoryId" element={<ArabicCategoryArticles language="ar" />} />

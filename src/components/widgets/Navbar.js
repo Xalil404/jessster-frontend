@@ -1,26 +1,77 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { fetchProfile } from '../../services/api';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Search from '../General/search'; // Import the Search component
 
 const Header = () => {
+    const [profilePicture, setProfilePicture] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
     const location = useLocation();
-    const isAuthenticated = Boolean(localStorage.getItem('authToken')); // Replace with your auth logic
+    const isAuthenticated = Boolean(localStorage.getItem('authToken'));
+    const token = localStorage.getItem('authToken');
+    const [searchResults, setSearchResults] = useState([]);
 
-    // Check if the current path is the home page
     const isHomePage = location.pathname === '/';
 
-    // Render nothing if not on the home page
-    //if (!isHomePage) return null;
-    // Only render the Navbar if the current page is not the login, sign up, or dashboard page
-    if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/dashboard' || location.pathname === '/tasks' || location.pathname === '/profile' || location.pathname === '/logout') {
-        return null;  // Do not render the Navbar on these pages
+    useEffect(() => {
+        const loadProfilePicture = async () => {
+            if (token) {
+                try {
+                    const profileData = await fetchProfile(token);
+                    setProfilePicture(profileData.profile_picture);
+                } catch (error) {
+                    console.error('Error fetching profile picture:', error);
+                    setProfilePicture('https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png');
+                }
+            }
+        };
+
+        loadProfilePicture();
+    }, [token]);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    // Handle search on pressing Enter
+    const handleSearchKeyPress = (e) => {
+        if (e.key === 'Enter' && searchQuery.trim()) {
+            window.location.href = `/search/${searchQuery.trim()}`;
+        }
+    };
+    
+
+    // Fetch search results from API
+    const fetchSearchResults = async (query) => {
+        if (query.trim()) {
+            try {
+                const results = await fetchSearchResults(query); // Recursive call here!
+                setSearchResults(results); // Update the search results state
+            } catch (error) {
+                console.error('Error fetching search results:', error);
+            }
+        } else {
+            setSearchResults([]); // Clear search results if query is empty
+        }
+    };
+    
+
+    if (
+        location.pathname === '/login' ||
+        location.pathname === '/register' ||
+        location.pathname === '/dashboard' ||
+        location.pathname === '/tasks' ||
+        location.pathname === '/profile' ||
+        location.pathname === '/logout'
+    ) {
+        return null;
     }
 
     return (
         <div className="navcolor">
             <nav className="navbar navbar-expand-lg navbar-light py-3 sticky-top">
                 <div className="container-fluid">
-                    {/* Logo (Top Left) */}
                     <Link className="navbar-brand ms-5 order-1" to="/">
                         <img 
                             src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1732205459/Screenshot_2024-11-21_at_4.10.09_PM-removebg-preview_fj4w6b.png" 
@@ -30,60 +81,39 @@ const Header = () => {
                         />
                     </Link>
 
-                    {/* Language Buttons (Right of Logo in Top Left) */}
                     <div className="d-flex order-2 align-items-center gap-3 ms-3">
-                        <Link
-                            className="nav-link-a d-none d-lg-block text-dark"
-                            style={{ marginRight: '10px', textDecoration: 'none' }}
-                            to="/"
-                        >
+                        <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/">
                             English
                         </Link>
-                        <Link
-                            className="nav-link-a d-none d-lg-block text-dark"
-                            style={{ marginRight: '10px', textDecoration: 'none' }}
-                            to="/russian"
-                        >
+                        <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/russian">
                             Русский
                         </Link>
-                        <Link
-                            className="nav-link-a d-none d-lg-block text-dark"
-                            style={{ marginRight: '10px', textDecoration: 'none' }}
-                            to="/arabic"
-                        >
+                        <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/arabic">
                             عربي
                         </Link>
                     </div>
 
-                    {/* Navbar Links (Top Left) */}
                     <div className="collapse navbar-collapse order-3" id="navbarText">
-                        <ul className="navbar-nav mb-2 mb-lg-0 me-auto">
-                            {isAuthenticated && (
-                                <>
-                                    <li className="nav-item mx-2">
-                                        <Link className="nav-link-nav active text-dark" 
-                                        style={{ marginRight: '10px', textDecoration: 'none' }}
-                                        to="/dashboard">Dashboard</Link>
-                                    </li>
-                                    <li className="nav-item mx-2">
-                                        <Link className="nav-link-nav active text-dark" 
-                                        style={{ marginRight: '10px', textDecoration: 'none' }}
-                                        to="/logout">Logout</Link>
-                                    </li>
-                                </>
-                            )}
-                        </ul>
+                        <ul className="navbar-nav mb-2 mb-lg-0 me-auto"></ul>
                     </div>
 
-                    {/* Sign In and Sign Up Buttons (Top Right) */}
                     <div className="d-flex order-4 align-items-center gap-3">
-                        {!isAuthenticated && (
+                        {/* Search Bar */}
+                        <div className="d-flex align-items-center">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Search..."
+                                value={searchQuery}
+                                onChange={handleSearchChange}
+                                onKeyDown={handleSearchKeyPress} // Trigger search on Enter key press
+                                style={{ width: '200px' }}
+                            />
+                        </div>
+
+                        {!isAuthenticated ? (
                             <>
-                                <Link
-                                    className="nav-link-a d-none d-lg-block text-dark"
-                                    style={{ marginRight: '10px', textDecoration: 'none' }}
-                                    to="/login"
-                                >
+                                <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/login">
                                     Sign in
                                 </Link>
                                 <Link
@@ -91,19 +121,53 @@ const Header = () => {
                                     style={{
                                         backgroundColor: '#E8BF73',
                                         color: 'black',
-                                        padding: '10px 20px', // Increase padding for larger button
-                                        marginRight: '10px',
-                                        marginLeft: '5px',
+                                        padding: '10px 20px',
                                     }}
                                     to="/register"
                                 >
                                     Get Started
                                 </Link>
                             </>
+                        ) : (
+                            <div className="dropdown">
+                                <a
+                                    href="#"
+                                    id="profileDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    <img
+                                        src={profilePicture || "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png"}
+                                        alt="Profile"
+                                        className="rounded-circle"
+                                        width="40"
+                                        height="40"
+                                    />
+                                </a>
+                                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                    <li>
+                                        <Link className="dropdown-item" to="/dashboard">
+                                            Dashboard
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <hr className="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <Link className="dropdown-item" to="/logout">
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
                         )}
                     </div>
                 </div>
             </nav>
+
+            {/* Conditionally Render Search Results */}
+            {searchResults.length > 0 && <Search results={searchResults} />}
         </div>
     );
 };

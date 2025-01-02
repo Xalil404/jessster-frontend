@@ -311,3 +311,26 @@ export const fetchMostCommentedPosts = async () => {
         return [];  // Return an empty array in case of an error
     }
 };
+
+
+
+
+
+
+
+
+
+// Function to search for posts based on a query
+export const fetchSearchResults = async (query) => {
+    try {
+        const response = await api.get('/search/?query=${query}', {
+            params: { query }  // Passing the query as a parameter
+        });
+        return response.data;  // Returning the results from the API
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+        return { results: [] };  // Returning an empty result array in case of error
+    }
+};
+
+
