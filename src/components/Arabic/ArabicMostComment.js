@@ -55,7 +55,7 @@ const ArabicMostCommented = () => {
                             <div
                                 className="d-flex align-items-center shadow-sm p-3"
                                 style={{
-                                    backgroundColor: '#f8f9fa',
+                                    backgroundColor: '#E5E7EB',
                                     borderRadius: '5px',
                                     height: '348px',
                                 }}
@@ -111,7 +111,7 @@ const ArabicMostCommented = () => {
                             <div
                                 className="d-flex align-items-center shadow-sm p-3 small-post"
                                 style={{
-                                    backgroundColor: '#f8f9fa',
+                                    backgroundColor: '#E5E7EB',
                                     borderRadius: '5px',
                                     height: '100px',
                                 }}
