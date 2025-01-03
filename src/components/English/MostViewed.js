@@ -42,7 +42,7 @@ const MostViewed = () => {
 
     return (
         <div className="container mt-5">
-            <h2 className="mb-5">Most Viewed Articles</h2>
+            <h2 className="mb-5 fw-bold">Most Viewed Articles</h2>
             <div className="row d-flex">
                 {/* Left Column */}
                 <div className="col-md-6 d-flex flex-column">

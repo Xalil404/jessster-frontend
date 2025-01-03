@@ -75,7 +75,7 @@ const RuVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2 className="mb-5">Получите порцию смешных видео</h2>
+          <h2 className="mb-5 fw-bold">Получите порцию смешных видео</h2>
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div

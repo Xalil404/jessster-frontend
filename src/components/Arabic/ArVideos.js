@@ -75,7 +75,7 @@ const ArVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2 className="mb-5 text-end">احصل على جرعة من مقاطع الفيديو المضحكة</h2>
+          <h2 className="mb-5 text-end fw-bold">احصل على جرعة من مقاطع الفيديو المضحكة</h2>
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div

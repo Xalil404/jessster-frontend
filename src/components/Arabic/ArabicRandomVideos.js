@@ -80,7 +80,7 @@ const ArabicRandomVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2 className="mb-5 text-end">شاهد مقطع مضحك</h2>
+          <h2 className="mb-5 text-end fw-bold">شاهد مقطع مضحك</h2>
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div

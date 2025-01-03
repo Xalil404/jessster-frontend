@@ -50,17 +50,19 @@ const CategoriesBanner = ({ language }) => {
 
     return (
         <div className="container">
-            <div className="d-flex flex-wrap justify-content-center bg-light p-2 rounded">
+            <hr/>
+            <div className="d-flex flex-wrap justify-content-center p-2 rounded">
                 {categories.map((category) => (
                     <button
                         key={category.id}
-                        className="btn btn-outline-primary mx-2 m-1"
+                        className="btn btn-outline-dark mx-2 m-1 fw-bold"
                         onClick={() => handleCategorySelect(category.name)}
                     >
                         {category.name}
                     </button>
                 ))}
             </div>
+            <hr/>
         </div>
     );
 };

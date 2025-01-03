@@ -42,7 +42,7 @@ const MostCommented = () => {
 
     return (
         <div className="container mt-5">
-            <h2 className="mb-5">Most Commented Articles</h2>
+            <h2 className="mb-5 fw-bold">Most Commented Articles</h2>
             <div className="row d-flex">
                 {/* Left Column */}
                 <div className="col-md-6 d-flex flex-column">
