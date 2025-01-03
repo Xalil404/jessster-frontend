@@ -74,7 +74,7 @@ const Header = () => {
                 <div className="container-fluid">
                     <Link className="navbar-brand ms-5 order-1" to="/">
                         <img 
-                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1732205459/Screenshot_2024-11-21_at_4.10.09_PM-removebg-preview_fj4w6b.png" 
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1735906765/lo_jun5f9.png" 
                             alt="Logo" 
                             className="logo-image" 
                             style={{ width: '200px' }} 
