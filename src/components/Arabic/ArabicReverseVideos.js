@@ -78,7 +78,7 @@ const ArabicReverseVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2>Watch Latest Videos</h2>
+          <h2 className="mb-5 text-end">شاهد أحدث الفيديوهات المضحكة</h2>
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div

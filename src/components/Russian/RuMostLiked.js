@@ -42,7 +42,7 @@ const RuMostLiked = () => {
 
     return (
         <div className="container mt-5">
-            <h2 className="text-center">Most Liked Articles</h2>
+            <h2 className="mb-5">Самые популярные статьи</h2>
             <div className="row d-flex">
                 {/* Left Column */}
                 <div className="col-md-6 d-flex flex-column">

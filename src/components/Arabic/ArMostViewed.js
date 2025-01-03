@@ -41,8 +41,8 @@ const ArMostViewed = () => {
     }
 
     return (
-        <div className="container mt-5">
-            <h2 className="text-center">Most Viewed Articles</h2>
+        <div className="container mt-5 text-end">
+            <h2 className="mb-5">المقالات الأكثر مشاهدة</h2>
             <div className="row d-flex">
                 {/* Left Column */}
                 <div className="col-md-6 d-flex flex-column">

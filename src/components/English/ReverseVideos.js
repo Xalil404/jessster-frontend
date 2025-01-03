@@ -78,7 +78,7 @@ const ReverseVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2>Watch Latest Videos</h2>
+          <h2 className="mb-5">Get A Dose of Funny Videos</h2>
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div

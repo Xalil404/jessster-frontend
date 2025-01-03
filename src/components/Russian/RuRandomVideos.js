@@ -80,7 +80,7 @@ const RuRandomVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2>Watch Latest Videos</h2>
+          <h2 className="mb-5">Смотреть смешной отрывок</h2>
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div
