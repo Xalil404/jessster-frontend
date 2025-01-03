@@ -10,3 +10,20 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
 }
+
+/* Ensure the entire page is a flex container to keep footer down */
+body, html {
+    height: 100%; /* Make the body and html span the full viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Arrange children in a column */
+}
+
+/* Ensure the main content area grows as needed  to keep footer down */
+#root {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Let the main content grow to fill available space */
+}
+
+

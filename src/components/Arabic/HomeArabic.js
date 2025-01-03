@@ -202,10 +202,11 @@ const HomeArabic = () => {
                 المزيد من المقالات
                 </a>
             </div>
+
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Latest Videos</h2>
-                <ArVideos />  {/* Include the Videos component here */}
+                <h2 className="text-center">Newest to Oldest Videos</h2>
+                <ArabicReverseVideos />  {/* Include the Videos component here */}
             </div>
 
             {/* Most Viewed Posts Section */}
@@ -213,8 +214,8 @@ const HomeArabic = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Reverse Videos</h2>
-                <ArabicReverseVideos />  {/* Include the Videos component here */}
+                <h2 className="text-center">Oldest to Newest Videos</h2>
+                <ArVideos />  {/* Include the Videos component here */}
             </div>
 
             {/* Most Viewed Posts Section */}

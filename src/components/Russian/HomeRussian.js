@@ -202,11 +202,11 @@ const HomeRussian = () => {
                 Посмотреть больше статей
                 </a>
             </div>
-            
+
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Latest Videos</h2>
-                <RuVideos />  {/* Include the Videos component here */}
+                <h2 className="text-center">Newest to Oldest Videos</h2>
+                <RuReverseVideos />  {/* Include the Videos component here */}
             </div>
 
             {/* Most Viewed Posts Section */}
@@ -214,8 +214,8 @@ const HomeRussian = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Reverse Videos</h2>
-                <RuReverseVideos />  {/* Include the Videos component here */}
+                <h2 className="text-center">Oldest to Newest Videos</h2>
+                <RuVideos />  {/* Include the Videos component here */}
             </div>
 
             {/* Most Viewed Posts Section */}

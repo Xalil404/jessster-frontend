@@ -64,7 +64,7 @@ const RuReverseVideo = ({ videoId }) => {
     setCurrentVideo(videos[newIndex]);
     setCurrentIndex(newIndex);
 
-    // Restart playback in the modal
+    // Restart playback in the modal.
     if (videoRef.current) {
       videoRef.current.load();
       videoRef.current.play();
