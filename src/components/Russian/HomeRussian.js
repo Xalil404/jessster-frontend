@@ -205,7 +205,7 @@ const HomeRussian = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Newest to Oldest Videos</h2>
+                {/*<h2 className="text-center">Newest to Oldest Videos</h2>*/}
                 <RuReverseVideos />  {/* Include the Videos component here */}
             </div>
 
@@ -214,7 +214,7 @@ const HomeRussian = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Oldest to Newest Videos</h2>
+                {/*<h2 className="text-center">Oldest to Newest Videos</h2>*/}
                 <RuVideos />  {/* Include the Videos component here */}
             </div>
 
@@ -223,7 +223,7 @@ const HomeRussian = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Random Videos</h2>
+                {/*<h2 className="text-center">Random Videos</h2>*/}
                 <RuRandomVideos />  {/* Include the Videos component here */}
             </div>
 

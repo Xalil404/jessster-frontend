@@ -205,7 +205,7 @@ const HomeEnglish = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Latest Videos</h2>
+              {/*  <h2 className="text-center">Latest Videos</h2>*/}
                 <Videos />  {/* Include the Videos component here */}
             </div>
 
@@ -214,7 +214,7 @@ const HomeEnglish = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Reverse Videos</h2>
+                {/*<h2 className="text-center">Reverse Videos</h2>*/}
                 <ReverseVideos />  {/* Include the Videos component here */}
             </div>
 
@@ -223,7 +223,7 @@ const HomeEnglish = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Random Videos</h2>
+                {/*<h2 className="text-center">Random Videos</h2>*/}
                 <RandomVideos />  {/* Include the Videos component here */}
             </div>
 

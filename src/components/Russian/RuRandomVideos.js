@@ -89,7 +89,7 @@ const RuRandomVideo = ({ videoId }) => {
                 style={{ margin: '0 10px', cursor: 'pointer' }}
                 onClick={() => openFullScreen(video, index)}
               >
-                <h3>{video.title}</h3> 
+               {/* <h3>{video.title}</h3> */}
                 <video
                   width="200"
                   style={{ pointerEvents: 'none' }} // Disable interaction

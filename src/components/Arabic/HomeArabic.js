@@ -205,7 +205,7 @@ const HomeArabic = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Newest to Oldest Videos</h2>
+                {/*<h2 className="text-center">Newest to Oldest Videos</h2>*/}
                 <ArabicReverseVideos />  {/* Include the Videos component here */}
             </div>
 
@@ -214,7 +214,7 @@ const HomeArabic = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Oldest to Newest Videos</h2>
+                {/*<h2 className="text-center">Oldest to Newest Videos</h2>*/}
                 <ArVideos />  {/* Include the Videos component here */}
             </div>
 
@@ -223,7 +223,7 @@ const HomeArabic = () => {
 
             {/* Videos Section */}
             <div className="videos-section mt-5">
-                <h2 className="text-center">Random Videos</h2>
+                {/*<h2 className="text-center">Random Videos</h2>*/}
                 <ArabicRandomVideos />  {/* Include the Videos component here */}
             </div>
 
