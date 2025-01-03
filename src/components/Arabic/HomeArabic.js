@@ -198,7 +198,7 @@ const HomeArabic = () => {
 
             {/* View More Button */}
             <div className="text-center mt-4">
-                <a href="/ar/articles" className="btn btn-secondary">
+                <a href="/ar/articles" className="btn btn-outline-dark fw-bold btn-lg">
                 المزيد من المقالات
                 </a>
             </div>
