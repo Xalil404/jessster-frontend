@@ -288,6 +288,13 @@ const HomeEnglish = () => {
             {/* Most Viewed Posts Section */}
             <MostComment /> {/* Include MostViewed component */}
 
+            {/* View More Button */}
+            <div className="text-center mt-4">
+                <a href="/en/articles" className="btn btn-outline-dark fw-bold btn-lg">
+                    View More Articles
+                </a>
+            </div>
+
         </div>
     );
 };
