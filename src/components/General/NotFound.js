@@ -11,7 +11,7 @@ const NotFound = () => {
                 {/* Left Column for Image */}
                 <div className="col-md-6 d-flex justify-content-center align-items-center">
                     <img 
-                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729351193/Group_307_zosemf.png" 
+                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736001525/405_wyra8b.png" 
                         className="img-fluid" 
                         alt="404" 
                     />
@@ -23,7 +23,7 @@ const NotFound = () => {
                         <div>
                             <h1 className="display-1 fw-bold">404</h1>
                             <h2 className="mb-4">Whooops, that page is gone ... </h2>
-                            <Link to="/" className="btn btn-custom" style={{ backgroundColor: '#E8BF73', color: 'black' }}>
+                            <Link to="/" className="btn btn-custom fw-bold btn-lg" style={{ backgroundColor: '#000', color: 'white' }}>
                                 Go Home
                             </Link>
                         </div>

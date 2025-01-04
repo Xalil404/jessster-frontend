@@ -40,9 +40,10 @@ const Register = () => {
                 {/* Left Column for Image */}
                 <div className="col-md-6 d-none d-md-block">
                     <img 
-                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1732204366/Group_32932_uditd0.png" 
+                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736002982/product_development___idea_thought_innovation_teamwork_working_together_document_people_2x_1_jn1eoh.png" 
                         className="img-fluid" 
                         alt="Register" 
+                        
                     />
                 </div>
 
