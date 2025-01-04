@@ -65,7 +65,7 @@ const HomeEnglish = () => {
     };
 
     if (loading) {
-        return <div className="text-center mt-5">Loading...</div>;
+        return <div className="text-center mt-5 fw-bold">Loading...</div>;
     }
 
     if (error) {

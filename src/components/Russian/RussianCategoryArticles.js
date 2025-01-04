@@ -45,45 +45,68 @@ const RussianCategoryArticles = () => {
     }
 
     if (posts.length === 0) {
-        return <div className="text-center mt-5">No articles available for this category</div>;
+        return (
+            <div className="container mt-5 d-flex justify-content-center align-items-center">
+                    {/* Left column for text */}
+                    <div className="d-flex flex-column text-start me-4">
+                        <h1 className="mb-2 fw-bold mb-4">Нет статей в этой категории</h1>
+                        <h3 className="mb-4 fw-bold">Попробуйте другую категорию</h3>
+                    </div>
+                    {/* Right column for the image */}
+                    <div>
+                        <img
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726666674/20_hggzzz.png"
+                            alt="No results"
+                            style={{ width: '350px', height: 'auto' }}
+                        />
+                    </div>
+                </div>
+            );
     }
 
     return (
         <div className="container mt-1">
             <RussianBreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
-            <h1 className="mb-4">Articles in this Category</h1>
-            <div className="row d-flex">
+            <h1 className="mb-4 fw-bold text-center">Статьи в этой категории</h1>
+            <div className="d-flex flex-column align-items-center">
                 {posts.map((post) => (
-                    <div key={post.id} className="col-md-6 mb-4">
-                        <a
-                            href={`/posts/${post.slug}`}
-                            className="text-decoration-none text-dark"
+                    <a
+                        key={post.id}
+                        href={`/posts/${post.slug}`}
+                        className="text-decoration-none text-dark"
+                    >
+                        <div
+                            className="d-flex align-items-center shadow-sm p-3 mb-4 article-hover"
+                            style={{
+                                backgroundColor: '#ffffff',
+                                borderRadius: '5px',
+                                width: '100%',
+                                maxWidth: '700px', // Ensure the card doesn't stretch too wide
+                                transition: 'background-color 0.3s ease',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#E5E7EB'; // Hover background color for entire card
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = ''; // Reset background color when mouse leaves
+                            }}
                         >
-                            <div
-                                className="d-flex align-items-center shadow-sm p-3"
+                            <img
+                                src={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`}
+                                alt={post.title}
+                                className="img-fluid me-3"
                                 style={{
-                                    backgroundColor: '#f8f9fa',
+                                    width: '150px',
+                                    height: 'auto',
+                                    objectFit: 'cover',
                                     borderRadius: '5px',
-                                    height: '100px',
                                 }}
-                            >
-                                <img
-                                    src={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`}
-                                    alt={post.title}
-                                    className="img-fluid me-3"
-                                    style={{
-                                        width: '20%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                        borderRadius: '5px',
-                                    }}
-                                />
-                                <div>
-                                    <h5 className="mb-0">{post.title}</h5>
-                                </div>
+                            />
+                            <div>
+                                <h5 className="mb-0">{post.title}</h5>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 ))}
             </div>
         </div>

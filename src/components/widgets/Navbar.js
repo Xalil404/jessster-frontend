@@ -82,13 +82,13 @@ const Header = () => {
                     </Link>
 
                     <div className="d-flex order-2 align-items-center gap-3 ms-3">
-                        <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/">
+                        <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/">
                             English
                         </Link>
-                        <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/russian">
+                        <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/russian">
                             Русский
                         </Link>
-                        <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/arabic">
+                        <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/arabic">
                             عربي
                         </Link>
                     </div>
@@ -107,26 +107,38 @@ const Header = () => {
                                 value={searchQuery}
                                 onChange={handleSearchChange}
                                 onKeyDown={handleSearchKeyPress} // Trigger search on Enter key press
-                                style={{ width: '200px' }}
+                                style={{ width: '200px', borderRadius: '25px', marginRight: '15px' }}
                             />
                         </div>
 
                         {!isAuthenticated ? (
                             <>
-                                <Link className="nav-link-a d-none d-lg-block text-dark" style={{ textDecoration: 'none' }} to="/login">
+                                <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginRight: '15px' }} to="/login">
                                     Sign in
                                 </Link>
                                 <Link
-                                    className="nav-link btn btn-sm rounded-pill px-4"
+                                    className="nav-link btn btn-sm rounded-pill px-4 fw-bold"
                                     style={{
-                                        backgroundColor: '#E8BF73',
-                                        color: 'black',
+                                        backgroundColor: '#000',
+                                        color: 'white',
                                         padding: '10px 20px',
+                                        transition: 'all 0.3s ease', // Smooth transition for hover effect
+                                        border: '2px solid black', // Keeps the border black
+                                        borderRadius: '50px', // Ensures rounded corners
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.target.style.backgroundColor = '#fff';
+                                        e.target.style.color = 'black';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.target.style.backgroundColor = '#000';
+                                        e.target.style.color = 'white';
                                     }}
                                     to="/register"
                                 >
                                     Get Started
                                 </Link>
+
                             </>
                         ) : (
                             <div className="dropdown">
@@ -147,7 +159,21 @@ const Header = () => {
                                 </a>
                                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                                     <li>
-                                        <Link className="dropdown-item" to="/dashboard">
+                                        <Link className="dropdown-item" to="/dashboard"
+                                        style={{
+                                            backgroundColor: '#fff', // default background
+                                            color: '#000', // default text color
+                                            transition: 'background-color 0.3s ease, color 0.3s ease',
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.target.style.backgroundColor = '#f0f0f0'; // Hover background
+                                            e.target.style.color = '#000'; // Hover text color
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.target.style.backgroundColor = '#fff'; // Reset background
+                                            e.target.style.color = '#000'; // Reset text color
+                                        }}
+                                        >
                                             Dashboard
                                         </Link>
                                     </li>
@@ -155,7 +181,21 @@ const Header = () => {
                                         <hr className="dropdown-divider" />
                                     </li>
                                     <li>
-                                        <Link className="dropdown-item" to="/logout">
+                                        <Link className="dropdown-item" to="/logout"
+                                        style={{
+                                            backgroundColor: '#fff', // default background
+                                            color: '#000', // default text color
+                                            transition: 'background-color 0.3s ease, color 0.3s ease',
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.target.style.backgroundColor = '#f0f0f0'; // Hover background
+                                            e.target.style.color = '#000'; // Hover text color
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.target.style.backgroundColor = '#fff'; // Reset background
+                                            e.target.style.color = '#000'; // Reset text color
+                                        }}
+                                        >
                                             Logout
                                         </Link>
                                     </li>

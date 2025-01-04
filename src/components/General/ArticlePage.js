@@ -125,7 +125,7 @@ const ArticlePage = () => {
                     
                     {/* Comments Section */}
                     <div className="container mt-5 ">
-                        <h2 className="text-center">Latest Comments</h2>
+                        <h2 className="text-center fw-bold">Latest Comments</h2>
                         <Comments
                             postSlug={slug}
                             isAuthenticated={isUserLoggedIn}
@@ -139,11 +139,11 @@ const ArticlePage = () => {
             
 
             {isModalOpen && (
-                <div className="modal show d-block" tabIndex="-1">
+                <div className="modal show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
                     <div className="modal-dialog">
-                        <div className="modal-content">
+                        <div className="modal-content" style={{ backgroundColor: '#F9FAFC' }} >
                             <div className="modal-header">
-                                <h5 className="modal-title">Share this article</h5>
+                                <h5 className="modal-title fw-bold">Share this article</h5>
                                 <button
                                     type="button"
                                     className="btn-close"
@@ -151,7 +151,7 @@ const ArticlePage = () => {
                                 ></button>
                             </div>
                             <div className="modal-body">
-                                <p>Copy the link below to share:</p>
+                                <p className='fw-bold text-center'>Copy the link below to share:</p>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -159,7 +159,7 @@ const ArticlePage = () => {
                                     readOnly
                                 />
                             </div>
-                            <div className="modal-footer">
+                            <div className="modal-footer d-flex justify-content-between w-100">
                                 <button
                                     className="btn btn-secondary"
                                     onClick={handleCloseModal}
@@ -176,20 +176,21 @@ const ArticlePage = () => {
             )}
 
             {isSignInModalOpen && (
-                <div className="modal show d-block" tabIndex="-1">
+                <div className="modal show d-block" tabIndex="-1"  style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
                     <div className="modal-dialog">
-                        <div className="modal-content">
+                        <div className="modal-content" style={{ backgroundColor: '#F9FAFC' }}>
                             <div className="modal-header">
-                                <h5 className="modal-title">Sign In Required</h5>
+                                <h5 className="modal-title fw-bold">Sign In Required</h5>
                                 <button
                                     type="button"
                                     className="btn-close"
                                     onClick={handleCloseModal}
                                 ></button>
                             </div>
-                            <div className="modal-body">
-                                <p>You need to sign in to like posts.</p>
-                                <a href="/login" className="btn btn-primary">Sign In</a>
+                            <div className="modal-body text-center">
+                                <p className='text-center fw-bold'>You need to sign in to like posts.</p>
+                                <p className='text-center fw-bold'>Liked posts will be saved in your account</p>
+                                <a href="/register" className="btn btn-dark btn-lg fw-bold">Sign Up</a>
                             </div>
                             <div className="modal-footer">
                                 <button

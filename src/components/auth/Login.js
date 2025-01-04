@@ -43,9 +43,9 @@ const Login = () => {
 
                 {/* Right Column for Login Form */}
                 <div className="col-md-6">
-                    <div className="card" style={{ border: 'none' }}>
+                    <div className="card" style={{ border: 'none', backgroundColor: '#F9FAFC' }}>
                         <div className="card-header-a text-center card-header-custom">
-                            <h2>Sign in to Jessster</h2>
+                            <h2 className='fw-bold'>Sign in to Jessster</h2>
                         </div>
 
                         {/* Divider with text */}
@@ -81,8 +81,8 @@ const Login = () => {
                                 <div className="social-login-buttons">
                                     <button
                                         type="submit"
-                                        className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button"
-                                        style={{ backgroundColor: '#E8BF73', color: 'black' }}
+                                        className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button fw-bold"
+                                        style={{ backgroundColor: '#000', color: 'white' }}
                                         disabled={loading}
                                     >
                                         {loading ? 'Logging in...' : 'Sign In'}

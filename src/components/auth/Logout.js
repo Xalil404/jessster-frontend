@@ -32,7 +32,7 @@ const Logout = () => {
                 
                 {/* Right Column for Logout Confirmation */}
                 <div className="col-md-6">
-                    <div className="card" style={{ border: 'none' }}>
+                    <div className="card" style={{ border: 'none', backgroundColor: '#F9FAFC' }}>
                         <div className="card-header-logout text-center text-dark pt-5 card-logout">
                             <h2 className="fw-bold mb-4">Sign Out</h2>
                             <hr></hr>
@@ -42,15 +42,15 @@ const Logout = () => {
                             
                             <button 
                                 type="button" 
-                                className="btn btn-danger btn-lg me-4" 
+                                className="btn btn-danger btn-lg me-4 fw-bold" 
                                 onClick={handleLogout}
                             >
                                 Sign Out
                             </button>
                             <button 
                                 type="button" 
-                                className="btn btn-lg ml-4" 
-                                style={{ backgroundColor: '#E8BF73', color: 'black' }}
+                                className="btn btn-lg ml-4 fw-bold" 
+                                style={{ backgroundColor: '#000', color: 'white' }}
                                 onClick={handleCancel}
                             >
                                 Cancel

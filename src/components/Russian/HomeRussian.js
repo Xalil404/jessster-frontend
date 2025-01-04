@@ -65,7 +65,7 @@ const HomeRussian = () => {
     };
 
     if (loading) {
-        return <div className="text-center mt-5">Loading...</div>;
+        return <div className="text-center mt-5 fw-bold">Загрузка ...</div>;
     }
 
     if (error) {
@@ -73,7 +73,7 @@ const HomeRussian = () => {
     }
 
     if (posts.length === 0) {
-        return <div className="text-center mt-5">No Russian posts available</div>;
+        return <div className="text-center mt-5">Нет доступных статей на русском языке</div>;
     }
 
     return (

@@ -38,12 +38,12 @@ const Comments = ({ postSlug, isAuthenticated, token }) => {
 
     return (
         <div>
-            <h3>Comments</h3>
+            <h3 className='mb-3'>Join the discussion</h3>
 
             {/* Display comment input or sign in button based on authentication status */}
             {!isAuthenticated ? (
                 <div className="alert alert-info" role="alert">
-                    Please <a href="/login" className="alert-link">sign in</a> to leave a comment.
+                    Please <a href="/login" className="alert-link">sign in</a> or <a href="/register" className="alert-link">sign up</a> to leave a comment.
                 </div>
             ) : (
                 <form onSubmit={handleCommentSubmit}>
@@ -61,26 +61,45 @@ const Comments = ({ postSlug, isAuthenticated, token }) => {
             )}
 
             <div>
-                {comments.map((comment) => (
-                    <div key={comment.id} className="mb-4 d-flex align-items-start">
-                        <img
-                            src={comment.profile_image || 'https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png'} // Fallback to default image
-                            alt={`${comment.username || 'User'}'s profile`}
-                            className="rounded-circle me-3"
-                            style={{ width: '40px', height: '40px', objectFit: 'cover' }}
-                        />
-
-                        <div>
-                            <p>
-                                <strong>{comment.username || 'Anonymous'}:</strong> {comment.content}
-                            </p>
-                        </div>
+                {/* Empty state when there are no comments */}
+                {comments.length === 0 ? (
+                    <div className="d-flex justify-content-center align-items-center">
+                    <div className="d-flex flex-column text-start me-4"> {/* Left column for text */}
+                        <h4 className='fw-bold'>No comments yet</h4>
+                        <p>Be the first to leave a comment!</p>
                     </div>
-                ))}
+                    <div> {/* Right column for the image */}
+                        <img
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726666674/20_hggzzz.png"
+                            alt="No comments yet"
+                            style={{ width: '250px', height: 'auto' }}
+                        />
+                    </div>
+                </div>
+                
+                ) : (
+                    comments.map((comment) => (
+                        <div key={comment.id} className="mb-4 d-flex align-items-start">
+                            <img
+                                src={comment.profile_image || 'https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png'} // Fallback to default image
+                                alt={`${comment.username || 'User'}'s profile`}
+                                className="rounded-circle me-3"
+                                style={{ width: '40px', height: '40px', objectFit: 'cover' }}
+                            />
+
+                            <div>
+                                <p>
+                                    <strong>{comment.username || 'Anonymous'}:</strong> {comment.content}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                )}
             </div>
         </div>
     );
 };
 
 export default Comments;
+
 

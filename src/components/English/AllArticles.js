@@ -42,40 +42,38 @@ const AllArticles = () => {
     return (
         <div className="container mt-1">
             <BreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
-            <h1 className="mb-4">All Articles</h1>
-            <div className="row">
-                {articles.map((article) => (
-                    <div key={article.id} className="col-md-6 mb-4">
+            <h1 className="mb-4 text-center fw-bold">All Articles</h1>
+            <div className="d-flex justify-content-center"> {/* Flex container for centering */}
+                <div className="list-group" style={{ width: '75%' }}> {/* 75% width for the list group */}
+                    {articles.map((article) => (
                         <a
+                            key={article.id}
                             href={`/posts/${article.slug}`}  // Link to individual post page
-                            className="text-decoration-none text-dark"
+                            className="list-group-item list-group-item-action d-flex align-items-center mb-4"
+                            style={{
+                                transition: 'background-color 0.3s ease', // Smooth transition for hover
+                                width: '100%', // Ensure the link takes full width
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#E5E7EB'; // Hover background color for entire card
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = ''; // Reset background color when mouse leaves
+                            }}
                         >
-                            <div
-                                className="d-flex align-items-center shadow-sm p-3"
-                                style={{
-                                    backgroundColor: '#f8f9fa',
-                                    borderRadius: '5px',
-                                    height: '100px',
-                                }}
-                            >
-                                <img
-                                    src={`https://res.cloudinary.com/dbm8xbouw/${article.featured_image}`}
-                                    alt={article.title}
-                                    className="img-fluid me-3"
-                                    style={{
-                                        width: '20%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                        borderRadius: '5px',
-                                    }}
-                                />
-                                <div>
-                                    <h5 className="mb-0">{article.title}</h5>
-                                </div>
+                            <img
+                                src={`https://res.cloudinary.com/dbm8xbouw/${article.featured_image}`}
+                                alt={article.title}
+                                className="img-thumbnail me-3"
+                                style={{ width: '150px', height: 'auto' }}
+                            />
+                            <div>
+                                <h5 className="mb-1">{article.title}</h5>
+                                <p className="mb-1 text-muted">{article.excerpt || 'No description available'}</p>
                             </div>
                         </a>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

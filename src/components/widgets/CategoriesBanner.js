@@ -50,19 +50,35 @@ const CategoriesBanner = ({ language }) => {
 
     return (
         <div className="container">
-            <hr/>
+            <hr />
             <div className="d-flex flex-wrap justify-content-center p-2 rounded">
                 {categories.map((category) => (
                     <button
                         key={category.id}
-                        className="btn btn-outline-dark mx-2 m-1 fw-bold"
+                        className="btn mx-2 m-1 fw-bold"
+                        style={{
+                            backgroundColor: 'black',
+                            borderColor: 'black',
+                            color: 'white', // Text is white by default
+                            transition: 'all 0.3s ease', // Smooth transition
+                        }}
                         onClick={() => handleCategorySelect(category.name)}
+                        onMouseEnter={(e) => {
+                            e.target.style.backgroundColor = 'white';
+                            e.target.style.color = 'black'; // Text becomes black on hover
+                            e.target.style.borderColor = 'black';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.target.style.backgroundColor = 'black';
+                            e.target.style.color = 'white'; // Text becomes white when not hovered
+                            e.target.style.borderColor = 'black';
+                        }}
                     >
                         {category.name}
                     </button>
                 ))}
             </div>
-            <hr/>
+            <hr />
         </div>
     );
 };

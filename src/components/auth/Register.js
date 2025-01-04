@@ -47,9 +47,9 @@ const Register = () => {
                 </div>
 
                 <div className="col-md-6">
-                    <div className="card" style={{ border: 'none' }}>
+                    <div className="card" style={{ border: 'none', backgroundColor: '#F9FAFC' }}>
                         <div className="card-header-1 text-center card-header-custom">
-                            <h2>Sign Up to Jessster</h2>
+                            <h2 className='fw-bold'>Sign Up to Jessster</h2>
                         </div>
                          {/* Divider with text */}
                          <div className="text-center my-3">
@@ -67,9 +67,9 @@ const Register = () => {
                                 <div className="social-login-buttons text-center mb-3">
                                     <button 
                                         type="button" 
-                                        className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button" 
+                                        className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button fw-bold" 
                                         id="email-button" 
-                                        style={{ backgroundColor: '#E8BF73', color: 'black' }}
+                                        style={{ backgroundColor: '#000', color: 'white' }}
                                         onClick={() => setShowEmailFields(true)}
                                     >
                                         Continue with Email
@@ -114,9 +114,9 @@ const Register = () => {
                                         <div className="social-login-buttons">
                                             <button 
                                                 type="submit" 
-                                                className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button" 
+                                                className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button fw-bold" 
                                                 id="signup-button" 
-                                                style={{ backgroundColor: '#E8BF73', color: 'black' }}
+                                                style={{ backgroundColor: '#000', color: 'white' }}
                                             >
                                                 Sign Up
                                             </button>

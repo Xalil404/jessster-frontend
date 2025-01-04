@@ -65,7 +65,7 @@ const HomeArabic = () => {
     };
 
     if (loading) {
-        return <div className="text-center mt-5">Loading...</div>;
+        return <div className="text-center mt-5 fw-bold">تحميل ...</div>;
     }
 
     if (error) {
@@ -73,7 +73,7 @@ const HomeArabic = () => {
     }
 
     if (posts.length === 0) {
-        return <div className="text-center mt-5">No Russian posts available</div>;
+        return <div className="text-center mt-5">لا يوجد مقالات باللغة العربية</div>;
     }
 
     return (
