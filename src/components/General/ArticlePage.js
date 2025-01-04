@@ -104,18 +104,29 @@ const ArticlePage = () => {
                         className="mb-4"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
+
+                    {/* Banner Section */}
+                    <div className="my-5 p-4 text-center" style={{ 
+                        backgroundColor: '#FFD700',
+                        borderRadius: '20px', 
+                        }}>
+                        <h2 className="fw-bold mb-3">Join the Jessster Community!</h2>
+                        <p className="mb-4">Discover more articles and connect with fellow readers.</p>
+                        <a href="/donate" className="btn btn-success btn-lg fw-bold">Donate</a>
+                    </div>
+
                     <div className="d-flex justify-content-between align-items-center mt-4">
                         {/* Views on the left */}
                         <p className='mt-3'><strong>Views:</strong> {post.number_of_views}</p>
                         {/* Share button centered */}
                         <div className="text-center">
-                            <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
+                            <button className="btn btn-dark fw-bold" onClick={() => setIsModalOpen(true)}>
                                 Share
                             </button>
                         </div>
                         {/* Like button on the right */}
                         <button
-                            className={`btn ${isLiked ? 'btn-success' : 'btn-outline-success'}`}
+                            className={`btn ${isLiked ? 'btn-success' : 'btn-outline-success fw-bold'}`}
                             onClick={handleLike}
                         >
                             {isLiked ? 'Unlike' : 'Like'} ({likeCount})
