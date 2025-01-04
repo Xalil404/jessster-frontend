@@ -56,7 +56,7 @@ const Comments = ({ postSlug, isAuthenticated, token }) => {
                             placeholder="Add a comment"
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary mb-5">Submit Comment</button>
+                    <button type="submit" className="btn btn-dark mb-5 fw-bold">Submit Comment</button>
                 </form>
             )}
 
