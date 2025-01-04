@@ -75,7 +75,7 @@ const Video = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          <h2 className="mb-5 fw-bold">Watch Latest Funny Videos</h2>
+          {/*<h2 className="mb-5 fw-bold">Watch Latest Funny Videos</h2>*/}
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div

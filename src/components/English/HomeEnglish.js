@@ -204,7 +204,14 @@ const HomeEnglish = () => {
             </div>
 
             {/* Videos Section */}
-            <div className="videos-section mt-5">
+            <h2 className="fw-bold mt-5">| Watch Latest Funny Videos</h2>
+            <div className="videos-section mt-3"
+            style={{
+                border: '4px solid #ccc', // Adds a 2px solid border with a light gray color
+                padding: '20px', // Adds padding inside the border
+                borderRadius: '8px', // Optional: Adds rounded corners
+            }}
+            >
               {/*  <h2 className="text-center">Latest Videos</h2>*/}
                 <Videos />  {/* Include the Videos component here */}
             </div>
@@ -213,7 +220,14 @@ const HomeEnglish = () => {
             <MostViewed /> {/* Include MostViewed component */}
 
             {/* Videos Section */}
-            <div className="videos-section mt-5">
+            <h2 className="fw-bold mt-5">| Get A Dose of Funny Videos</h2>
+            <div className="videos-section mt-3"
+            style={{
+                border: '4px solid #ccc', // Adds a 2px solid border with a light gray color
+                padding: '20px', // Adds padding inside the border
+                borderRadius: '8px', // Optional: Adds rounded corners
+            }}
+            >
                 {/*<h2 className="text-center">Reverse Videos</h2>*/}
                 <ReverseVideos />  {/* Include the Videos component here */}
             </div>
@@ -222,7 +236,14 @@ const HomeEnglish = () => {
             <MostLiked /> {/* Include MostViewed component */}
 
             {/* Videos Section */}
-            <div className="videos-section mt-5">
+            <h2 className="mt-5 fw-bold">| Watch A Laugh Bite</h2>
+            <div className="videos-section mt-3"
+            style={{
+                border: '4px solid #ccc', // Adds a 2px solid border with a light gray color
+                padding: '20px', // Adds padding inside the border
+                borderRadius: '8px', // Optional: Adds rounded corners
+            }}
+            >
                 {/*<h2 className="text-center">Random Videos</h2>*/}
                 <RandomVideos />  {/* Include the Videos component here */}
             </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const BreakingNewsBanner = () => {
     const headlines = [
-        "Breaking: Local celebrity arrested for teaching raccoons to 'flip the bird' in public parks!",
+        "Melania Trump has confessed to being a KGB Russian spy!",
         "Scandal: Senator caught pants-less at the podium, claims it was a 'protest against restrictive fashion laws'!",
         "Shocking: Tech mogul buys entire chain of gyms, renames them 'Sweatcoin Mining Facilities'!",
         "Outrage: Pop star's new art exhibit features nude statues of critics labeled 'Losers in Marble'!",

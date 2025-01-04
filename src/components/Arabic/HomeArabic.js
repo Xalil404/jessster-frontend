@@ -204,7 +204,14 @@ const HomeArabic = () => {
             </div>
 
             {/* Videos Section */}
-            <div className="videos-section mt-5">
+            <h2 className="mt-5 text-end fw-boldة">شاهد أحدث الفيديوهات المضحكة |</h2>
+            <div className="videos-section mt-3"
+            style={{
+                border: '4px solid #ccc', // Adds a 2px solid border with a light gray color
+                padding: '20px', // Adds padding inside the border
+                borderRadius: '8px', // Optional: Adds rounded corners
+            }}
+            >
                 {/*<h2 className="text-center">Newest to Oldest Videos</h2>*/}
                 <ArabicReverseVideos />  {/* Include the Videos component here */}
             </div>
@@ -213,7 +220,14 @@ const HomeArabic = () => {
             <ArMostViewed /> {/* Include MostViewed component */}
 
             {/* Videos Section */}
-            <div className="videos-section mt-5">
+            <h2 className="mt-5 text-end fw-bold">احصل على جرعة من مقاطع الفيديو المضحكة |</h2>
+            <div className="videos-section mt-3"
+            style={{
+                border: '4px solid #ccc', // Adds a 2px solid border with a light gray color
+                padding: '20px', // Adds padding inside the border
+                borderRadius: '8px', // Optional: Adds rounded corners
+            }}
+            >
                 {/*<h2 className="text-center">Oldest to Newest Videos</h2>*/}
                 <ArVideos />  {/* Include the Videos component here */}
             </div>
@@ -222,7 +236,14 @@ const HomeArabic = () => {
             <ArabicMostLiked /> {/* Include MostViewed component */}
 
             {/* Videos Section */}
-            <div className="videos-section mt-5">
+            <h2 className="mt-5 text-end fw-bold">شاهد مقطع مضحك |</h2>
+            <div className="videos-section mt-3"
+            style={{
+                border: '4px solid #ccc', // Adds a 2px solid border with a light gray color
+                padding: '20px', // Adds padding inside the border
+                borderRadius: '8px', // Optional: Adds rounded corners
+            }}
+            >
                 {/*<h2 className="text-center">Random Videos</h2>*/}
                 <ArabicRandomVideos />  {/* Include the Videos component here */}
             </div>
