@@ -12,6 +12,8 @@ import ArticlePage from './components/General/ArticlePage';
 import NotFound from './components/General/NotFound';
 import Contact from './components/General/Contact';
 import Search from './components/General/search';
+import About from './components/General/About';
+import Donate from './components/General/Donate';
 
 // English
 import HomeEnglish from './components/English/HomeEnglish';
@@ -67,6 +69,8 @@ const AppContent = () => {
         location.pathname === '/logout' || 
         location.pathname === '/tasks' || 
         location.pathname === '/profile' ||
+        location.pathname === '/about' ||
+        location.pathname === '/donate' ||
         location.pathname.startsWith('/posts/')
     );
 
@@ -88,6 +92,8 @@ const AppContent = () => {
                 <Route path="/ar/articles" element={<ArabicAllArticles />} />
                 <Route path="/arabic" element={<HomeArabic />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/donate" element={<Donate />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route 

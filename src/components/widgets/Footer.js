@@ -38,8 +38,13 @@ const Footer = () => {
             {/* Navigation Section */}
             <ul className="nav col-md-4 justify-content-end">
             <li className="nav-item px-2">
-                    <Link to="/" className="nav-link px-2 text-dark">
+                    <Link to="/about" className="nav-link px-2 text-dark">
                         About
+                    </Link>
+                </li>
+                <li className="nav-item px-2">
+                    <Link to="/donate" className="nav-link px-2 text-dark">
+                        Donate
                     </Link>
                 </li>
                 <li className="nav-item px-2">
