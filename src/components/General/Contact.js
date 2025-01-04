@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ const ContactForm = () => {
         try {
             const response = await axios.post('https://jessster-476efeac7498.herokuapp.com/api/contact/', formData, {
                 headers: {
-                    'Content-Type': 'application/json', // Ensure content type is JSON
+                    'Content-Type': 'application/json',
                 },
             });
 
@@ -48,12 +48,23 @@ const ContactForm = () => {
 
     return (
         <div className="container mt-5 mb-5">
-            <h1 className="text-center pb-3">Contact Us @ jessster</h1>
+            <h1 className="text-center pb-3">Contact Us @ Jessster</h1>
             <p className="text-center pb-3">
                 If you have any questions or inquiries, feel free to reach out to us using the form below.
             </p>
 
-            <div className="row justify-content-center">
+            <div className="row">
+                {/* Left Column for Image */}
+                <div className="col-md-6 d-none d-md-block">
+                    <img
+                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736004596/web_development___tasks_teamwork_team_working_together_website_webpage_people_ev27gz.png"
+                        alt="Contact Us"
+                        className="img-fluid"
+                        style={{ borderRadius: '10px' }}
+                    />
+                </div>
+
+                {/* Right Column for Form */}
                 <div className="col-md-6">
                     {error && <div className="alert alert-danger">{error}</div>}
                     {success && <div className="alert alert-success">{success}</div>}
@@ -113,18 +124,19 @@ const ContactForm = () => {
                             />
                         </div>
 
-                        <div className="mt-5">
-                            <button type="submit" className="btn btn-dark mx-auto d-block">
+                        <div className="mt-4 text-center">
+                            <button type="submit" className="btn btn-dark w-75 fw-bold">
                                 Submit
                             </button>
-                            {/* Home Button */}
-                            <div className="mt-5">
-                                <Link to="/" className="btn btn-secondary mx-auto d-block w-50">
-                                    Back to Home Page
-                                </Link>
-                            </div>
                         </div>
                     </form>
+
+                    {/* Back to Home Button */}
+                    <div className="mt-4 text-center">
+                        <Link to="/" className="btn btn-secondary w-30 fw-bold">
+                            Back to Home Page
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
