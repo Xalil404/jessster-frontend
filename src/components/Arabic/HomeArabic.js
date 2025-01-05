@@ -257,9 +257,10 @@ const HomeArabic = () => {
                             </a>
                         </div>
                     </div>
+                    {/*
                     <div className="col-12 col-md-3 mt-4">
                         <div className="my-5 d-flex justify-content-center">
-                            {/* Button to link to Google Play Store */}
+                           
                             <a href="https://play.google.com/store/apps/details?id=com.cnn.mobile.android.phone&hl=en" target="_blank" rel="noopener noreferrer">
                                 <img
                                     src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png"
@@ -269,6 +270,7 @@ const HomeArabic = () => {
                             </a>
                         </div>
                     </div>
+                    */}
                 </div>
             </div>
 
