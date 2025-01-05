@@ -18,13 +18,18 @@ const About = () => {
 
                 {/* Content Column */}
                 <div className="col-lg-6">
-                    <h2>About Us</h2>
+                    <h2 className='text-center mb-3'>About Us</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam vehicula, tortor vitae pharetra pellentesque, risus orci suscipit lorem,
-                        nec facilisis orci magna non neque. Ut porttitor eget orci id ultricies.
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                        Integer non tincidunt risus. Donec ut nulla accumsan, tincidunt nulla a, pharetra justo.
+                        Welcome to Jessster, the internet's favorite destination for funny and comedic news! 🎉 
+                    </p>
+                    <p>
+                        At Jessster, we believe the world is serious enough, so we’ve made it our mission to bring a smile to your face with every article we publish. From satirical takes on trending topics to laugh-out-loud fictional headlines, we’re here to brighten your day with a hearty dose of humor.
+                    </p>
+                    <p>
+                        Your support helps us keep the laughs coming! Whether it's a coffee to fuel our writers’ wittiest ideas or a donation to keep our site running smoothly, every little bit goes a long way in spreading joy and giggles across the web.
+                    </p>
+                    <p>
+                        Thank you for being part of the Jessster community. Let's keep laughing together! 😊
                     </p>
                     {/*
                     <Link to="/" className="btn btn-primary btn-lg">
@@ -48,7 +53,7 @@ const About = () => {
                 <p className="mb-4">
                     Your contributions help us continue providing valuable content and resources.
                 </p>
-                <Link to="/donate" className="btn btn-dark btn-lg">
+                <Link to="/donate" className="btn btn-dark btn-lg fw-bold">
                     Make a Donation
                 </Link>
             </div>

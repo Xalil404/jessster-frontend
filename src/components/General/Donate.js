@@ -8,17 +8,33 @@ const Donate = () => {
             <div className="row align-items-center mb-5">
                 {/* Content Column */}
                 <div className="col-lg-6">
-                    <h2>Donate to Us</h2>
+                    <h2 className='text-center mb-3'>Support Us</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam vehicula, tortor vitae pharetra pellentesque, risus orci suscipit lorem,
-                        nec facilisis orci magna non neque. Ut porttitor eget orci id ultricies.
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
-                        Integer non tincidunt risus. Donec ut nulla accumsan, tincidunt nulla a, pharetra justo.
+                    At Jessster, we’re on a mission to bring a little humor and a lot of joy into your daily routine. From hilarious headlines to comedic takes on the news, our goal is to make you smile, chuckle, and maybe even laugh out loud.
                     </p>
+                    <p>
+                    But keeping the laughs rolling isn’t free—we rely on the support of our amazing readers (that’s you!) to keep the jokes flowing and the website running smoothly. Your donations help us:
+                    </p>
+                    <p>
+                    Brew endless coffee for our pun-loving writers ☕
+                    </p>
+                    <p>
+                    Cover the cost of hosting all our comedic masterpieces 💻
+                    </p>
+                    <p>
+                    Dream up bigger, bolder, and funnier ideas to share with the world 💡
+                    </p>
+                    <p>
+                    If Jessster has ever brightened your day, consider giving back! Every contribution, big or small, helps us keep doing what we love: spreading laughter one article at a time.
+                    </p>
+                    <p>
+                    Thank you for being part of the Jessster family. Together, we can make the world a funnier place! 😄
+                    </p>
+                    {/*
                     <Link to="/" className="btn btn-primary btn-lg">
                         Learn More
                     </Link>
+                    */}
                 </div>
 
                 {/* Image Column */}
@@ -38,7 +54,7 @@ const Donate = () => {
                 <div className="col-md-4 mb-4">
                     <div className="card p-3">
                         <img
-                            src="https://via.placeholder.com/100"
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736066921/Frame_427318908_knlxqs.png"
                             alt="PayPal"
                             className="img-fluid mb-3"
                         />
@@ -53,12 +69,12 @@ const Donate = () => {
                 <div className="col-md-4 mb-4">
                     <div className="card p-3">
                         <img
-                            src="https://via.placeholder.com/100"
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736066914/Frame_427318907_kdbzpr.png"
                             alt="Buy Me a Coffee"
                             className="img-fluid mb-3"
                         />
                         <h5>Buy Me a Coffee</h5>
-                        <Link to="/donate/coffee" className="btn btn-primary btn-sm">
+                        <Link to="https://buymeacoffee.com/jessster" className="btn btn-primary btn-sm">
                             Support Us
                         </Link>
                     </div>
@@ -68,12 +84,12 @@ const Donate = () => {
                 <div className="col-md-4 mb-4">
                     <div className="card p-3">
                         <img
-                            src="https://via.placeholder.com/100"
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736066914/Frame_427318909_vrnfe3.png"
                             alt="Ko-fi"
                             className="img-fluid mb-3"
                         />
                         <h5>Ko-fi</h5>
-                        <Link to="/donate/kofi" className="btn btn-primary btn-sm">
+                        <Link to="https://ko-fi.com/jessster" className="btn btn-primary btn-sm">
                             Donate on Ko-fi
                         </Link>
                     </div>
@@ -113,7 +129,7 @@ const Donate = () => {
                 <div className="col-md-4 mb-4">
                     <div className="card p-3">
                         <img
-                            src="https://via.placeholder.com/100"
+                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736069093/Frame_427318910_inaak1.png"
                             alt="Other"
                             className="img-fluid mb-3"
                         />
