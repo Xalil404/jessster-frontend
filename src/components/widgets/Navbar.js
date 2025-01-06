@@ -113,7 +113,7 @@ const Header = () => {
 
                         {!isAuthenticated ? (
                             <>
-                                
+                                {/*}
                                 <Link
                                     className="nav-link-a d-none d-lg-block text-dark"
                                     style={{ marginRight: '10px', textDecoration: 'none' }}
@@ -129,6 +129,7 @@ const Header = () => {
                                 >
                                     Apple Pop up
                                 </Link>
+                                */}
                                 
                                 <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginRight: '15px' }} to="/login">
                                     Sign in
