@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../../services/api';
+import GoogleLoginPagePopup from '../auth/GoogleLoginPagePopup'; // Import Google Login
+import AppleLoginPage from '../auth/AppleLoginPage'; // Import Apple Login
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -48,8 +50,19 @@ const Login = () => {
                             <h2 className='fw-bold'>Sign in to Jessster</h2>
                         </div>
 
-                        {/* Divider with text */}
-                        <div className="text-center my-3">
+                        <div className="card-body">
+                            {/* Google and Apple Login Buttons */}
+                            <div className="social-login-buttons d-flex mb-3 justify-content-center">
+                                <div className="d-flex flex-column align-items-center mx-2">
+                                    <GoogleLoginPagePopup />
+                                </div>
+                                <div className="d-flex flex-column align-items-center mx-2">
+                                    <AppleLoginPage />
+                                </div>
+                            </div>
+
+                            {/* Divider with text */}
+                            <div className="text-center my-3">
                                 <div className="d-flex align-items-center justify-content-center">
                                     <hr className="flex-grow-1 border-top border-secondary" />
                                     <span className="mx-3 text-dark" style={{ whiteSpace: 'nowrap' }}>
@@ -59,54 +72,55 @@ const Login = () => {
                                 </div>
                             </div>
 
-                        <div className="card-body">
-                            {/* Login Form */}
-                            <form onSubmit={handleSubmit}>
-                                <input
-                                    type="email"
-                                    className="form-control mb-3"
-                                    placeholder="Email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                />
-                                <input
-                                    type="password"
-                                    className="form-control mb-3"
-                                    placeholder="Password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    required
-                                />
-                                <div className="social-login-buttons">
-                                    <button
-                                        type="submit"
-                                        className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button fw-bold"
-                                        style={{ backgroundColor: '#000', color: 'white' }}
-                                        disabled={loading}
-                                    >
-                                        {loading ? 'Logging in...' : 'Sign In'}
-                                    </button>
-                                </div>
-                            </form>
+                            <div className="card-body">
+                                {/* Login Form */}
+                                <form onSubmit={handleSubmit}>
+                                    <input
+                                        type="email"
+                                        className="form-control mb-3"
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                    <input
+                                        type="password"
+                                        className="form-control mb-3"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                    <div className="social-login-buttons">
+                                        <button
+                                            type="submit"
+                                            className="btn btn-lg mx-auto d-block w-100 py-3 rounded-button fw-bold"
+                                            style={{ backgroundColor: '#000', color: 'white' }}
+                                            disabled={loading}
+                                        >
+                                            {loading ? 'Logging in...' : 'Sign In'}
+                                        </button>
+                                    </div>
+                                </form>
 
-                            {/* Error Message */}
-                            {error && <p style={{ color: 'red' }}>{error}</p>}
+                                {/* Error Message */}
+                                {error && <p style={{ color: 'red' }}>{error}</p>}
 
-                            <hr />
+                                <hr />
 
-                            {/* Links for Forgot Password and Sign Up */}
-                            <p className="text-center">
-                                <a href="https://jessster-476efeac7498.herokuapp.com/accounts/password/reset/" className="text-dark">
-                                    Forgot Password?
-                                </a>
-                            </p>
-                            <p className="text-center">
-                                Don't have an account?{' '}
-                                <a href="/register" className="text-dark">
-                                    Sign up
-                                </a>
-                            </p>
+                                {/* Links for Forgot Password and Sign Up */}
+                                <p className="text-center">
+                                    <a href="https://jessster-476efeac7498.herokuapp.com/accounts/password/reset/" className="text-dark">
+                                        Forgot Password?
+                                    </a>
+                                </p>
+                                <p className="text-center">
+                                    Don't have an account?{' '}
+                                    <a href="/register" className="text-dark">
+                                        Sign up
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
