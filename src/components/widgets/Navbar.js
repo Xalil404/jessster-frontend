@@ -113,6 +113,23 @@ const Header = () => {
 
                         {!isAuthenticated ? (
                             <>
+                                
+                                <Link
+                                    className="nav-link-a d-none d-lg-block text-dark"
+                                    style={{ marginRight: '10px', textDecoration: 'none' }}
+                                    to="/google-login" // Adjust this to the path of your Google login page
+                                >
+                                    Google Pop Up
+                                </Link>
+
+                                <Link
+                                    className="nav-link-a d-none d-lg-block text-dark"
+                                    style={{ marginRight: '10px', textDecoration: 'none' }}
+                                    to="/apple-login" // Adjust this to the path of your Google login page
+                                >
+                                    Apple Pop up
+                                </Link>
+                                
                                 <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginRight: '15px' }} to="/login">
                                     Sign in
                                 </Link>

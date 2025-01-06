@@ -34,6 +34,8 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Logout from './components/auth/Logout';
 import PrivateRoute from './components/auth/PrivateRoute';
+import GoogleLoginPagePopup from './components/auth/GoogleLoginPagePopup';
+import AppleLoginPage from './components/auth/AppleLoginPage';
 // SaaS
 import Dashboard from './components/SaaS/Dashboard';
 import Tasks from './components/SaaS/Tasks';
@@ -96,6 +98,8 @@ const AppContent = () => {
                 <Route path="/donate" element={<Donate />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/google-login" element={<GoogleLoginPagePopup />} />
+                <Route path="/apple-login" element={<AppleLoginPage />} />
                 <Route 
                     path="/dashboard" 
                     element={
