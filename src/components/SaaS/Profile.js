@@ -125,7 +125,7 @@ const Profile = () => {
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-4 d-flex flex-column justify-content-center" style={{ minHeight: '80vh' }}>
                         <div className="text-center mb-4 d-flex align-items-center justify-content-center">
                             <img
-                                src={profilePicture ? profilePicture : "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png"}
+                                src={profilePicture ? profilePicture : "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736169445/cartoonish_animated_black_and_white_profile_image_of_a_jester_facing_forward_ixolqj.jpg"}
                                 alt="Profile"
                                 style={{ width: '100px', height: '100px', borderRadius: '50%', marginRight: '10px' }}
                             />

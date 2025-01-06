@@ -168,7 +168,7 @@ const Header = () => {
                                     aria-expanded="false"
                                 >
                                     <img
-                                        src={profilePicture || "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png"}
+                                        src={profilePicture || "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736169445/cartoonish_animated_black_and_white_profile_image_of_a_jester_facing_forward_ixolqj.jpg"}
                                         alt="Profile"
                                         className="rounded-circle"
                                         width="40"

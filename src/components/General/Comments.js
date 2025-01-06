@@ -81,7 +81,7 @@ const Comments = ({ postSlug, isAuthenticated, token }) => {
                     comments.map((comment) => (
                         <div key={comment.id} className="mb-4 d-flex align-items-start">
                             <img
-                                src={comment.profile_image || 'https://res.cloudinary.com/dnbbm9vzi/image/upload/v1726685042/Group_949_oufsqq.png'} // Fallback to default image
+                                src={comment.profile_image || 'https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736169445/cartoonish_animated_black_and_white_profile_image_of_a_jester_facing_forward_ixolqj.jpg'} // Fallback to default image
                                 alt={`${comment.username || 'User'}'s profile`}
                                 className="rounded-circle me-3"
                                 style={{ width: '40px', height: '40px', objectFit: 'cover' }}
