@@ -51,15 +51,16 @@ const Dashboard = () => {
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/tasks">Tasks</Link>
+                                <Link className="nav-link text-dark" to="/bookmarks">Saved Articles</Link>
                             </li>
                             <hr className="divider" />
+                            
                             <li className="nav-item">
                                 <Link className="nav-link text-dark" to="/profile">Profile</Link>
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/feature1">Feature 1</Link>
+                                <Link className="nav-link text-dark" to="/">Home Page</Link>
                             </li>
                             <hr className="divider" />
                         </ul>
@@ -82,23 +83,26 @@ const Dashboard = () => {
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-4 d-flex flex-column justify-content-center" style={{ minHeight: '80vh' }}>
                         <div className="text-center mb-4 d-flex align-items-center justify-content-center">
                             <img
-                                src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729505462/static/favicon_io/apple-touch-icon.234aad4ee54e.png"
+                                src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736174973/image-removebg-preview_1_rez4gn.png"
                                 alt="Logo"
-                                style={{ width: '50px', height: '50px', marginRight: '10px' }}
+                                style={{ width: '100px', height: '100px', marginRight: '0px' }}
                             />
-                            <h1 className="d-inline mb-0">Project Name</h1>
+                            <h1 className="d-inline mb-0">Jessster Times</h1>
                         </div>
 
                         {/* Welcome section for the homepage */}
                         {location.pathname === '/dashboard' && (
                             <div className="row align-items-center justify-content-center" style={{ flex: 1 }}>
                                 <div className="col-md-6">
-                                    <h1 className="mb-3 fw-bold">Welcome to Project Name!</h1>
-                                    <h6 className="fw-bold">Sed accumsan sit amet magna fringilla accumsan. Sed accumsan sit amet magna fringilla accumsan.</h6>
+                                    <h1 className="mb-3 fw-bold">Welcome to your Jessster account!</h1>
+                                    <h6 className="fw-bold mb-3">Articles you like will be saved to your account.</h6>
+                                    <p className="fw-bold"> Use the side menu to the left to access your liked articles.
+                                        Check in here periodically for updates and new features!
+                                    </p>
                                 </div>
                                 <div className="col-md-6 text-center">
                                     <img
-                                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1729520568/Group_27_yp99rq.png"
+                                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736173686/animals___costume_halloween_outfit_clothes_clothing_cat_feline_kitten_woman_people_vdpry9.png"
                                         alt="Welcome"
                                         className="img-fluid"
                                         style={{ maxWidth: '100%', height: 'auto' }}

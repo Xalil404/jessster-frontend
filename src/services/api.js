@@ -327,3 +327,29 @@ export const fetchSearchResults = async (query) => {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to fetch liked articles
+export const fetchLikedArticles = async () => {
+    try {
+        const response = await api.get('/user/liked-articles/');
+        return response.data; // Returns the liked articles data
+    } catch (error) {
+        console.error('Error fetching liked articles:', error);
+        throw error.response?.data || error; // Handle the error response
+    }
+};

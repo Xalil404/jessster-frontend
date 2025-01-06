@@ -11,7 +11,8 @@ const Footer = () => {
         location.pathname === '/dashboard' ||
         location.pathname === '/tasks' ||
         location.pathname === '/profile' ||
-        location.pathname === '/logout'
+        location.pathname === '/logout' ||
+        location.pathname === '/bookmarks'
     ) {
         return null; // Do not render footer
     }

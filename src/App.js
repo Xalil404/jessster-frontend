@@ -40,6 +40,7 @@ import AppleLoginPage from './components/auth/AppleLoginPage';
 import Dashboard from './components/SaaS/Dashboard';
 import Tasks from './components/SaaS/Tasks';
 import Profile from './components/SaaS/Profile';
+import Bookmarks from './components/SaaS/Bookmarks';
 
 const App = () => {
     return (
@@ -73,6 +74,7 @@ const AppContent = () => {
         location.pathname === '/profile' ||
         location.pathname === '/about' ||
         location.pathname === '/donate' ||
+        location.pathname === '/bookmarks' ||
         location.pathname.startsWith('/posts/')
     );
 
@@ -129,6 +131,14 @@ const AppContent = () => {
                     element={
                         <PrivateRoute>
                             <Profile />
+                        </PrivateRoute>
+                    } 
+                /> 
+                <Route 
+                    path="/bookmarks" 
+                    element={
+                        <PrivateRoute>
+                            <Bookmarks />
                         </PrivateRoute>
                     } 
                 />
