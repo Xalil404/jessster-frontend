@@ -237,7 +237,7 @@ const HomeRussian = () => {
 
             {/* Section 5 - Get mobile app */}
             <div className="container-fluid p-0 text-center">
-                <h1 className="display-5 fw-bold mb-5">Возьмите Jessster с собой</h1>
+                <h1 className="display-5 fw-bold mb-5">Возьмите Джессстер с собой</h1>
                 {/* Full-Width Image */}
                 <div className="row">
                     <div className="col-12">

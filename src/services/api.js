@@ -137,34 +137,6 @@ export const updateProfile = async (profileData, token) => {
 };
 
 
-
-/*
-// Function to update the user's profile with profile picture upload
-export const updateProfile = async (profileData, token, profilePicture) => {
-    try {
-        // Create a new FormData object
-        const formData = new FormData();
-
-        // If profile picture is provided, append it to the formData
-        if (profilePicture) {
-            formData.append('profile_picture', profilePicture);
-        }
-
-        // Send the PATCH request with FormData
-        const response = await axios.patch(`${API_URL}/profile/`, formData, {
-            headers: {
-                Authorization: `Token ${token}`,
-                'Content-Type': 'multipart/form-data', // Ensure the correct content type for form data
-            },
-        });
-
-        return response.data; // Returns the updated profile data
-    } catch (error) {
-        throw error.response?.data || error.message; // Handle the error response
-    }
-};
-*/
-
 // Function to delete the user's profile
 export const deleteProfile = async (token) => {
     try {
