@@ -4,9 +4,7 @@ import { fetchProfile, updateProfile, deleteProfile } from '../../services/api';
 
 const Profile = () => {
     const [profile, setProfile] = useState(null);
-    const [bio, setBio] = useState('');
     const [profilePicture, setProfilePicture] = useState(null);
-    const [editMode, setEditMode] = useState(false);
     const [error, setError] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [showImageModal, setShowImageModal] = useState(false);
@@ -21,7 +19,6 @@ const Profile = () => {
                 const profileData = await fetchProfile(token);
                 console.log(profileData); 
                 setProfile(profileData);
-                setBio(profileData.bio);
                 setProfilePicture(profileData.profile_picture);
             } catch (err) {
                 setError(err.detail || 'Error fetching profile');
@@ -35,14 +32,10 @@ const Profile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-    
+
         // Prepare updated profile data
         const formData = new FormData();
         
-        if (bio !== profile.bio) {
-            formData.append('bio', bio); // Only append bio if it has changed
-        }
-    
         if (profilePicture) {
             formData.append('profile_picture', profilePicture); // Only append profile picture if selected
         }
@@ -50,7 +43,6 @@ const Profile = () => {
         try {
             // Update user profile
             const updatedProfile = await updateProfile(formData, token);
-            setEditMode(false);
     
             // Update the profile state with the new data
             setProfile((prevProfile) => ({
@@ -61,10 +53,6 @@ const Profile = () => {
             setError('Error updating profile');
             console.error('Error updating profile:', error);
         }
-    };
-
-    const handleEdit = () => {
-        setEditMode(true); // Enable edit mode for bio
     };
 
     const confirmDeleteProfile = () => {
@@ -100,9 +88,12 @@ const Profile = () => {
     };
 
     const handleResetImage = () => {
-        setProfilePicture(null); // Reset to default image
-        setImageToDelete(true); // Set flag for deleting the profile image
+        const defaultImageUrl =
+            "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736169445/cartoonish_animated_black_and_white_profile_image_of_a_jester_facing_forward_ixolqj.jpg";
+        setProfilePicture(defaultImageUrl);
+        setShowImageModal(false); // Close the modal after resetting
     };
+    
 
     return (
         <div className='dashboard-background-profile'>
@@ -184,51 +175,10 @@ const Profile = () => {
                             <p><strong>Email:</strong> {profile?.email || 'No email available'}</p>
                         </div>
 
-                        {/* Profile Details 
-                        <div className="text-center mb-4">
-                            <p><strong>Bio:</strong> {bio}</p>
-                        </div>
-                        */}
-
-                        {/* Edit and Delete Buttons */}
+                        {/* Delete Button */}
                         <div className="d-flex justify-content-center">
-                         {/*}   <button onClick={handleEdit} className="btn btn-warning mx-2">Edit Bio</button>
-                                */}
                             <button onClick={confirmDeleteProfile} className="btn btn-danger mx-2 fw-bold">Delete Profile</button>
                         </div>
-
-                        {/* Edit Profile Modal (Bio) */}
-                        {editMode && (
-                            <div className="modal fade show" id="editProfileModal" tabIndex="-1" style={{ display: 'block' }} aria-hidden="false">
-                                <div className="modal-dialog">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h5 className="modal-title">Edit Profile</h5>
-                                            <button type="button" className="btn-close" onClick={() => setEditMode(false)} aria-label="Close"></button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <form onSubmit={handleSubmit}>
-                                                <div className="mb-2">
-                                                    <input
-                                                        type="text"
-                                                        placeholder="Bio"
-                                                        value={bio}
-                                                        onChange={(e) => setBio(e.target.value)}
-                                                        required
-                                                        className="form-control"
-                                                    />
-                                                </div>
-
-                                                <div className="modal-footer">
-                                                    <button type="button" className="btn btn-secondary" onClick={() => setEditMode(false)}>Cancel</button>
-                                                    <button type="submit" className="btn btn-primary">Save Changes</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
 
                         {/* Profile Image Modal */}
                         {showImageModal && (
@@ -236,11 +186,18 @@ const Profile = () => {
                                 <div className="modal-dialog">
                                     <div className="modal-content text-center" style={{ backgroundColor: '#F9FAFC' }}>
                                         <div className="modal-header">
-                                            <h5 className="modal-title fw-bold" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>Update Profile Picture</h5>
+                                            <h5 className="modal-title fw-bold" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+                                                Update Profile Picture
+                                            </h5>
                                             <button type="button" className="btn-close" onClick={() => setShowImageModal(false)} aria-label="Close"></button>
                                         </div>
                                         <div className="modal-body">
-                                            <form>
+                                            <form
+                                                onSubmit={(e) => {
+                                                    handleSubmit(e);
+                                                    setShowImageModal(false); // Close modal after successful submit
+                                                }}
+                                            >
                                                 <div className="mb-2">
                                                     <input
                                                         type="file"
@@ -249,13 +206,19 @@ const Profile = () => {
                                                     />
                                                 </div>
                                                 <div className="mb-2">
-                                                    <button type="button" className="btn btn-danger mt-3 fw-bold" onClick={handleResetImage}>Reset to Default image</button>
+                                                    <button type="button" className="btn btn-danger mt-3 fw-bold" onClick={handleResetImage}>
+                                                        Reset to Default image
+                                                    </button>
+                                                </div>
+                                                <div className="modal-footer d-flex justify-content-between">
+                                                    <button type="button" className="btn btn-secondary fw-bold" onClick={() => setShowImageModal(false)}>
+                                                        Cancel
+                                                    </button>
+                                                    <button type="submit" className="btn btn-primary fw-bold">
+                                                        Save
+                                                    </button>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div className="modal-footer d-flex justify-content-between">
-                                            <button type="button" className="btn btn-secondary fw-bold" onClick={() => setShowImageModal(false)}>Cancel</button>
-                                            <button type="button" className="btn btn-primary fw-bold" onClick={() => setShowImageModal(false)}>Save</button>
                                         </div>
                                     </div>
                                 </div>

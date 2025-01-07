@@ -123,7 +123,7 @@ export const fetchProfile = async (token) => {
 };
 
 
-/*
+
 // Function to update the user's profile
 export const updateProfile = async (profileData, token) => {
     try {
@@ -135,16 +135,15 @@ export const updateProfile = async (profileData, token) => {
         throw error.response?.data || error.message; // Handle the error response
     }
 };
-*/
 
-// Function to update the user's profile with potential file upload (e.g., profile picture)
+
+
+/*
+// Function to update the user's profile with profile picture upload
 export const updateProfile = async (profileData, token, profilePicture) => {
     try {
         // Create a new FormData object
         const formData = new FormData();
-
-        // Append bio and profile picture to formData
-        formData.append('bio', profileData.bio);
 
         // If profile picture is provided, append it to the formData
         if (profilePicture) {
@@ -164,7 +163,7 @@ export const updateProfile = async (profileData, token, profilePicture) => {
         throw error.response?.data || error.message; // Handle the error response
     }
 };
-
+*/
 
 // Function to delete the user's profile
 export const deleteProfile = async (token) => {
