@@ -8,7 +8,6 @@ const Profile = () => {
     const [error, setError] = useState(null);
     const [confirmDelete, setConfirmDelete] = useState(false);
     const [showImageModal, setShowImageModal] = useState(false);
-    const [imageToDelete, setImageToDelete] = useState(false);
     const token = localStorage.getItem('authToken');
     const navigate = useNavigate();
 
@@ -32,22 +31,31 @@ const Profile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-
-        // Prepare updated profile data
+        
         const formData = new FormData();
-        
-        if (profilePicture) {
-            formData.append('profile_picture', profilePicture); // Only append profile picture if selected
-        }
-        
-        try {
-            // Update user profile
-            const updatedProfile = await updateProfile(formData, token);
     
-            // Update the profile state with the new data
+        if (profilePicture) {
+            // Validate file extension before appending
+            const fileExtension = profilePicture.name.split('.').pop().toLowerCase();
+            const allowedExtensions = ['jpg', 'jpeg', 'png', 'webp']; // Allowed file types
+    
+            if (allowedExtensions.includes(fileExtension)) {
+                formData.append('profile_picture', profilePicture);
+            } else {
+                setError('Invalid file type. Allowed types are: jpg, jpeg, png, webp.');
+                return; // Prevent form submission
+            }
+        } else {
+            // Send an empty file or explicit request to reset the profile picture
+            const emptyFile = new File([], ''); // Creating an empty file
+            formData.append('profile_picture', emptyFile);
+        }
+    
+        try {
+            const updatedProfile = await updateProfile(formData, token);
             setProfile((prevProfile) => ({
                 ...prevProfile,
-                ...updatedProfile, // Update changed fields
+                ...updatedProfile, 
             }));
         } catch (error) {
             setError('Error updating profile');
@@ -76,7 +84,6 @@ const Profile = () => {
     };
 
     const handleLogout = () => {
-        // Redirect to the Logout component
         navigate('/logout');
     };
 
@@ -88,12 +95,9 @@ const Profile = () => {
     };
 
     const handleResetImage = () => {
-        const defaultImageUrl =
-            "https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736169445/cartoonish_animated_black_and_white_profile_image_of_a_jester_facing_forward_ixolqj.jpg";
-        setProfilePicture(defaultImageUrl);
-        setShowImageModal(false); // Close the modal after resetting
+        setProfilePicture(null); // Reset the image to null instead of a URL
+        setShowImageModal(true); // Open the modal after resetting
     };
-    
 
     return (
         <div className='dashboard-background-profile'>
@@ -141,7 +145,7 @@ const Profile = () => {
 
                     {/* Main Content */}
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-4 d-flex flex-column justify-content-center" style={{ minHeight: '80vh' }}>
-                    <div className="text-center mb-4 d-flex align-items-center justify-content-center">
+                        <div className="text-center mb-4 d-flex align-items-center justify-content-center">
                             <img
                                 src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736174973/image-removebg-preview_1_rez4gn.png"
                                 alt="Logo"
@@ -149,7 +153,7 @@ const Profile = () => {
                             />
                             <h1 className="d-inline mb-0">Jessster Times</h1>
                         </div>
-                        
+
                         {/* Profile Section */}
                         <div className="text-center mb-4 d-flex align-items-center justify-content-center" style={{ flex: 1 }}>
                             <div className="position-relative">
