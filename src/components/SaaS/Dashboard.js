@@ -42,25 +42,25 @@ const Dashboard = () => {
                 <div className="row">
                     {/* Sidebar */}
                     <nav className="col-md-2 d-none d-md-block sidebar">
-                        <h2 className="sidebar-heading text-center">Menu</h2>
+                        <h2 className="sidebar-heading text-center fw-bold mt-3">Menu</h2>
                         <ul className="nav flex-column">
                         <hr className="divider" />
                             <li className="nav-item">
-                                <Link className="nav-link text-dark"
+                                <Link className="nav-link text-dark fw-bold"
                                  to="/dashboard">Dashboard</Link>
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/bookmarks">Saved Articles</Link>
+                                <Link className="nav-link text-dark fw-bold" to="/bookmarks">Saved Articles</Link>
                             </li>
                             <hr className="divider" />
                             
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/profile">Profile</Link>
+                                <Link className="nav-link text-dark fw-bold" to="/profile">Profile</Link>
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">Home Page</Link>
+                                <Link className="nav-link text-dark fw-bold" to="/">Home Page</Link>
                             </li>
                             <hr className="divider" />
                         </ul>
@@ -68,11 +68,11 @@ const Dashboard = () => {
                         {/* User Info and Logout Section */}
                         <div className="sidebar-user-info mt-4 text-center fw-bold">
                             {userProfile && (
-                                <p>Welcome, {userProfile.username}! {/* (ID: {userProfile.id}) */}</p>
+                                <p>Welcome, {userProfile.username} ! {/* (ID: {userProfile.id}) */}</p>
                             )}
                             <button 
                                 onClick={handleLogout} 
-                                className="btn btn-sm btn-danger"
+                                className="btn btn-sm btn-danger fw-bold"
                             >
                                 Logout
                             </button>
@@ -93,7 +93,7 @@ const Dashboard = () => {
                         {/* Welcome section for the homepage */}
                         {location.pathname === '/dashboard' && (
                             <div className="row align-items-center justify-content-center" style={{ flex: 1 }}>
-                                <div className="col-md-6">
+                                <div className="col-md-6 text-center">
                                     <h1 className="mb-3 fw-bold">Welcome to your Jessster account!</h1>
                                     <h6 className="fw-bold mb-3">Articles you like will be saved to your account.</h6>
                                     <p className="fw-bold"> Use the side menu to the left to access your liked articles.

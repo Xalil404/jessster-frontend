@@ -28,3 +28,57 @@ body, html {
 }
 
 
+                              /* Side navigation bar CSS Border for side navigation menu */
+.sidebar {
+    border-right: 3px solid #ccc; /* You can adjust the color and width */
+    padding-right: 20px; /* Optional, to give some space between content and the border */
+}
+
+
+/* Hover effect for the sidebar items */
+.sidebar .nav-item .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Change background color and text color when hovered */
+.sidebar .nav-item:hover .nav-link {
+    background-color: #d3d3d3; /* Light background color on hover */
+    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 10px; /* Round the corners */
+}
+
+
+
+
+
+
+
+
+
+
+
+                          /* Make sidebar fixed and not scrollable when user has a lot of articles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+    width: 250px; /* Sidebar width */
+    overflow-y: auto; /* Scroll the sidebar if content overflows */
+    padding-top: 20px;
+}
+
+/* Add padding to the right of the content area to prevent it from going under the sidebar */
+.main-content {
+    margin-left: 250px; /* Same width as the sidebar */
+    padding-left: 30px;
+    padding-top: 20px;
+    height: 100vh;
+    overflow-y: auto; /* Allow the articles section to scroll */
+}
+
+/* Ensure the articles section is scrollable */
+.main-content .container {
+    max-height: 100vh;
+    overflow-y: auto;
+}

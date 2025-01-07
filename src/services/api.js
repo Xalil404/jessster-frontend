@@ -123,15 +123,45 @@ export const fetchProfile = async (token) => {
 };
 
 
+/*
 // Function to update the user's profile
 export const updateProfile = async (profileData, token) => {
     try {
-        const response = await axios.put(`${API_URL}/profile/`, profileData, {
-            headers: { Authorization: `Token ${token}` }
+        const response = await axios.patch(`${API_URL}/profile/`, profileData, {
+            headers: { Authorization: `Token ${token}` },
         });
         return response.data; // Returns the updated profile data
     } catch (error) {
-        throw error.response.data; // Handle the error response
+        throw error.response?.data || error.message; // Handle the error response
+    }
+};
+*/
+
+// Function to update the user's profile with potential file upload (e.g., profile picture)
+export const updateProfile = async (profileData, token, profilePicture) => {
+    try {
+        // Create a new FormData object
+        const formData = new FormData();
+
+        // Append bio and profile picture to formData
+        formData.append('bio', profileData.bio);
+
+        // If profile picture is provided, append it to the formData
+        if (profilePicture) {
+            formData.append('profile_picture', profilePicture);
+        }
+
+        // Send the PATCH request with FormData
+        const response = await axios.patch(`${API_URL}/profile/`, formData, {
+            headers: {
+                Authorization: `Token ${token}`,
+                'Content-Type': 'multipart/form-data', // Ensure the correct content type for form data
+            },
+        });
+
+        return response.data; // Returns the updated profile data
+    } catch (error) {
+        throw error.response?.data || error.message; // Handle the error response
     }
 };
 
@@ -325,22 +355,6 @@ export const fetchSearchResults = async (query) => {
         return { results: [] };  // Returning an empty result array in case of error
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Function to fetch liked articles

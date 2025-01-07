@@ -154,7 +154,7 @@ const ArticlePage = () => {
                     <div className="modal-dialog">
                         <div className="modal-content" style={{ backgroundColor: '#F9FAFC' }} >
                             <div className="modal-header">
-                                <h5 className="modal-title fw-bold">Share this article</h5>
+                                <h5 className="modal-title fw-bold" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>Share this article</h5>
                                 <button
                                     type="button"
                                     className="btn-close"
@@ -191,7 +191,7 @@ const ArticlePage = () => {
                     <div className="modal-dialog">
                         <div className="modal-content" style={{ backgroundColor: '#F9FAFC' }}>
                             <div className="modal-header">
-                                <h5 className="modal-title fw-bold">Sign In Required</h5>
+                                <h5 className="modal-title fw-bold" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>Sign In Required</h5>
                                 <button
                                     type="button"
                                     className="btn-close"

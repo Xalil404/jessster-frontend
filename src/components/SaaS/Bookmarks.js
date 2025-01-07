@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { fetchLikedArticles } from '../../services/api'; // Adjust the path as necessary
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { fetchLikedArticles, fetchUserProfile } from '../../services/api'; // Adjust the path as necessary
 
 const Bookmarks = () => {
     const [likedArticles, setLikedArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [userProfile, setUserProfile] = useState(null); // State for user profile
+    const navigate = useNavigate(); // Initialize navigate function
+    const token = localStorage.getItem('authToken'); // Retrieve token from local storage
     const location = useLocation(); // To handle active route styles
 
     useEffect(() => {
@@ -22,8 +24,22 @@ const Bookmarks = () => {
             }
         };
 
+        const loadUserProfile = async () => {
+            try {
+                const profileData = await fetchUserProfile(token);
+                setUserProfile(profileData); // Set user profile
+            } catch (err) {
+                console.error('Error fetching user profile:', err);
+            }
+        };
+
         fetchArticles();
-    }, []);
+        loadUserProfile(); // Fetch user profile when component mounts
+    }, [token]);
+
+    const handleLogout = () => {
+        navigate('/logout');
+    };
 
     return (
         <div className="dashboard-background">
@@ -32,26 +48,37 @@ const Bookmarks = () => {
                 <div className="row">
                     {/* Sidebar */}
                     <nav className="col-md-2 d-none d-md-block sidebar">
-                        <h2 className="sidebar-heading text-center">Menu</h2>
+                        <h2 className="sidebar-heading text-center fw-bold mt-3">Menu</h2>
                         <ul className="nav flex-column">
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className={`nav-link text-dark ${location.pathname === '/dashboard' ? 'active' : ''}`} to="/dashboard">Dashboard</Link>
+                                <Link className={`nav-link text-dark fw-bold ${location.pathname === '/dashboard' ? 'active' : ''}`} to="/dashboard">Dashboard</Link>
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className={`nav-link text-dark ${location.pathname === '/bookmarks' ? 'active' : ''}`} to="/bookmarks">Saved Articles</Link>
+                                <Link className={`nav-link text-dark fw-bold ${location.pathname === '/bookmarks' ? 'active' : ''}`} to="/bookmarks">Saved Articles</Link>
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className={`nav-link text-dark ${location.pathname === '/profile' ? 'active' : ''}`} to="/profile">Profile</Link>
+                                <Link className={`nav-link text-dark fw-bold ${location.pathname === '/profile' ? 'active' : ''}`} to="/profile">Profile</Link>
                             </li>
                             <hr className="divider" />
                             <li className="nav-item">
-                                <Link className="nav-link text-dark" to="/">Home Page</Link>
+                                <Link className="nav-link text-dark fw-bold" to="/">Home Page</Link>
                             </li>
                             <hr className="divider" />
                         </ul>
+
+                        {/* User Info and Logout Section */}
+                        <div className="sidebar-user-info mt-4 text-center fw-bold">
+                            {userProfile && <p>Welcome, {userProfile.username} !</p>}
+                            <button 
+                                onClick={handleLogout} 
+                                className="btn btn-sm btn-danger fw-bold"
+                            >
+                                Logout
+                            </button>
+                        </div>
                     </nav>
 
                     {/* Main Content */}
@@ -66,45 +93,40 @@ const Bookmarks = () => {
                         </div>
 
                         <div className="container mt-1">
-                            
-                          {/*}  <h1 className="mb-4 text-center fw-bold">Liked Articles</h1>*/}
-                            <div className="d-flex justify-content-center"> {/* Flex container for centering */}
-                                <div className="list-group" style={{ width: '75%' }}> {/* 75% width for the list group */}
+                            <div className="d-flex justify-content-center">
+                                <div className="list-group" style={{ width: '75%' }}>
                                     {loading ? (
                                         <p>Loading liked articles...</p>
                                     ) : (
                                         <div>
                                             {likedArticles.length === 0 ? (
                                                 <div className="row">
-                                                <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
-                                                    <h1 className="text-center mb-5 fw-bold">You haven't liked any articles yet.</h1>
-                                                    <h5 className="text-center mb-3">Articles you like will show up here.</h5>
-                                                    <h5 className="text-center">To remove articles from your liked list simply unlike them.</h5>
+                                                    <div className="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                                                        <h1 className="text-center mb-5 fw-bold">You haven't liked any articles yet.</h1>
+                                                        <h5 className="text-center mb-3">Articles you like will show up here.</h5>
+                                                        <h5 className="text-center">To remove articles from your liked list, simply unlike them.</h5>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img
+                                                            src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736181865/web_development___website_webpage_browser_ad_advertisement_man_people_ibpgaq.png"
+                                                            alt="No articles"
+                                                            className="img-fluid"
+                                                            style={{ maxWidth: '100%', height: 'auto' }}
+                                                        />
+                                                    </div>
                                                 </div>
-                                                <div className="col-md-6">
-                                                    <img
-                                                        src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736181865/web_development___website_webpage_browser_ad_advertisement_man_people_ibpgaq.png"  // Replace with an actual image URL
-                                                        alt="No articles"
-                                                        className="img-fluid"
-                                                        style={{ maxWidth: '100%', height: 'auto' }}
-                                                    />
-                                                </div>
-                                            </div>
                                             ) : (
                                                 likedArticles.map((article) => (
                                                     <Link
                                                         key={article.id}
-                                                        to={`/posts/${article.slug}`}  // Link to individual post page
+                                                        to={`/posts/${article.slug}`}
                                                         className="list-group-item list-group-item-action d-flex align-items-center mb-4"
-                                                        style={{
-                                                            transition: 'background-color 0.3s ease', // Smooth transition for hover
-                                                            width: '100%', // Ensure the link takes full width
-                                                        }}
+                                                        style={{ transition: 'background-color 0.3s ease', width: '100%' }}
                                                         onMouseEnter={(e) => {
-                                                            e.currentTarget.style.backgroundColor = '#E5E7EB'; // Hover background color for entire card
+                                                            e.currentTarget.style.backgroundColor = '#E5E7EB';
                                                         }}
                                                         onMouseLeave={(e) => {
-                                                            e.currentTarget.style.backgroundColor = ''; // Reset background color when mouse leaves
+                                                            e.currentTarget.style.backgroundColor = '';
                                                         }}
                                                     >
                                                         <img
@@ -133,3 +155,4 @@ const Bookmarks = () => {
 };
 
 export default Bookmarks;
+
