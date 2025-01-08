@@ -253,7 +253,7 @@ const HomeRussian = () => {
                     <div className="col-12 col-md-3 mt-4">
                         <div className="my-5 d-flex justify-content-center">
                             {/* Button to link to App Store */}
-                            <a href="https://jessster-frontend.vercel.app/404" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.jessster.com/404" target="_blank" rel="noopener noreferrer">
                                 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1314144000&h=91ef6f52d049d3387a50498048775082" alt="Download on the App Store" style={{ width: '200px' }} />
                             </a>
                         </div>
