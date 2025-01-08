@@ -12,6 +12,7 @@ import MostLiked from './MostLiked';
 import MostComment from './MostComment';
 import ReverseVideos from '../English/ReverseVideos';
 import RandomVideos from '../English/RandomVideos';
+import SubscribeSection from './subscribe';
 
 
 const HomeEnglish = () => {
@@ -291,11 +292,13 @@ const HomeEnglish = () => {
             <MostComment /> {/* Include MostViewed component */}
 
             {/* View More Button */}
-            <div className="text-center mt-4">
+            <div className="text-center mt-4 mb-5">
                 <a href="/en/articles" className="btn btn-outline-dark fw-bold btn-lg">
                     View More Articles
                 </a>
             </div>
+
+            <SubscribeSection /> {/* Include subscribe component */}
 
         </div>
     );

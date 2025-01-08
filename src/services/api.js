@@ -338,3 +338,14 @@ export const fetchLikedArticles = async () => {
         throw error.response?.data || error; // Handle the error response
     }
 };
+
+
+// Function to subscribe a user (send email to backend)
+export const subscribeEmail = async (email) => {
+    try {
+        const response = await axios.post(`${API_URL}/subscribe/`, { email });
+        return response.data; // Returns the success message from the response
+    } catch (error) {
+        throw error.response.data; // Handle the error response
+    }
+};

@@ -12,6 +12,7 @@ import ArabicMostComment from './ArabicMostComment';
 import ArabicMostLiked from './ArabicMostLiked';
 import ArabicReverseVideos from '../Arabic/ArabicReverseVideos';
 import ArabicRandomVideos from '../Arabic/ArabicRandomVideos';
+import ArSubscribeSection from './Arsubscribe';
 
 
 const HomeArabic = () => {
@@ -291,11 +292,13 @@ const HomeArabic = () => {
             <ArabicMostComment /> {/* Include MostViewed component */}
 
             {/* View More Button */}
-            <div className="text-center mt-4">
+            <div className="text-center mt-4 mb-5">
                 <a href="/ar/articles" className="btn btn-outline-dark fw-bold btn-lg">
                 المزيد من المقالات
                 </a>
             </div>
+
+            <ArSubscribeSection /> {/* Include subscribe component */}
 
         </div>
     );

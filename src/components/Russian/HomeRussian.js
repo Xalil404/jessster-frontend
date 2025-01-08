@@ -12,6 +12,7 @@ import RuMostLiked from './RuMostLiked';
 import RussianMostComment from './RussianMostComment';
 import RuReverseVideos from '../Russian/RuReverseVideos';
 import RuRandomVideos from '../Russian/RuRandomVideos';
+import RuSubscribeSection from './Rusubscribe';
 
 
 const HomeRussian = () => {
@@ -291,11 +292,13 @@ const HomeRussian = () => {
             <RussianMostComment /> {/* Include MostViewed component */}
 
             {/* View More Button */}
-            <div className="text-center mt-4">
+            <div className="text-center mt-4 mb-5">
                 <a href="/ru/articles" className="btn btn-outline-dark fw-bold btn-lg">
                 Посмотреть больше статей
                 </a>
             </div>
+
+            <RuSubscribeSection /> {/* Include subscribe component */}
 
         </div>
     );

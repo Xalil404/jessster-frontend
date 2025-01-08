@@ -7,12 +7,12 @@ This is the front-end portion of the Jessster web app.
 Link to live site [here](https://jessster-frontend.vercel.app/).
 
 <p align="center">
-<img src="" width="auto" height="auto" alt="image of the Jessster website home page"></p>
+<img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736344560/Screenshot_2025-01-08_at_1.55.35_PM_zhuhis.png" width="auto" height="auto" alt="image of the Jessster website home page"></p>
 
 ## Platform features
 * Frontend in React.
 * API Documentation in Swagger & Redoc.
-* News feed.
+* News feed in 3 languages.
 
 ## Available Scripts
 

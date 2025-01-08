@@ -47,16 +47,6 @@ body, html {
     border-radius: 10px; /* Round the corners */
 }
 
-
-
-
-
-
-
-
-
-
-
                           /* Make sidebar fixed and not scrollable when user has a lot of articles */
 .sidebar {
     position: fixed;
@@ -82,3 +72,4 @@ body, html {
     max-height: 100vh;
     overflow-y: auto;
 }
+
