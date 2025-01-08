@@ -110,8 +110,8 @@ const ArticlePage = () => {
                         backgroundColor: '#FFD700',
                         borderRadius: '20px', 
                         }}>
-                        <h2 className="fw-bold mb-3">Join the Jessster Community!</h2>
-                        <p className="mb-4">Discover more articles and connect with fellow readers.</p>
+                        <h2 className="fw-bold mb-3">Support Jessster!</h2>
+                        <p className="mb-4">Show your appreciation to this platform by making a contribution. Every penny counts.</p>
                         <a href="/donate" className="btn btn-success btn-lg fw-bold">Donate</a>
                     </div>
 
