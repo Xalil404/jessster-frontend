@@ -11,7 +11,7 @@ const AppleLoginPage = () => {
         window.AppleID.auth.init({
           clientId: 'com.jessster.times.web', // Replace with your Apple client ID
           scope: 'name email',
-          redirectURI: 'https://jessster.com/auth/callback', // Replace with your redirect URI
+          redirectURI: 'https://www.jessster.com/auth/callback', // Replace with your redirect URI
           state: 'state', // Optional: Used for CSRF protection
           usePopup: true, // Use popup for better UX
         });
