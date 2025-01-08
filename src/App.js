@@ -53,6 +53,13 @@ const App = () => {
 const AppContent = () => {
     const location = useLocation(); // Use useLocation to get the current path
 
+    // Google Analytics: Track page view on route change
+    useEffect(() => {
+        window.gtag('event', 'page_view', {
+            page_path: location.pathname,
+        });
+    }, [location]);
+
     // Determine the language from the current path
     let language = 'en'; // Default to English
 
