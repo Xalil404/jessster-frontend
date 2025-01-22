@@ -125,7 +125,7 @@ const Donate = () => {
                     </div>
                 </div>
 
-                {/* Option 5 */}
+                {/* Option 5 
                 <div className="col-md-4 mb-4">
                     <div className="card p-3">
                         <img
@@ -139,6 +139,7 @@ const Donate = () => {
                         </Link>
                     </div>
                 </div>
+                */}
 
                 {/* Option 6 
                 <div className="col-md-4 mb-4">
