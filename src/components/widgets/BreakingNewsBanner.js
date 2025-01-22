@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const BreakingNewsBanner = () => {
     const headlines = [
-        "Melania Trump has confessed to being a KGB Russian spy!",
+       /// "Melania Trump has confessed to being a KGB Russian spy!", 
         "New legislation requires public servants to provide IQ scores to run for office",
         "Wall Street confirms stock prices are invented out of thin air ",
         "Graffiti covered public restroom stall door purchased for $95 million at art auction",
