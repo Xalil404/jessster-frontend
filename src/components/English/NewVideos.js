@@ -60,12 +60,11 @@ const Video = ({ videoId }) => {
 
     setCurrentVideo(videos[newIndex]);
     setCurrentIndex(newIndex);
+  };
 
-    // Restart playback in the modal
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play();
-    }
+  // Helper function to render video content (embedded link)
+  const renderVideoContent = (content) => {
+    return { __html: content }; // This will safely inject HTML (e.g., iframe tags)
   };
 
   if (loading) return <div>Loading...</div>;
@@ -75,7 +74,6 @@ const Video = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          {/*<h2 className="mb-5 fw-bold">Watch Latest Funny Videos</h2>*/}
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div
@@ -84,18 +82,8 @@ const Video = ({ videoId }) => {
                 style={{ margin: '0 10px', cursor: 'pointer' }}
                 onClick={() => openFullScreen(video, index)}
               >
-               {/* <h3>{video.title}</h3> */}
-               {/* <h3>{video.description}</h3> */}
-                <video
-                  width="200"
-                  style={{ pointerEvents: 'none' }} // Disable interaction
-                >
-                  <source
-                    src={`https://res.cloudinary.com/dbm8xbouw/${video.video}`}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <h3>{video.title}</h3>
+                <div dangerouslySetInnerHTML={renderVideoContent(video.description)} />
               </div>
             ))}
           </div>
@@ -115,30 +103,30 @@ const Video = ({ videoId }) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}
+        >
+          <button
+            onClick={closeFullScreen}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'rgba(255, 255, 255, 0.5)',
+              color: 'black',
+              width: '75px',
+              height: '75px',
+              border: 'none',
+              cursor: 'pointer',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '16px',
+            }}
           >
-            <button
-              onClick={closeFullScreen}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                background: 'rgba(255, 255, 255, 0.5)',
-                color: 'black',
-                width: '75px', // Set explicit width
-                height: '75px', // Set explicit height
-                border: 'none',
-                cursor: 'pointer',
-                borderRadius: '50%', // Ensures circular shape
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center', // Centers the text inside the button
-                fontSize: '16px', // Adjust font size as needed
-              }}
-            >
-              Close
-            </button>
+            Close
+          </button>
 
-            <button
+          <button
             onClick={() => navigateVideo(-1)}
             style={{
               position: 'absolute',
@@ -148,27 +136,19 @@ const Video = ({ videoId }) => {
               background: 'rgba(255, 255, 255, 0.5)',
               color: 'black',
               padding: '5px',
-              fontSize: '60px', // Increase font size for larger arrow
+              fontSize: '60px',
               border: 'none',
               cursor: 'pointer',
               borderRadius: '50%',
-              width: '100px', 
+              width: '100px',
             }}
           >
             &#8249; {/* Left Arrow */}
           </button>
-          <video
-            ref={videoRef}
-            style={{ maxWidth: '80%', maxHeight: '80%' }}
-            controls
-            autoPlay
-          >
-            <source
-              src={`https://res.cloudinary.com/dbm8xbouw/${currentVideo.video}`}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+
+          {/* Display full-screen video content (embed) */}
+          <div dangerouslySetInnerHTML={renderVideoContent(currentVideo.description)} />
+
           <button
             onClick={() => navigateVideo(1)}
             style={{
@@ -179,7 +159,7 @@ const Video = ({ videoId }) => {
               background: 'rgba(255, 255, 255, 0.5)',
               color: 'black',
               padding: '5px',
-              fontSize: '60px', // Increase font size for larger arrow
+              fontSize: '60px',
               border: 'none',
               cursor: 'pointer',
               borderRadius: '50%',
