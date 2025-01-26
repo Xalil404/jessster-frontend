@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { fetchVideos, fetchVideoBySlug } from '../../services/api';
 
-const Video = ({ videoId }) => {
+const RuReverseVideo = ({ videoId }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -15,13 +15,15 @@ const Video = ({ videoId }) => {
     const fetchVideo = async () => {
       try {
         if (videoId) {
-          const singleVideo = await fetchVideoBySlug(videoId, 'en');
+          const singleVideo = await fetchVideoBySlug(videoId, 'ru');
           setCurrentVideo(singleVideo);
           setVideos([singleVideo]);
         } else {
-          const allVideos = await fetchVideos('en');
-          setVideos(allVideos);
-          setCurrentVideo(allVideos[0]);
+          const allVideos = await fetchVideos('ru');
+          
+          // Reverse the array to show videos from oldest to newest
+          setVideos(allVideos.reverse()); // Reverses the order
+          setCurrentVideo(allVideos[0]); // Optionally, set the first video
         }
         setLoading(false);
       } catch (err) {
@@ -29,9 +31,10 @@ const Video = ({ videoId }) => {
         setLoading(false);
       }
     };
-
+  
     fetchVideo();
   }, [videoId]);
+  
 
   const openFullScreen = (video, index) => {
     setCurrentVideo(video);
@@ -60,11 +63,12 @@ const Video = ({ videoId }) => {
 
     setCurrentVideo(videos[newIndex]);
     setCurrentIndex(newIndex);
-  };
 
-  // Helper function to render video content (embedded link)
-  const renderVideoContent = (content) => {
-    return { __html: content }; // This will safely inject HTML (e.g., iframe tags)
+    // Restart playback in the modal.
+    if (videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play();
+    }
   };
 
   if (loading) return <div>Loading...</div>;
@@ -74,6 +78,7 @@ const Video = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
+          {/*<h2 className="mb-5 fw-bold">Смотрите последние смешные видео</h2>*/}
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
             {videos.map((video, index) => (
               <div
@@ -82,8 +87,17 @@ const Video = ({ videoId }) => {
                 style={{ margin: '0 10px', cursor: 'pointer' }}
                 onClick={() => openFullScreen(video, index)}
               >
-                <h3>{video.title}</h3>
-                <div dangerouslySetInnerHTML={renderVideoContent(video.description)} />
+                {/* <h3>{video.title}</h3> */}
+                <video
+                  width="200"
+                  style={{ pointerEvents: 'none' }} // Disable interaction
+                >
+                  <source
+                    src={`https://res.cloudinary.com/dbm8xbouw/${video.video}`}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
               </div>
             ))}
           </div>
@@ -103,30 +117,30 @@ const Video = ({ videoId }) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}
-        >
-          <button
-            onClick={closeFullScreen}
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              background: 'rgba(255, 255, 255, 0.5)',
-              color: 'black',
-              width: '75px',
-              height: '75px',
-              border: 'none',
-              cursor: 'pointer',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '16px',
-            }}
           >
-            Close
-          </button>
+            <button
+              onClick={closeFullScreen}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                background: 'rgba(255, 255, 255, 0.5)',
+                color: 'black',
+                width: '75px', // Set explicit width
+                height: '75px', // Set explicit height
+                border: 'none',
+                cursor: 'pointer',
+                borderRadius: '50%', // Ensures circular shape
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center', // Centers the text inside the button
+                fontSize: '16px', // Adjust font size as needed
+              }}
+            >
+              Close
+            </button>
 
-          <button
+            <button
             onClick={() => navigateVideo(-1)}
             style={{
               position: 'absolute',
@@ -136,19 +150,27 @@ const Video = ({ videoId }) => {
               background: 'rgba(255, 255, 255, 0.5)',
               color: 'black',
               padding: '5px',
-              fontSize: '60px',
+              fontSize: '60px', // Increase font size for larger arrow
               border: 'none',
               cursor: 'pointer',
               borderRadius: '50%',
-              width: '100px',
+              width: '100px', 
             }}
           >
             &#8249; {/* Left Arrow */}
           </button>
-
-          {/* Display full-screen video content (embed) */}
-          <div dangerouslySetInnerHTML={renderVideoContent(currentVideo.description)} />
-
+          <video
+            ref={videoRef}
+            style={{ maxWidth: '80%', maxHeight: '80%' }}
+            controls
+            autoPlay
+          >
+            <source
+              src={`https://res.cloudinary.com/dbm8xbouw/${currentVideo.video}`}
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
           <button
             onClick={() => navigateVideo(1)}
             style={{
@@ -159,7 +181,7 @@ const Video = ({ videoId }) => {
               background: 'rgba(255, 255, 255, 0.5)',
               color: 'black',
               padding: '5px',
-              fontSize: '60px',
+              fontSize: '60px', // Increase font size for larger arrow
               border: 'none',
               cursor: 'pointer',
               borderRadius: '50%',
@@ -174,4 +196,4 @@ const Video = ({ videoId }) => {
   );
 };
 
-export default Video;
+export default RuReverseVideo;

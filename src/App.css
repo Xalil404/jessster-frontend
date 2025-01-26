@@ -73,3 +73,25 @@ body, html {
     overflow-y: auto;
 }
 
+
+/*                                                      Videos CSS */
+.video-thumbnail {
+    position: relative;
+    width: 250px; /* Set thumbnail width */
+    height: 450px; /* Set thumbnail height (portrait ratio) */
+    overflow: hidden;
+    display: flex;
+    border-radius: 10px;
+    flex-shrink: 0;
+    border: 5px solid #cccccc;
+}
+  
+.video-thumbnail iframe,
+.video-thumbnail video {
+    position: absolute;
+    width: 100%; /* Let height determine scaling */
+    height: 100%; /* Scale to fill container height */
+    object-fit: cover; /* Center and crop */
+}
+  
+

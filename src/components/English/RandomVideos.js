@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { fetchVideos, fetchVideoBySlug } from '../../services/api';
 
-const RandomVideo = ({ videoId }) => {
+const Video = ({ videoId }) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -9,34 +9,33 @@ const RandomVideo = ({ videoId }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const videoRef = useRef(null); // Ref for the modal video
+  const videoRef = useRef(null); // Ref for the modal video 
 
   useEffect(() => {
-    const fetchVideo = async () => {
-      try {
-        if (videoId) {
-          const singleVideo = await fetchVideoBySlug(videoId, 'en');
-          setCurrentVideo(singleVideo);
-          setVideos([singleVideo]);
-        } else {
-          const allVideos = await fetchVideos('en');
-          
-          // Shuffle the array to get videos in a random order
-          const shuffledVideos = allVideos.sort(() => Math.random() - 0.5);
-  
-          setVideos(shuffledVideos); // Set the shuffled videos
-          setCurrentVideo(shuffledVideos[0]); // Optionally, set the first video
+      const fetchVideo = async () => {
+        try {
+          if (videoId) {
+            const singleVideo = await fetchVideoBySlug(videoId, 'en');
+            setCurrentVideo(singleVideo);
+            setVideos([singleVideo]);
+          } else {
+            const allVideos = await fetchVideos('en');
+            
+            // Shuffle the array to get videos in a random order
+            const shuffledVideos = allVideos.sort(() => Math.random() - 0.5);
+    
+            setVideos(shuffledVideos); // Set the shuffled videos
+            setCurrentVideo(shuffledVideos[0]); // Optionally, set the first video
+          }
+          setLoading(false);
+        } catch (err) {
+          setError('Error fetching videos');
+          setLoading(false);
         }
-        setLoading(false);
-      } catch (err) {
-        setError('Error fetching videos');
-        setLoading(false);
-      }
-    };
-  
-    fetchVideo();
-  }, [videoId]);  
-  
+      };
+    
+      fetchVideo();
+    }, [videoId]);  
 
   const openFullScreen = (video, index) => {
     setCurrentVideo(video);
@@ -65,12 +64,11 @@ const RandomVideo = ({ videoId }) => {
 
     setCurrentVideo(videos[newIndex]);
     setCurrentIndex(newIndex);
+  };
 
-    // Restart playback in the modal
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play();
-    }
+  // Helper function to render video content (embedded link)
+  const renderVideoContent = (content) => {
+    return { __html: content }; // This will safely inject HTML (e.g., iframe tags)
   };
 
   if (loading) return <div>Loading...</div>;
@@ -80,8 +78,30 @@ const RandomVideo = ({ videoId }) => {
     <div>
       {!isFullScreen ? (
         <div>
-          {/*<h2 className="mb-5 fw-bold">Watch A Laugh Bite</h2>*/}
           <div className="video-gallery" style={{ display: 'flex', overflowX: 'auto' }}>
+            {/* "Click to open player" card */}
+            <div
+              className="video-thumbnail"
+              style={{
+                margin: '0 10px',
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                background: 'gray',
+                color: 'white',
+                fontSize: '25px',
+                fontWeight: 'bold',
+                borderRadius: '10px',
+                height: '450px', // Adjust to match your video thumbnail size
+                textAlign: 'center',
+              }}
+              onClick={() => setIsFullScreen(true)} // Opens the modal when clicked
+            >
+              Click here to open player
+            </div>
+
+            {/* Video thumbnails */}
             {videos.map((video, index) => (
               <div
                 key={video.id}
@@ -89,17 +109,9 @@ const RandomVideo = ({ videoId }) => {
                 style={{ margin: '0 10px', cursor: 'pointer' }}
                 onClick={() => openFullScreen(video, index)}
               >
+                
                {/* <h3>{video.title}</h3> */}
-                <video
-                  width="200"
-                  style={{ pointerEvents: 'none' }} // Disable interaction
-                >
-                  <source
-                    src={`https://res.cloudinary.com/dbm8xbouw/${video.video}`}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+                <div dangerouslySetInnerHTML={renderVideoContent(video.description)} />
               </div>
             ))}
           </div>
@@ -119,30 +131,30 @@ const RandomVideo = ({ videoId }) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}
+        >
+          <button
+            onClick={closeFullScreen}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              background: 'rgba(255, 255, 255, 0.5)',
+              color: 'black',
+              width: '75px',
+              height: '75px',
+              border: 'none',
+              cursor: 'pointer',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '16px',
+            }}
           >
-            <button
-              onClick={closeFullScreen}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                background: 'rgba(255, 255, 255, 0.5)',
-                color: 'black',
-                width: '75px', // Set explicit width
-                height: '75px', // Set explicit height
-                border: 'none',
-                cursor: 'pointer',
-                borderRadius: '50%', // Ensures circular shape
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center', // Centers the text inside the button
-                fontSize: '16px', // Adjust font size as needed
-              }}
-            >
-              Close
-            </button>
+            Close
+          </button>
 
-            <button
+          <button
             onClick={() => navigateVideo(-1)}
             style={{
               position: 'absolute',
@@ -152,27 +164,19 @@ const RandomVideo = ({ videoId }) => {
               background: 'rgba(255, 255, 255, 0.5)',
               color: 'black',
               padding: '5px',
-              fontSize: '60px', // Increase font size for larger arrow
+              fontSize: '60px',
               border: 'none',
               cursor: 'pointer',
               borderRadius: '50%',
-              width: '100px', 
+              width: '100px',
             }}
           >
             &#8249; {/* Left Arrow */}
           </button>
-          <video
-            ref={videoRef}
-            style={{ maxWidth: '80%', maxHeight: '80%' }}
-            controls
-            autoPlay
-          >
-            <source
-              src={`https://res.cloudinary.com/dbm8xbouw/${currentVideo.video}`}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+
+          {/* Display full-screen video content (embed) */}
+          <div dangerouslySetInnerHTML={renderVideoContent(currentVideo.description)} />
+
           <button
             onClick={() => navigateVideo(1)}
             style={{
@@ -183,7 +187,7 @@ const RandomVideo = ({ videoId }) => {
               background: 'rgba(255, 255, 255, 0.5)',
               color: 'black',
               padding: '5px',
-              fontSize: '60px', // Increase font size for larger arrow
+              fontSize: '60px',
               border: 'none',
               cursor: 'pointer',
               borderRadius: '50%',
@@ -198,4 +202,4 @@ const RandomVideo = ({ videoId }) => {
   );
 };
 
-export default RandomVideo;
+export default Video;
