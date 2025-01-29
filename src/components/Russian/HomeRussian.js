@@ -130,6 +130,7 @@ const HomeRussian = () => {
                                             WebkitLineClamp: index === 0 ? 3 : 2, // Control lines for large vs. small posts
                                             WebkitBoxOrient: 'vertical',
                                             maxHeight: index === 0 ? '4.5em' : '3em', // Constrain height
+                                            fontWeight: 'bold',
                                         }}
                                     >
                                         {post.title}
@@ -186,6 +187,7 @@ const HomeRussian = () => {
                                             WebkitLineClamp: 2, // Limit to 2 lines
                                             WebkitBoxOrient: 'vertical',
                                             maxHeight: '3em', // Constrain height
+                                            fontWeight: 'bold',
                                         }}
                                     >
                                         {post.title}

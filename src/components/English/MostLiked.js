@@ -90,6 +90,7 @@ const MostLiked = () => {
                                             WebkitLineClamp: 3,
                                             WebkitBoxOrient: 'vertical',
                                             maxHeight: '4.5em',
+                                            fontWeight: 'bold',
                                         }}
                                     >
                                         {post.title}
@@ -146,6 +147,7 @@ const MostLiked = () => {
                                             WebkitLineClamp: 2,
                                             WebkitBoxOrient: 'vertical',
                                             maxHeight: '3em',
+                                            fontWeight: 'bold',
                                         }}
                                     >
                                         {post.title}

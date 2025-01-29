@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 const BreakingNewsBanner = () => {
     const headlines = [
-       /// "Melania Trump has confessed to being a KGB Russian spy!", 
         "New legislation requires public servants to provide IQ scores to run for office",
         "Wall Street confirms stock prices are invented out of thin air ",
         "Graffiti covered public restroom stall door purchased for $95 million at art auction",
         "Scientists discover direct link between veganism and being an LGBTQ member ",
         "Olympic committee announces Toe Wrestling is an official sport",
+        "Melania Trump has confessed to being a KGB Russian spy!", 
         "Somalia ranks as the most visited tourist destination in 2025",
         "Government officials admit the moon landing was filmed in a Hollywood studio",
         "Study claims playing video games increases life expectancy"
@@ -36,6 +36,7 @@ const BreakingNewsBanner = () => {
                 whiteSpace: 'nowrap',
                 textAlign: 'center',
                 fontWeight: 'bold',
+                fontSize: '18px',
             }}
         >
             <span style={{ marginRight: '10px' }}>Breaking News:</span>
