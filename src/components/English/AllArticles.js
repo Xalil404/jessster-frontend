@@ -65,10 +65,11 @@ const AllArticles = () => {
                                 src={`https://res.cloudinary.com/dbm8xbouw/${article.featured_image}`}
                                 alt={article.title}
                                 className="img-thumbnail me-3"
-                                style={{ width: '150px', height: 'auto' }}
+                                style={{ width: '150px', height: 'auto', }}
                             />
                             <div>
-                                <h5 className="mb-1">{article.title}</h5>
+                                <h5 className="mb-3" style={{fontWeight: 'bold',}}>
+                                    {article.title}</h5>
                                 <p className="mb-1 text-muted">{article.excerpt || 'No description available'}</p>
                             </div>
                         </a>

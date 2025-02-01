@@ -81,7 +81,7 @@ const ArticlePage = () => {
         <div className="container my-5">
             <div className="row justify-content-center">
                 <div className="col-lg-8 col-md-10">
-                    <h1 className="text-center mb-4">{post.title}</h1>
+                    <h1 className="text-center mb-4 fw-bold">{post.title}</h1>
                     <p className="text-muted text-center mb-4">
                         <em>{post.excerpt}</em>
                     </p>

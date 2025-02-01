@@ -52,7 +52,7 @@ const Donate = () => {
             <div className="row text-center">
 
                 {/* Option 2 */}
-                <div className="col-md-4 mb-4">
+                <div className="col-md-3 mb-4">
                     <div className="card p-3">
                         <img
                             src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736066914/Frame_427318907_kdbzpr.png"
@@ -67,7 +67,7 @@ const Donate = () => {
                 </div>
 
                 {/* Option 1 */}
-                <div className="col-md-4 mb-4">
+                <div className="col-md-3 mb-4">
                     <div className="card p-3">
                         <img
                             src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736066921/Frame_427318908_knlxqs.png"
@@ -83,7 +83,7 @@ const Donate = () => {
 
 
                 {/* Option 3 */}
-                <div className="col-md-4 mb-4">
+                <div className="col-md-3 mb-4">
                     <div className="card p-3">
                         <img
                             src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736066914/Frame_427318909_vrnfe3.png"
@@ -98,7 +98,7 @@ const Donate = () => {
                 </div>
 
                 {/* Option 4 */}
-                <div className="col-md-4 mb-4">
+                <div className="col-md-3 mb-4">
                     <div className="card p-3">
                         <img
                             src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736074494/Frame_427318911_flwyfj.png"

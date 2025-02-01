@@ -67,8 +67,8 @@ const ArabicAllArticles = () => {
                                 className="img-thumbnail me-3"
                                 style={{ width: '150px', height: 'auto' }}
                             />
-                            <div>
-                                <h5 className="mb-1">{article.title}</h5>
+                            <div dir="rtl" className="text-end w-100">
+                                <h5 className="mb-3">{article.title}</h5>
                                 <p className="mb-1 text-muted">{article.excerpt || 'No description available'}</p>
                             </div>
                         </a>
