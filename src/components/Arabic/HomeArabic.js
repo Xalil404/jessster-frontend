@@ -130,6 +130,9 @@ const HomeArabic = () => {
                                             WebkitLineClamp: index === 0 ? 3 : 2, // Control lines for large vs. small posts
                                             WebkitBoxOrient: 'vertical',
                                             maxHeight: index === 0 ? '4.5em' : '3em', // Constrain height
+                                            direction: 'rtl', // Right-to-left text direction
+                                            textAlign: 'right', // Align text to the right
+                                            unicodeBidi: 'bidi-override', // Ensure correct bidirectional text handling
                                         }}
                                     >
                                         {post.title}
@@ -186,6 +189,9 @@ const HomeArabic = () => {
                                             WebkitLineClamp: 2, // Limit to 2 lines
                                             WebkitBoxOrient: 'vertical',
                                             maxHeight: '3em', // Constrain height
+                                            direction: 'rtl', // Right-to-left text direction
+                                            textAlign: 'right', // Align text to the right
+                                            unicodeBidi: 'bidi-override', // Ensure correct bidirectional text handling
                                         }}
                                     >
                                         {post.title}
