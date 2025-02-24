@@ -82,14 +82,14 @@ const Header = () => {
                         />
                     </Link>
 
-                    <div className="d-flex order-2 align-items-center gap-3 ms-3">
-                        <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/">
+                    <div className="lang d-flex order-2 align-items-center gap-3 ms-3">
+                        <Link className="nav-link-a text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/">
                             English
                         </Link>
-                        <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/russian">
+                        <Link className="nav-link-a text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/russian">
                             Русский
                         </Link>
-                        <Link className="nav-link-a d-none d-lg-block text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/arabic">
+                        <Link className="nav-link-a text-dark fw-bold" style={{ textDecoration: 'none', marginLeft: '15px' }} to="/arabic">
                             عربي
                         </Link>
                     </div>
@@ -98,7 +98,7 @@ const Header = () => {
                         <ul className="navbar-nav mb-2 mb-lg-0 me-auto"></ul>
                     </div>
 
-                    <div className="d-flex order-4 align-items-center gap-3">
+                    <div className="tools d-flex order-4 align-items-center gap-3">
                         {/* Search Bar */}
                         <div className="d-flex align-items-center">
                             <input

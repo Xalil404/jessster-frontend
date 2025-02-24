@@ -176,4 +176,38 @@ body, html {
         flex: 0 0 auto;  /* Prevent buttons from shrinking or expanding */
         margin-right: 15px;  /* Optional: space between buttons */
     }
+
+
+/*                                         header navigation                               */
+    .navbar {
+        display: flex;
+        justify-content: space-between; /* Default spacing for logo and other elements */
+    }
+
+    .container-fluid {
+        display: flex;
+        justify-content: center; /* Center everything inside the container */
+        align-items: center; /* Vertically align the items */
+    }
+
+    .navbar-brand {
+        flex-grow: 1; /* Allow the logo to grow and take available space */
+        display: flex;
+        justify-content: center; /* Center the logo horizontally */
+        margin-bottom: 20px;
+    }
+
+    .lang{
+        display: flex;
+        justify-content: center; /* Center the other elements like the language links */
+        flex-grow: 1; /* Allow language links to grow and take available space */
+        margin-bottom: 30px;
+    }
+
+    .tools {
+        display: flex;
+        justify-content: center; /* Center the other elements like the language links */
+        flex-grow: 1; /* Allow language links to grow and take available space */
+    }
+    
 }
