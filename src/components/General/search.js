@@ -28,7 +28,7 @@ const Search = () => {
                             <a
                                 key={index}
                                 href={`/posts/${result.slug}`}
-                                className="list-group-item list-group-item-action d-flex align-items-center mb-4"
+                                className="list-group-item list-group-item-action d-flex flex-column flex-md-row align-items-start align-items-md-center mb-4"
                                 style={{
                                     transition: 'background-color 0.3s ease', // Smooth transition for hover
                                     width: '100%', // Ensure the link takes full width
@@ -44,11 +44,11 @@ const Search = () => {
                                 <img
                                     src={`https://res.cloudinary.com/dbm8xbouw/${result.featured_image}`}
                                     alt={result.title}
-                                    className="img-thumbnail me-3"
+                                    className="img-thumbnail d-block d-md-inline mx-auto mx-md-0 me-md-3"
                                     style={{ width: '150px', height: 'auto' }}
                                 />
                                 <div>
-                                    <h5 className="mb-1">{result.title}</h5>
+                                    <h5 className="mb-1 fw-bold">{result.title}</h5>
                                     <p className="mb-1 text-muted">{result.excerpt || 'No description available'}</p>
                                     <small className="text-muted">Posted on {new Date(result.created_on).toLocaleDateString()}</small>
                                 </div>
