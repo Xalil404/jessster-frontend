@@ -211,5 +211,11 @@ body, html {
         justify-content: center; /* Center the other elements like the language links */
         flex-grow: 1; /* Allow language links to grow and take available space */
     }
-    
+
+/*                                         Get started button to be smaller on mobile                               */
+    .get-started-btn {
+        padding: 6px 20px !important; /* Reduce padding */
+        font-size: 15px !important; /* Reduce font size */
+    }
+
 }

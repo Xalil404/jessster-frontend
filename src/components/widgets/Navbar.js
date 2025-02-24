@@ -136,7 +136,7 @@ const Header = () => {
                                     Sign in
                                 </Link>
                                 <Link
-                                    className="nav-link btn btn-sm rounded-pill px-4 fw-bold"
+                                    className="nav-link btn btn-sm rounded-pill px-4 fw-bold get-started-btn"
                                     style={{
                                         backgroundColor: '#000',
                                         color: 'white',
