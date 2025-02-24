@@ -50,8 +50,7 @@ const AllArticles = () => {
                         <a
                             key={article.id}
                             href={`/posts/${article.slug}`}  // Link to individual post page
-                         //  className="list-group-item list-group-item-action d-flex align-items-center mb-4" 
-                          className="list-group-item list-group-item-action d-flex flex-column flex-md-row align-items-start align-items-md-center mb-4"
+                            className="list-group-item list-group-item-action d-flex flex-column flex-md-row align-items-start align-items-md-center mb-4"
 
                             style={{
                                 transition: 'background-color 0.3s ease', // Smooth transition for hover
