@@ -51,7 +51,7 @@ const CategoriesBanner = ({ language }) => {
     return (
         <div className="container">
             <hr />
-            <div className="d-flex flex-wrap justify-content-center p-2 rounded">
+            <div className="categories-container d-flex p-2 rounded">
                 {categories.map((category) => (
                     <button
                         key={category.id}

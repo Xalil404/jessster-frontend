@@ -102,6 +102,14 @@ body, html {
 }
 
 
+/*                                         news categories                                */
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
 /*                                              Ensure breaking news is fully visible on mobile */
 @media (max-width: 768px) {
     .breaking-news-banner {
@@ -153,5 +161,19 @@ body, html {
     .footer-nav .nav-item:last-child,
     .footer-nav .nav-item:nth-last-child(2) {
         display: none;
+    }
+
+/*                                         news categories                                */
+    .categories-container {
+        display: flex;
+        overflow-x: auto;  /* Allows horizontal scrolling */
+        -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
+        flex-wrap: nowrap;  /* No wrapping on mobile */
+        padding: 10px 0;  /* Optional: add padding to give space on sides */
+    }
+
+    .categories-container .btn {
+        flex: 0 0 auto;  /* Prevent buttons from shrinking or expanding */
+        margin-right: 15px;  /* Optional: space between buttons */
     }
 }
