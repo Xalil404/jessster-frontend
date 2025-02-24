@@ -195,6 +195,7 @@ body, html {
         display: flex;
         justify-content: center; /* Center the logo horizontally */
         margin-bottom: 20px;
+        margin-left: 0 !important; /* Remove the 'ms-5' class effect */
     }
 
     .lang{
@@ -202,6 +203,7 @@ body, html {
         justify-content: center; /* Center the other elements like the language links */
         flex-grow: 1; /* Allow language links to grow and take available space */
         margin-bottom: 30px;
+        margin-left: 0 !important; /* Remove the 'ms-3' class effect */
     }
 
     .tools {
