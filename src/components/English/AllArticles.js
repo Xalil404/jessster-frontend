@@ -7,6 +7,10 @@ const AllArticles = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const articlesPerPage = 20;
+
+
     useEffect(() => {
         const getArticles = async () => {
             try {
@@ -39,6 +43,13 @@ const AllArticles = () => {
         return <div className="text-center mt-5">No articles available</div>;
     }
 
+    // Pagination logic
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
+    const totalPages = Math.ceil(articles.length / articlesPerPage);
+
+
     return (
         <div className="container mt-1">
             <BreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
@@ -46,7 +57,7 @@ const AllArticles = () => {
             <div className="d-flex justify-content-center"> {/* Flex container for centering */}
                 <div className="list-group" style={{ width: '75%' }}> {/* 75% width for the list group */}
 
-                    {articles.map((article) => (
+                    {currentArticles.map((article) => (
                         <a
                             key={article.id}
                             href={`/posts/${article.slug}`}  // Link to individual post page
@@ -77,6 +88,26 @@ const AllArticles = () => {
                         </a>
                     ))}
                 </div>
+            </div>
+            {/* Pagination Controls */}
+            <div className="d-flex justify-content-center mt-4">
+                <button
+                    className="btn btn-primary me-2"
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                    Previous
+                </button>
+                <span className="align-self-center">
+                    Page {currentPage} of {totalPages}
+                </span>
+                <button
+                    className="btn btn-primary ms-2"
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                >
+                    Next
+                </button>
             </div>
         </div>
     );
