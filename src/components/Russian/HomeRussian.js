@@ -222,7 +222,7 @@ const HomeRussian = () => {
             {/* Most Viewed Posts Section */}
             <RuMostViewed /> {/* Include MostViewed component */}
 
-            {/* Videos Section */}
+            {/* Videos Section 
             <h2 className="mt-5 fw-bold">| Получите порцию смешных видео</h2>
             <div className="videos-section mt-3"
             style={{
@@ -230,18 +230,20 @@ const HomeRussian = () => {
                 padding: '20px', // Adds padding inside the border
                 borderRadius: '8px', // Optional: Adds rounded corners
             }}
-            >
+            > */}
                 {/*<h2 className="text-center">Oldest to Newest Videos</h2>*/}
-                <RuVideos />  {/* Include the Videos component here */}
+              {/*  <RuVideos />   Include the Videos component here 
             </div>
+            */}
 
             {/* Most Viewed Posts Section */}
-            <RuMostLiked /> {/* Include MostViewed component */}
+          {/*  <RuMostLiked />  Include MostViewed component */}
 
-            {/* Section 5 - Get mobile app */}
+            {/* Section 5 - Get mobile app 
             <div className="container-fluid p-0 text-center">
                 <h1 className="display-5 fw-bold mb-5">Возьмите Джессстер с собой</h1>
-                {/* Full-Width Image */}
+                */}
+                {/* Full-Width Image
                 <div className="row">
                     <div className="col-12">
                         <img src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736013616/Grey_minimalist_business_project_presentation_xxfaba.png" className="img-fluid" alt="Full Width" 
@@ -249,18 +251,21 @@ const HomeRussian = () => {
                         />
                     </div>
                 </div>
+                 */}
 
-                {/* Mobile apps buttons */}
+                {/* Mobile apps buttons 
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-3 mt-4">
                         <div className="my-5 d-flex justify-content-center">
-                            {/* Button to link to App Store */}
+                        */}
+                            {/* Button to link to App Store 
                             <a href="https://www.jessster.com/404" target="_blank" rel="noopener noreferrer">
                                 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83&amp;releaseDate=1314144000&h=91ef6f52d049d3387a50498048775082" alt="Download on the App Store" style={{ width: '200px' }} />
                             </a>
                         </div>
                     </div>
-                    {/*}
+                    */}
+                    {/*
                     <div className="col-12 col-md-3 mt-4">
                         <div className="my-5 d-flex justify-content-center">
                             
@@ -273,11 +278,12 @@ const HomeRussian = () => {
                             </a>
                         </div>
                     </div>
-                    */}
+                    
                 </div>
             </div>
+            */}
 
-            {/* Videos Section */}
+            {/* Videos Section 
             <h2 className="mt-5 fw-bold">| Смотреть смешной отрывок</h2>
             <div className="videos-section mt-3"
             style={{
@@ -286,12 +292,14 @@ const HomeRussian = () => {
                 borderRadius: '8px', // Optional: Adds rounded corners
             }}
             >
+            */}
                 {/*<h2 className="text-center">Random Videos</h2>*/}
-                <RuRandomVideos />  {/* Include the Videos component here */}
+              {/*  <RuRandomVideos />   Include the Videos component here 
             </div>
+            */}
 
             {/* Most Viewed Posts Section */}
-            <RussianMostComment /> {/* Include MostViewed component */}
+          {/*  <RussianMostComment />  Include MostViewed component */}
 
             {/* View More Button */}
             <div className="text-center mt-4 mb-5">
