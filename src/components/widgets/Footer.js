@@ -20,7 +20,7 @@ const Footer = () => {
     return (
         <footer className="mt-auto d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
             {/* Logo Section */}
-            <div className="footer-logo d-flex justify-content-center mb-2">
+            <div className="footer-logo d-flex justify-content-center mb-4">
                 <Link to="/" className="footer">
                     <img
                         src="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1735906765/lo_jun5f9.png"
@@ -32,12 +32,12 @@ const Footer = () => {
             </div>
 
             {/* Copyright Section */}
-            <div className="footer-copyright d-flex justify-content-center mb-2">
+            <div className="footer-copyright d-flex justify-content-center mb-4">
                 <span className="text-muted">© 2025 Jessster Media Network</span>
             </div>
 
             {/* Navigation Section */}
-            <ul className="footer-nav d-flex justify-content-center list-unstyled mb-0">
+            <ul className="footer-nav d-flex justify-content-center list-unstyled mb-4">
             <li className="nav-item px-2">
                     <Link to="/about" className="nav-link px-2 text-dark">
                         About
