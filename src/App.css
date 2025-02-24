@@ -95,3 +95,25 @@ body, html {
 }
   
 
+
+
+/* Ensure breaking news is fully visible on mobile */
+@media (max-width: 768px) {
+    .breaking-news-banner {
+        white-space: normal; /* Allow text to wrap */
+        font-size: 16px; /* Slightly smaller for readability */
+        padding: 20px; /* More padding for better visibility */
+    }
+
+    .breaking-news-title {
+        display: block; /* Move 'Breaking News:' to a new line */
+        margin-bottom: 5px;
+    }
+
+    .breaking-news-text {
+        display: block; /* Ensure it wraps properly */
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+}

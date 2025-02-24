@@ -25,7 +25,7 @@ const BreakingNewsBanner = () => {
     }, [headlines.length]);
 
     return (
-        <div 
+        <div className="breaking-news-banner"
             style={{
                 backgroundColor: '#af1713',
                 color: '#ffffff',
@@ -39,8 +39,8 @@ const BreakingNewsBanner = () => {
                 fontSize: '18px',
             }}
         >
-            <span style={{ marginRight: '10px' }}>Breaking News:</span>
-            <span>{headlines[currentHeadlineIndex]}</span>
+            <span style={{ marginRight: '10px' }} className="breaking-news-title">Breaking News:</span>
+            <span className="breaking-news-text">{headlines[currentHeadlineIndex]}</span>
         </div>
     );
 };
