@@ -97,6 +97,15 @@ body, html {
 
 
 
+
+
+
+.footer-copyright {
+    margin-left: 200px;
+    display: flex;
+}
+
+
 /* Ensure breaking news is fully visible on mobile */
 @media (max-width: 768px) {
     .breaking-news-banner {
@@ -115,5 +124,37 @@ body, html {
         white-space: normal;
         overflow: visible;
         text-overflow: unset;
+    }
+
+
+
+
+
+
+
+    /* Center the logo */
+    .footer-logo {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Center the copyright text */
+    .footer-copyright {
+        justify-content: center; 
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Display footer links in a row */
+    .footer-nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 15px; /* Space between each link */
+    }
+
+    /* Ensure no extra margins on the last element */
+    .footer-nav .nav-item:last-child {
+        margin-right: 0;
     }
 }
