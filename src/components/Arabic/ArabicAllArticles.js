@@ -7,6 +7,9 @@ const ArabicAllArticles = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const articlesPerPage = 20;
+
     useEffect(() => {
         const getArticles = async () => {
             try {
@@ -28,7 +31,7 @@ const ArabicAllArticles = () => {
 
 
     if (loading) {
-        return <div className="text-center mt-5">Loading articles...</div>;
+        return <div className="text-center mt-5">جاري تحميل المقالات...</div>;
     }
 
     if (error) {
@@ -39,13 +42,19 @@ const ArabicAllArticles = () => {
         return <div className="text-center mt-5">No articles available</div>;
     }
 
+    // Pagination logic
+    const indexOfLastArticle = currentPage * articlesPerPage;
+    const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
+    const currentArticles = articles.slice(indexOfFirstArticle, indexOfLastArticle);
+    const totalPages = Math.ceil(articles.length / articlesPerPage);
+
     return (
         <div className="container mt-1">
             <ArabicBreakingNewsBanner /> {/* Add Breaking News Banner below Navbar */}
             <h1 className="mb-4 text-center fw-bold">كل المقالات</h1>
             <div className="d-flex justify-content-center"> {/* Flex container for centering */}
                 <div className="list-group" style={{ width: '75%' }}> {/* 75% width for the list group */}
-                    {articles.map((article) => (
+                    {currentArticles.map((article) => (
                         <a
                             key={article.id}
                             href={`/posts/${article.slug}`}  // Link to individual post page
@@ -74,6 +83,26 @@ const ArabicAllArticles = () => {
                         </a>
                     ))}
                 </div>
+            </div>
+            {/* Pagination Controls */}
+            <div className="d-flex justify-content-center mt-4">
+                <button
+                    className="btn btn-dark me-2 fw-bold"
+                    disabled={currentPage === 1}
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                >
+                    Previous
+                </button>
+                <span className="align-self-center fw-bold px-3">
+                    Page {currentPage} of {totalPages}
+                </span>
+                <button
+                    className="btn btn-dark ms-2 fw-bold"
+                    disabled={currentPage === totalPages}
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                >
+                    Next
+                </button>
             </div>
         </div>
     );

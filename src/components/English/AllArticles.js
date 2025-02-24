@@ -92,17 +92,17 @@ const AllArticles = () => {
             {/* Pagination Controls */}
             <div className="d-flex justify-content-center mt-4">
                 <button
-                    className="btn btn-primary me-2"
+                    className="btn btn-dark me-2 fw-bold"
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage(currentPage - 1)}
                 >
                     Previous
                 </button>
-                <span className="align-self-center">
+                <span className="align-self-center fw-bold px-3">
                     Page {currentPage} of {totalPages}
                 </span>
                 <button
-                    className="btn btn-primary ms-2"
+                    className="btn btn-dark ms-2 fw-bold"
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage(currentPage + 1)}
                 >
