@@ -45,11 +45,14 @@ const AllArticles = () => {
             <h1 className="mb-4 text-center fw-bold">All Articles</h1>
             <div className="d-flex justify-content-center"> {/* Flex container for centering */}
                 <div className="list-group" style={{ width: '75%' }}> {/* 75% width for the list group */}
+
                     {articles.map((article) => (
                         <a
                             key={article.id}
                             href={`/posts/${article.slug}`}  // Link to individual post page
-                            className="list-group-item list-group-item-action d-flex align-items-center mb-4"
+                         //  className="list-group-item list-group-item-action d-flex align-items-center mb-4" 
+                          className="list-group-item list-group-item-action d-flex flex-column flex-md-row align-items-start align-items-md-center mb-4"
+
                             style={{
                                 transition: 'background-color 0.3s ease', // Smooth transition for hover
                                 width: '100%', // Ensure the link takes full width
@@ -64,7 +67,7 @@ const AllArticles = () => {
                             <img
                                 src={`https://res.cloudinary.com/dbm8xbouw/${article.featured_image}`}
                                 alt={article.title}
-                                className="img-thumbnail me-3"
+                                className="img-thumbnail d-block d-md-inline mx-auto mx-md-0 me-md-3"
                                 style={{ width: '150px', height: 'auto', }}
                             />
                             <div>
