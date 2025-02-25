@@ -6,31 +6,23 @@ const MostViewed = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const getMostViewedPosts = async () => {
+    const getMostViewedPosts = async (language) => {
         setLoading(true);
         try {
-            const fetchedPosts = await fetchMostViewedPosts();
-            console.log('Fetched Posts:', fetchedPosts); // Log the fetched posts
-            
-            const englishPosts = fetchedPosts.filter(post => post.language === 'en');
-            console.log('Filtered English Posts:', englishPosts); // Log filtered posts
-
-            // Sort by views in descending order
-            const sortedPosts = englishPosts.sort((a, b) => b.view_count - a.view_count);
-            console.log('Sorted Posts:', sortedPosts); // Log sorted posts
-
-            // Get only the top 4 most viewed
-            setMostViewedPosts(sortedPosts.slice(0, 4)); // Get top 4
+            const fetchedPosts = await fetchMostViewedPosts(language); // Pass language here
+            setMostViewedPosts(fetchedPosts); // Set the fetched posts
         } catch (err) {
             setError('Failed to fetch most viewed posts');
         } finally {
             setLoading(false);
         }
     };
-
+    
     useEffect(() => {
-        getMostViewedPosts();
+        const userLanguage = 'en';  // Set based on user's language, e.g., 'en', 'ar', 'ru'
+        getMostViewedPosts(userLanguage);
     }, []);
+    
 
     if (loading) {
         return <div className="text-center mt-5">Loading...</div>;
@@ -70,7 +62,7 @@ const MostViewed = () => {
                                     }}
                                 >
                                     <img
-                                        src={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`}
+                                        src={post.featured_image}
                                         alt={post.title}
                                         style={{
                                             width: '100%',
@@ -127,7 +119,7 @@ const MostViewed = () => {
                                     }}
                                 >
                                     <img
-                                        src={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`}
+                                        src={post.featured_image}
                                         alt={post.title}
                                         style={{
                                             width: '100%',

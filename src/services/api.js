@@ -213,23 +213,6 @@ export const addComment = async (postSlug, commentData, token) => {
 };
 
 
-// Function to fetch blog posts sorted by most viewed
-export const fetchMostViewedPosts = async () => {
-    try {
-        const response = await api.get('/posts/', {
-            params: {
-                sort_by: 'views',  // Sort by views
-                order: 'desc'      // Descending order (most viewed first)
-            }
-        });
-        return response.data;  // Assuming the data is an array of posts
-    } catch (error) {
-        console.error('Error fetching posts:', error);
-        return [];  // Return an empty array in case of an error
-    }
-};
-
-
 // Function to fetch blog posts sorted by most liked
 export const fetchMostLikedPosts = async () => {
     try {
@@ -315,3 +298,23 @@ export const fetchLatestPosts = async (language) => {
         return []; // Return an empty array in case of an error
     }
 };
+
+
+// Function to fetch the 4 most viewed posts on home pages
+export const fetchMostViewedPosts = async (language) => {
+    try {
+        const response = await api.get('/articles/most-viewed/', {  // Updated URL
+            params: {
+                language: language,  // Pass language as a parameter (e.g., 'en', 'ar', 'ru')
+                limit: 4             // Limit to 4 posts
+            }
+        });
+        return response.data;  // Assuming the response data is an array of posts
+    } catch (error) {
+        console.error('Error fetching most viewed posts:', error);
+        return [];  // Return an empty array in case of an error
+    }
+};
+
+
+
