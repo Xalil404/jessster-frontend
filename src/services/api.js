@@ -349,3 +349,36 @@ export const subscribeEmail = async (email) => {
         throw error.response.data; // Handle the error response
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to fetch the latest 13 posts, with optional language filter
+export const fetchLatestPosts = async (language) => {
+    try {
+        const response = await api.get('/articles/limited/', {
+            params: {
+                language: language, // Pass the language as a query parameter
+            },
+        });
+        return response.data; // Assuming the data is an array of posts
+    } catch (error) {
+        console.error('Error fetching latest posts:', error);
+        return []; // Return an empty array in case of an error
+    }
+};
