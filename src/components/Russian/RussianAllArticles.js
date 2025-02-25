@@ -91,7 +91,7 @@ const RussianAllArticles = () => {
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage(currentPage - 1)}
                 >
-                    Previous
+                    Предыдущий
                 </button>
                 <span className="align-self-center fw-bold px-3">
                     Page {currentPage} of {totalPages}
@@ -101,7 +101,7 @@ const RussianAllArticles = () => {
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage(currentPage + 1)}
                 >
-                    Next
+                    Следующий
                 </button>
             </div>
         </div>

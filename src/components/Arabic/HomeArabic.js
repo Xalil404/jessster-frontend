@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchPosts } from '../../services/api'; // Assuming you have this function to fetch posts
+import { fetchLatestPosts } from '../../services/api'; // Use the new function to fetch limited posts
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import ArabicBreakingNewsBanner from '../widgets/ArabicBreakingNewsBanner';
@@ -25,39 +26,23 @@ const HomeArabic = () => {
     const navigate = useNavigate(); // Initialize navigate function
 
     const getPosts = async (categoryId = null) => {
-        setLoading(true);
-        try {
-            const fetchedPosts = await fetchPosts();
-            const englishPosts = fetchedPosts.filter(
-                (post) =>
-                    post.language === 'ar' &&
-                    (!categoryId || post.category === categoryId)
-            );
-            setPosts(englishPosts.slice(0, 13)); // Get only the latest 13 posts
-        } catch (err) {
-            setError('Failed to fetch posts');
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        const getPosts = async () => {
-            try {
-                const fetchedPosts = await fetchPosts();
-                const englishPosts = fetchedPosts
-                    .filter((post) => post.language === 'ar')
-                    .slice(0, 13); // Get only the latest 13 English posts
-                setPosts(englishPosts);
-            } catch (err) {
-                setError('Failed to fetch posts');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        getPosts();
-    }, []);
+                setLoading(true);
+                try {
+                    const fetchedPosts = await fetchLatestPosts('ar'); // Fetch only Arabic posts (latest 13)
+                    const englishPosts = fetchedPosts.filter(
+                        (post) => post.language === 'ar' && (!categoryId || post.category === categoryId)
+                    );
+                    setPosts(englishPosts); // Set the posts after filtering
+                } catch (err) {
+                    setError('Failed to fetch posts');
+                } finally {
+                    setLoading(false);
+                }
+            };
+        
+            useEffect(() => {
+                getPosts(); // Fetch the posts when the component mounts
+            }, []);
 
     const handleCategorySelect = (categoryId, categoryName) => {
         setSelectedCategory(categoryId);
