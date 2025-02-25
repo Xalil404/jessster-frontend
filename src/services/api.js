@@ -61,55 +61,6 @@ export const fetchUserProfile = async (token) => {
 };
 
 
-// Function to fetch tasks
-export const fetchTasks = async (token) => {
-    try {
-        const response = await axios.get(`${API_URL}/tasks/`, {
-            headers: { Authorization: `Token ${token}` } // Adjust based on your authentication method
-        });
-        return response.data; // Returns the list of birthdays
-    } catch (error) {
-        throw error.response.data; // Handle the error response
-    }
-};
-
-// Function to create a new task
-export const createTask = async (taskData, token) => {
-    try {
-        const response = await axios.post(`${API_URL}/tasks/`, taskData, {
-            headers: { Authorization: `Token ${token}` } // Adjust based on your authentication method
-        });
-        return response.data; // Returns the created birthday data
-    } catch (error) {
-        throw error.response.data; // Handle the error response
-    }
-};
-
-// Function to update a task
-export const updateTask = async (taskId, taskData, token) => {
-    try {
-        const response = await axios.put(`${API_URL}/tasks/${taskId}/`, taskData, {
-            headers: { Authorization: `Token ${token}` } // Adjust based on your authentication method
-        });
-        return response.data; // Returns the updated birthday data
-    } catch (error) {
-        throw error.response.data; // Handle the error response
-    }
-};
-
-// Function to delete a task
-export const deleteTask = async (taskId, token) => {
-    try {
-        const response = await axios.delete(`${API_URL}/tasks/${taskId}/`, {
-            headers: { Authorization: `Token ${token}` } // Adjust based on your authentication method
-        });
-        return response.data; // Optionally return a success message or response
-    } catch (error) {
-        throw error.response.data; // Handle the error response
-    }
-};
-
-
 // Function to fetch the user's profile
 export const fetchProfile = async (token) => {
     try {
@@ -121,7 +72,6 @@ export const fetchProfile = async (token) => {
         throw error.response.data; // Handle the error response
     }
 };
-
 
 
 // Function to update the user's profile
@@ -351,24 +301,7 @@ export const subscribeEmail = async (email) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Function to fetch the latest 13 posts, with optional language filter
+// Function to fetch the latest 13 posts on home pages, with optional language filter
 export const fetchLatestPosts = async (language) => {
     try {
         const response = await api.get('/articles/limited/', {
