@@ -38,7 +38,6 @@ import GoogleLoginPagePopup from './components/auth/GoogleLoginPagePopup';
 import AppleLoginPage from './components/auth/AppleLoginPage';
 // SaaS
 import Dashboard from './components/SaaS/Dashboard';
-import Tasks from './components/SaaS/Tasks';
 import Profile from './components/SaaS/Profile';
 import Bookmarks from './components/SaaS/Bookmarks';
 
@@ -125,14 +124,6 @@ const AppContent = () => {
                         </PrivateRoute>
                     } 
                 />
-                <Route 
-                    path="/tasks" 
-                    element={
-                        <PrivateRoute>
-                            <Tasks />
-                        </PrivateRoute>
-                    } 
-                /> 
                 <Route 
                     path="/profile" 
                     element={
