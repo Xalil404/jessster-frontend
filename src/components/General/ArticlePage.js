@@ -79,18 +79,24 @@ const ArticlePage = () => {
     }
 
     <Helmet>
-        <title>{post.title || 'Devbook'}</title>
+        <title>{post.title}</title>
         {post.excerpt && <meta name="description" content={post.excerpt} />}
-        {post.title && <meta property="og:title" content={post.title} />}
-        {post.excerpt && <meta property="og:description" content={post.excerpt} />}
-        {post.featured_image && (
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={window.location.href} />
+        {post.featured_image ? (
             <>
                 <meta property="og:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
+                <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
             </>
+        ) : (
+            <>
+                <meta property="og:image" content="https://www.jessster.com/default-thumbnail.jpg" />
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:image" content="https://www.jessster.com/default-thumbnail.jpg" />
+            </>
         )}
-        <meta property="og:url" content={window.location.href} />
-        <meta name="twitter:card" content="summary_large_image" />
     </Helmet>
 
 
