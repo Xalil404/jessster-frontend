@@ -112,7 +112,7 @@ const ArticlePage = () => {
                         }}>
                         <h2 className="fw-bold mb-3">Support Jessster!</h2>
                         <p className="mb-4">Show your appreciation to this platform by making a contribution. Every penny counts.</p>
-                        <a href="/donate" className="btn btn-success btn-lg fw-bold">Donate</a>
+                        <a href="https://buymeacoffee.com/jessster" className="btn btn-success btn-lg fw-bold">Donate</a>
                     </div>
 
                     <div className="d-flex justify-content-between align-items-center mt-4">
