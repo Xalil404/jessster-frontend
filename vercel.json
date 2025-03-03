@@ -15,10 +15,6 @@
     ],
     "routes": [
       {
-        "src": "/posts/(.*)",
-        "dest": "/frontend/build/$1"
-      },
-      {
         "src": "/(.*)",
         "dest": "/frontend/build/index.html"
       }
