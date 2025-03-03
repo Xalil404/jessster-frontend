@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && (process.env.VERCEL ? echo 'Skipping react-snap' : react-snap)",
+    "build": "react-scripts build && if [ \"$VERCEL\" ]; then echo 'Skipping react-snap'; else react-snap; fi",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
