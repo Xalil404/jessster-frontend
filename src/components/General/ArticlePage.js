@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { fetchPostBySlug, toggleLike } from '../../services/api'; // Import like/unlike APIs
 import Comments from './Comments';
 
+import { Helmet } from 'react-helmet';
+
 
 const ArticlePage = () => {
     const { lang, slug } = useParams();
@@ -76,6 +78,19 @@ const ArticlePage = () => {
     }
 
     return (
+        <>
+        <Helmet>
+            <title>{post.title}</title>
+            <meta name="description" content={post.excerpt} />
+            <meta property="og:title" content={post.title} />
+            <meta property="og:description" content={post.excerpt} />
+            <meta property="og:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
+            <meta property="og:url" content={window.location.href} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={post.title} />
+            <meta name="twitter:description" content={post.excerpt} />
+            <meta name="twitter:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
+        </Helmet>
         <div className="container my-5">
             <div className="row justify-content-center">
                 <div className="col-lg-8 col-md-10">
@@ -214,7 +229,7 @@ const ArticlePage = () => {
                 </div>
             )}
         </div>
-
+        </>
     );
 };
 
