@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 
 import { HelmetProvider } from 'react-helmet-async';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Use hydrateRoot for SSR in React 18
+const root = ReactDOM.hydrateRoot(document.getElementById('root'), <App />);
+
 root.render(
   <React.StrictMode>
     <HelmetProvider>
