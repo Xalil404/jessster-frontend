@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchPostBySlug, toggleLike } from '../../services/api'; // Import like/unlike APIs
 import Comments from './Comments';
 
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -76,6 +77,19 @@ const ArticlePage = () => {
     if (error) {
         return <div className="text-center my-5 text-danger">{error}</div>;
     }
+
+    <Helmet>
+  <title>{post.title}</title>
+  <meta name="description" content={post.excerpt} />
+  <meta property="og:title" content={post.title} />
+  <meta property="og:description" content={post.excerpt} />
+  <meta property="og:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
+  <meta property="og:url" content={window.location.href} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={post.title} />
+  <meta name="twitter:description" content={post.excerpt} />
+  <meta name="twitter:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
+</Helmet>
 
     return (
         <div className="container my-5">
