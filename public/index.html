@@ -40,11 +40,15 @@
   <meta property="og:url" content="https://www.jessster.com/">
   <meta property="og:image" content="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736174973/image-removebg-preview_1_rez4gn.png">
 
+  
   <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jessster - Global Funny News">
-  <meta name="twitter:description" content="Jessster is a platform offering diverse funny and humorous content in multiple languages">
-  <meta name="twitter:image" content="https://res.cloudinary.com/dnbbm9vzi/image/upload/v1736174973/image-removebg-preview_1_rez4gn.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ post.title }}">
+<meta name="twitter:description" content="{{ post.excerpt }}">
+<meta name="twitter:image" content="{{ post.image.url }}">
+<meta name="twitter:url" content="{{ request.build_absolute_uri }}">
+<meta name="twitter:site" content="@PrezReal1">
+
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ4BEKF66X"></script>
 <script>
