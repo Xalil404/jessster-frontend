@@ -89,7 +89,7 @@ const ArticlePage = () => {
   <meta name="twitter:title" content={post.title} />
   <meta name="twitter:description" content={post.excerpt} />
   <meta name="twitter:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
-</Helmet>
+  </Helmet>
 
     return (
         <div className="container my-5">
