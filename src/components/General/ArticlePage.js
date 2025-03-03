@@ -80,17 +80,20 @@ const ArticlePage = () => {
     return (
         <>
         <Helmet>
-            <title>{post.title}</title>
-            <meta name="description" content={post.excerpt} />
-            <meta property="og:title" content={post.title} />
-            <meta property="og:description" content={post.excerpt} />
-            <meta property="og:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
-            <meta property="og:url" content={window.location.href} />
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={post.title} />
-            <meta name="twitter:description" content={post.excerpt} />
-            <meta name="twitter:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} />
-        </Helmet>
+    <title>{post.title}</title>
+    <meta name="description" content={post.excerpt} />
+    <meta property="og:title" content={post.title} key="og:title" />
+    <meta property="og:description" content={post.excerpt} key="og:description" />
+    <meta property="og:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} key="og:image" />
+    <meta property="og:url" content={window.location.href} key="og:url" />
+
+    {/* Twitter Meta Tags */}
+    <meta name="twitter:card" content="summary_large_image" key="twitter:card" />
+    <meta name="twitter:title" content={post.title} key="twitter:title" />
+    <meta name="twitter:description" content={post.excerpt} key="twitter:description" />
+    <meta name="twitter:image" content={`https://res.cloudinary.com/dbm8xbouw/${post.featured_image}`} key="twitter:image" />
+</Helmet>
+
         <div className="container my-5">
             <div className="row justify-content-center">
                 <div className="col-lg-8 col-md-10">
