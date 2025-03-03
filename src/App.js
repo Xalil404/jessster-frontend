@@ -40,9 +40,7 @@ import AppleLoginPage from './components/auth/AppleLoginPage';
 import Dashboard from './components/SaaS/Dashboard';
 import Profile from './components/SaaS/Profile';
 import Bookmarks from './components/SaaS/Bookmarks';
-// Other
-import { HelmetProvider } from 'react-helmet-async';
-import { Helmet } from 'react-helmet-async';
+
 
 
 const App = () => {
@@ -89,8 +87,7 @@ const AppContent = () => {
     );
 
     return (
-        <HelmetProvider context={{}}>
-            <Helmet defaultTitle="The Jessster Times - Funny Breaking News & Videos From Jessster" />
+        <>
             <Navbar /> {/* Add the Navbar here !! */}
             {showCategoriesBanner && <CategoriesBanner language={language} />}
             <Routes>
@@ -147,7 +144,7 @@ const AppContent = () => {
                 />
             </Routes>
             <Footer />
-        </HelmetProvider>
+        </>
     );
 };
 
